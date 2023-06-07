@@ -1,0 +1,282 @@
+<?xml version='1.0' encoding='utf-8'?>
+<openbox_menu
+    xmlns="http://openbox.org/" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://openbox.org/                 
+    file:///usr/share/openbox/menu.xsd">
+
+  <menu id="root-menu" label="Openbox 3">
+    <item label="Run Program    W-space">
+      <action name="Execute">
+        <execute>rofi -modi drun,run -show drun -font "DejaVu Sans 18" -show-icons</execute>
+      </action>
+    </item>
+    <separator />
+    <item label="터미널">
+      <action name="Execute">
+        <execute>terminator -u</execute>
+      </action>
+    </item>
+    <item label="웹 브라우저">
+      <action name="Execute">
+        <execute>x-www-browser</execute>
+      </action>
+    </item>
+    <item label="파일 관리자">
+      <action name="Execute">
+        <execute>nemo</execute>
+      </action>
+    </item>
+    <item label="문서 편집기">
+      <action name="Execute">
+        <execute>xed</execute>
+      </action>
+    </item>
+    <item label="VLC">
+      <action name="Execute">
+        <execute>vlc</execute>
+      </action>
+    </item>
+
+    <separator />
+    <menu id="graphic" label="그래픽">
+      <item label="Kolourpaint">
+        <action name="Execute">
+          <execute>kolourpaint</execute>
+        </action>
+      </item>
+      <item label="문서 스캐너">
+        <action name="Execute">
+          <execute>simple-scan</execute>
+        </action>
+      </item>
+    </menu>
+
+    <menu id="assistive_program" label="보조 프로그램">
+      <item label="Barrier">
+        <action name="Execute">
+          <execute>barrier</execute>
+        </action>
+      </item>
+      <item label="nitrogen">
+        <action name="Execute">
+          <execute>nitrogen</execute>
+        </action>
+      </item>
+      <item label="Parcellite">
+        <action name="Execute">
+          <execute>parcellite</execute>
+        </action>
+      </item>
+      <item label="계산기">
+        <action name="Execute">
+          <execute>gnome-calculator</execute>
+        </action>
+      </item>
+      <item label="스티키 노트">
+        <action name="Execute">
+          <execute>sticky</execute>
+        </action>
+      </item>
+      <item label="문서뷰어">
+        <action name="Execute">
+          <execute>xviewer</execute>
+        </action>
+      </item>
+      <item label="스크린샷">
+        <action name="Execute">
+          <execute>gnome-screenshot</execute>
+        </action>
+      </item>
+      <item label="디스크">
+        <action name="Execute">
+          <execute>gnome-disks</execute>
+        </action>
+      </item>
+      <item label="압축 관리자">
+        <action name="Execute">
+          <execute>file-roller</execute>
+        </action>
+      </item>
+      <item label="xed">
+        <action name="Execute">
+          <execute>xed</execute>
+        </action>
+      </item>
+    </menu>
+    <menu id="office" label="오피스">
+      <item label="LibreOffice">
+        <action name="Execute">
+          <execute>LibreOffice</execute>
+        </action>
+      </item>
+      <item label="LibreOffice Writer">
+        <action name="Execute">
+          <execute>LibreOffice --writer</execute>
+        </action>
+      </item>
+      <item label="LibreOffice Calc">
+        <action name="Execute">
+          <execute>LibreOffice --calc</execute>
+        </action>
+      </item>
+      <item label="LibreOffice Impress">
+        <action name="Execute">
+          <execute>LibreOffice --impress</execute>
+        </action>
+      </item>
+    </menu>
+    <menu id="office" label="오피스">
+      <item label="LibreOffice">
+        <action name="Execute">
+          <execute>LibreOffice</execute>
+        </action>
+      </item>
+      <item label="LibreOffice Writer">
+        <action name="Execute">
+          <execute>LibreOffice --writer</execute>
+        </action>
+      </item>
+      <item label="LibreOffice Calc">
+        <action name="Execute">
+          <execute>LibreOffice --calc</execute>
+        </action>
+      </item>
+      <item label="LibreOffice Impress">
+        <action name="Execute">
+          <execute>LibreOffice --impress</execute>
+        </action>
+      </item>
+    </menu>
+
+    <menu id="multimedia" label="멀티미디어">
+      <item label="VLC">
+        <action name="Execute">
+          <execute>vlc</execute>
+        </action>
+      </item>
+          <item label="cheese">
+        <action name="Execute">
+          <execute>cheese</execute>
+        </action>
+      </item>
+    </menu>
+
+    <menu id="internet" label="인터넷">
+      <item label="Google Chrome">
+        <action name="Execute">
+            <execute>google-chrome</execute>
+        </action>
+      </item>
+      <item label="Transmission">
+        <action name="Execute">
+          <execute>transmission-gtk</execute>
+        </action>
+      </item>
+     <item label="Zoom">
+        <action name="Execute">
+          <execute>zoom</execute>
+        </action>
+      </item>
+    </menu>
+
+    <menu id="management" label="관리">
+      <item label="Fcitx">
+        <action name="Execute">
+            <execute>fcitx</execute>
+        </action>
+      </item>
+      <item label="Fcitx 환경설정">
+        <action name="Execute">
+          <execute>fcitx-config-gtk3</execute>
+        </action>
+      </item>
+     <item label="Htop">
+        <action name="Execute">
+          <execute>htop</execute>
+        </action>
+      </item>
+     <item label="Timeshift">
+        <action name="Execute">
+          <execute>sudo timeshift-gtk</execute>
+        </action>
+      </item>
+     <item label="Tint2">
+        <action name="Execute">
+          <execute>tint2</execute>
+        </action>
+      </item>
+     <item label="소프트웨어 매니저">
+        <action name="Execute">
+          <execute>mintinstall</execute>
+        </action>
+      </item>
+     <item label="시냅틱 패키지 관리자">
+        <action name="Execute">
+          <execute>sudo synaptic</execute>
+        </action>
+      </item>
+     <item label="그놈 시스템 모니터">
+        <action name="Execute">
+          <execute>gnome-system-monitor</execute>
+        </action>
+      </item>
+     <item label="업데이트 매니저">
+        <action name="Execute">
+          <execute>mintupdate</execute>
+        </action>
+      </item>
+     <item label="인쇄 설정">
+        <action name="Execute">
+          <execute>system-config-printer</execute>
+        </action>
+      </item>
+    </menu>
+
+    <menu id="basic_setting" label="기본설정">
+      <item label="ARandR">
+        <action name="Execute">
+            <execute>arandr</execute>
+        </action>
+      </item>
+      <item label="Openbox Configuration Manager">
+        <action name="Execute">
+          <execute>obconf</execute>
+        </action>
+      </item>
+     <item label="블루투스">
+        <action name="Execute">
+          <execute>blueberry</execute>
+        </action>
+      </item>
+      <item label="시스템 설정">
+        <action name="Execute">
+            <execute>cinnamon-settings</execute>
+        </action>
+      </item>
+      <item label="언어">
+        <action name="Execute">
+            <execute>mintlocale</execute>
+        </action>
+      </item>
+    </menu>
+    <separator />
+
+    <item label="로그아웃">
+      <action name="Execute">
+        <execute>openbox --exit</execute>
+      </action>
+    </item>
+    <item label="재부팅">
+      <action name="Execute">
+        <execute>reboot</execute>
+      </action>
+    </item>
+    <item label="종료">
+      <action name="Execute">
+        <execute>shutdown -h now</execute>
+      </action>
+    </item>
+
+  </menu>
+</openbox_menu>
