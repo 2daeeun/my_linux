@@ -1,0 +1,34 @@
+{
+    //coc-clangd
+    "clangd.path"               : "~/.config/coc/extensions/coc-clangd-data/install/15.0.6/clangd_15.0.6/bin/clangd",
+    "inlayHint.enable"          : false,
+    //coc-discord-rpc
+    "rpc.detailsViewing"        : "「{file_name}」",
+    "rpc.lowerDetailsViewing"   : "파일을 코딩 중입니다.",
+    "rpc.detailsEditing"        : "「{file_name}」",
+    "rpc.lowerDetailsEditing"   : "파일을 코딩 중입니다.",
+    "rpc.workspaceElapsedTime"  : true,
+    "rpc.checkIdle"             : false,
+    "rpc.problemsText"          : "코딩중에 {count}개의 오류가 발견",
+    "rpc.detailsIdling"         : "코딩하다 죽은듯...",
+    "rpc.showProblems"          : false,
+    "rpc.buttonEnabled"         : false,
+
+    "languageserver": {
+        "ccls": {
+            "command": "ccls",
+            "filetypes": ["c", "cpp"],
+            "rootPatterns": [".ccls", "compile_commands.json"],
+            "initializationOptions": {
+                "cache": {
+                    "directory": ".ccls-cache"
+                },
+                "client": {
+                    "snippetSupport" : true
+                },
+                "compilationDatabaseDirectory": "./build/"
+            }
+        }
+    }
+
+}
