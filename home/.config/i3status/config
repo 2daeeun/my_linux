@@ -1,0 +1,49 @@
+# https://i3wm.org/docs/i3status.html
+
+general {
+    colors = true
+    interval = 1
+    separator = "│"
+}
+
+order += "cpu_usage"
+order += "memory"
+order += "cpu_temperature 0"
+order += "wireless wlp3s0"
+order += "battery 0"
+order += "volume master"
+order += "tztime local"
+
+wireless wlp3s0 {
+    format_up = "  %essid "
+    format_down = "  NO CARRIER"
+}
+
+battery 0 {
+    format = "  %percentage (%remaining)"
+}
+
+cpu_usage {
+    format = " CPU %usage "
+}
+
+memory {
+    format = " Mem %used "
+    threshold_degraded = "1G"
+    threshold_critical = "256M"
+}
+cpu_temperature 0 {
+    format = "  %degrees°C "
+}
+
+volume master {
+    format = " %volume ﱘ "
+    format_muted = " %volume ﱙ "
+    device = "default"
+    mixer = "Master"
+    mixer_idx = 0
+}
+
+tztime local {
+    format = "  %Y-%m-%d(%A) %H:%M:%S "
+}
