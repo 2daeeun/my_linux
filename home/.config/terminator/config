@@ -1,0 +1,25 @@
+[global_config]
+  enabled_plugins = ActivityWatch, LaunchpadBugURLHandler, LaunchpadCodeURLHandler, APTURLHandler
+  title_use_system_font = False
+  title_font = Hack Nerd Font 10
+[keybindings]
+  line_up = <Primary><Shift>k
+  line_down = <Primary><Shift>j
+[profiles]
+  [[default]]
+    icon_bell = False
+    background_darkness = 0.93
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    font = Hack Nerd Font 15
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = New Profile
+[plugins]
