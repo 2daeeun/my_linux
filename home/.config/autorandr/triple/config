@@ -1,0 +1,23 @@
+output HDMI-A-0
+off
+output DisplayPort-0
+off
+output DisplayPort-1
+off
+output DisplayPort-3
+crtc 2
+mode 1920x1080
+pos 0x0
+rate 60.00
+rotate left
+output DisplayPort-2
+crtc 1
+mode 1920x1080
+pos 1080x0
+rate 60.00
+output eDP
+crtc 0
+mode 1920x1080
+pos 1080x1080
+primary
+rate 60.01
