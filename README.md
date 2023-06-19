@@ -7,8 +7,7 @@
 |Distro|GUI|Base OS|Note|
 |:---:|:---:|:---:|:---:|
 |Debian|i3|Debian|Setting up|
-|Arch|i3|Arch|Setting up|
-|EndeavourOS|i3|Arch|Setting up|
+|Arch Linux GUI|i3|Arch|Setting up|
 
 ## Used in the past
 Not in use now
