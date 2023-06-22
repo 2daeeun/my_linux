@@ -30,15 +30,17 @@ bindsym $mod+Shift+Tab workspace prev
 ######################################
 
 # ----- <Application> -----
-bindsym $mod+t exec i3-sensible-terminal
-bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+d exec --no-startup-id rofi -show drun -font "DejaVu Sans 18" -show-icons
-bindsym $mod+n exec i3-sensible-terminal -e nmtui
+# bindsym $mod+t exec i3-sensible-terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+t exec terminator
+bindsym $mod+Return exec terminator
+bindsym $mod+d exec --no-startup-id rofi -show drun -font "Hack Nerd Font Regular 18" -show-icons
+bindsym $mod+n exec terminator -e nmtui
 bindsym $mod+m exec pavucontrol
 bindsym $mod+b exec google-chrome-stable
 bindsym $mod+semicolon exec thunar
 bindsym XF86Calculator exec mate-calc
-# bindsym $mod+u exec x-terminal-emulator -e ~/.config/i3/monitor_choose.sh
+bindsym $mod+u exec terminator -e ~/.config/i3/monitor_choose.sh
 
 # kill focused window
 bindsym $mod+x kill
@@ -154,7 +156,8 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar
 bar {
-    font pango:DejaVu Sans Mono 14
+    # font pango:DejaVu Sans Mono 14
+    font pango:Hack Nerd Font Regular 14
     status_command i3status
     #status_command RUN_PATH
 }
@@ -194,11 +197,9 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 #############################################
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id numlockx on
 exec --no-startup-id ~/.screenlayout/monitor.sh
-exec --no-startup-id sleep 1 && feh --bg-fill ~/Documents/github/my_endeavouros/home/.config/i3/thinkpad_wallpaper.png
-# exec_always feh --bg-fill /usr/share/backgrounds/i3/wall.png
-# exec_always picom -f
+exec_always feh --bg-fill /home/leedaeeun/.config/i3/thinkpad_wallpaper.png
+exec_always picom -f
 exec --no-startup-id xset s 480 dpms 600 600 600
 exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
 exec --no-startup-id xinput --set-prop "TPPS/2 Elan TrackPoint" "libinput Accel Speed" -1.0 &
@@ -207,5 +208,5 @@ exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapp
 exec --no-startup-id xinput set-prop 12 312 0, 1, 0 &
 exec --no-startup-id tlp start
 exec --no-startup-id discord --start-minimized
-exec --no-startup-id numlockx
+exec --no-startup-id numlockx on
 exec --no-startup-id parcellite
