@@ -20,7 +20,7 @@ wireless wlp3s0 {
 }
 
 battery 0 {
-    format = "  %percentage (%remaining)"
+    format = " 🔋%percentage (%remaining)"
 }
 
 cpu_usage {
@@ -37,8 +37,8 @@ cpu_temperature 0 {
 }
 
 volume master {
-    format = " %volume ﱘ "
-    format_muted = " %volume ﱙ "
+    format = " 🔊 %volume "
+    format_muted = " %🔇 volume "
     device = "default"
     mixer = "Master"
     mixer_idx = 0
@@ -46,4 +46,4 @@ volume master {
 
 tztime local {
     format = "  %Y-%m-%d(%A) %H:%M:%S "
-}
+# }
