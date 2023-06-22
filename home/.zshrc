@@ -9,14 +9,14 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 #zsh 플러그인 설치
 plugins=(
     git
-    zsh-syntax-highlighting 
-    zsh-autosuggestions 
+    zsh-syntax-highlighting
+    zsh-autosuggestions
     # zsh-wakatime
 )
 source $ZSH/oh-my-zsh.sh
 
 #alias 설정
-alias powerup='sudo pacman -Syu && yay'
+alias powerup='sudo pacman -Syu'
 # alias rrm="sudo mv -t /tmp"
 alias lg="lazygit"
 alias vi="nvim"
