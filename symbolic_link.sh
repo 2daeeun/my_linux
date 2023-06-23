@@ -1,4 +1,5 @@
 sudo rm -rf ~/.config/autorandr
+sudo rm -rf ~/.config/gtk-3.0
 sudo rm -rf ~/.config/htop
 sudo rm -rf ~/.config/i3
 sudo rm -rf ~/.config/i3status
@@ -12,6 +13,7 @@ sudo rm -rf ~/.xprofile
 sudo rm -rf ~/.zshrc
 
 sudo ln -sf ~/Documents/github/my_linux/home/.config/autorandr ~/.config/
+sudo ln -sf ~/Documents/github/my_linux/home/.config/gtk-3.0 ~/.config/
 sudo ln -sf ~/Documents/github/my_linux/home/.config/htop ~/.config/
 sudo ln -sf ~/Documents/github/my_linux/home/.config/i3 ~/.config/
 sudo ln -sf ~/Documents/github/my_linux/home/.config/i3status ~/.config/
