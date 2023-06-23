@@ -5,6 +5,7 @@
 [keybindings]
   line_up = <Primary><Shift>k
   line_down = <Primary><Shift>j
+  preferences_keybindings = ""
 [profiles]
   [[default]]
     icon_bell = False
