@@ -8,6 +8,7 @@ printf "urlc " # Command line to data transfer tool
 
 # ----- Window_Manager -----
 printf "xorg "
+printf "xorg-xinput"
 printf "i3 "
 printf "i3status "
 
