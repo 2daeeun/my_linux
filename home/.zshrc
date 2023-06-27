@@ -51,6 +51,9 @@ alias java='java "$_SILENT_JAVA_OPTIONS"'
 #"Shutdown & Reboot Command Not Found" error solve
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/sbin
 
+# cargo 환경변수
+export PATH=/home/leedaeeun/.cargo/bin:$PATH
+
 #Display man Pages in Color
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'
