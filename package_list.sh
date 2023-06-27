@@ -23,6 +23,7 @@ printf "brightnessctl " # Control device brightness
 
 # ----- Utility -----
 printf "ack-grep "    # grep alternater
+printf "unzip "    # unzip
 printf "neofetch "    # Show system information
 printf "terminator "  # Terminator
 printf "htop "        # Task manager
