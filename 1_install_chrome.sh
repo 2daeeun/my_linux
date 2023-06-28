@@ -36,8 +36,10 @@ elif [[ $prompt == "A" || $prompt == "a" ]]; then
 
 	# ----- Arch Update & Upgrade -----
 	yes | sudo pacman -Sy
+	yes | sudo pacman -S linux-lts linux-lts-headers
+	sudo grub-mkconfig -o /boot/grub/grub.cfg
 	yes | sudo pacman -S archlinux-keyring
-	yes | sudo pacman -Syu
+	sudo pacman -Syu
 
 	# ----- Install Chrome -----
 	yes | sudo pacman -Sy --needed base-devel git
@@ -45,8 +47,6 @@ elif [[ $prompt == "A" || $prompt == "a" ]]; then
 	cd google-chrome
 	makepkg -is
 
-	# Fin
-	yes | sudo pacman -Syu
 
 else
 	echo "other"
