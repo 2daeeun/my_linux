@@ -65,8 +65,6 @@ elif [[ $prompt == "A" || $prompt == "a" ]]; then
 
 	# ----- Arch Update & Upgrade -----
 	yes | sudo pacman -Sy
-	yes | sudo pacman -S archlinux-keyring
-	yes | sudo pacman -Syu
 	yes | sudo pacman -S wget
 	yes | sudo pacman -S curl
 
@@ -87,9 +85,6 @@ elif [[ $prompt == "A" || $prompt == "a" ]]; then
 	yes | sudo pacman -S nodejs
 	yes | sudo pacman -S yarn
 	yes | sudo pacman -S npm
-
-	# Fin
-	yes | sudo pacman -Syu
 
 else
 	echo "other"
