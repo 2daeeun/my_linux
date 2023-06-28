@@ -47,11 +47,6 @@ if [[ $prompt == "D" || $prompt == "d" ]]; then
 
 elif [[ $prompt == "A" || $prompt == "a" ]]; then
 
-	# ----- Arch Update & Upgrade -----
-	yes | sudo pacman -Sy
-	yes | sudo pacman -S archlinux-keyring
-	yes | sudo pacman -Syu
-
 	# ----- Install Packages -----
 	for x in $(./package_list.sh); do sudo pacman -S --noconfirm $x; done
 
