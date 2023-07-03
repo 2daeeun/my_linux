@@ -16,7 +16,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 #alias 설정
-alias powerup='sudo pacman -Syu'
+alias powerup='sudo pacman -Syu --ignore linux,linux-header,linux-lts,linux-lts-headers,linux-zen,linux-zen-headers'
 # alias rrm="sudo mv -t /tmp"
 alias lg="lazygit"
 alias vi="nvim"
@@ -26,7 +26,7 @@ alias dow="cd ~/Downloads"
 alias vid="cd ~/Videos"
 alias gh="cd ~/Documents/github"
 alias st="cd ~/Documents/study"
-alias th="thunar $(pwd)"
+alias th="thunar $pwd"
 alias my="cd ~/Documents/github/my_linux"
 alias lock="xtrlock" 
 alias lock60="timeout 60 xtrlock" 
