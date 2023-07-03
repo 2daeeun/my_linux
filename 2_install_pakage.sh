@@ -37,6 +37,23 @@ if [[ $prompt == "D" || $prompt == "d" ]]; then
 	sudo apt autoclean -y
 
 	# ----- Install Packages -----
+	sudo apt install xorg -y
+	# Lightweight volume control (compatible with ALSA)
+	sudo apt install volumeicon-alsa -y
+	# unzip alternater
+	sudo apt install unar -y
+	#nmtui(Network Manager)
+	sudo apt install network-manager -y
+	# ctag
+	sudo apt install exuberant-ctags
+	# python
+	sudo apt install python3-dev python3-pip python3-venv -y
+	# PPA Support
+	sudo apt install software-properties-common -y
+	# build-essential
+	sudo apt install build-essential -y
+
+
 	for x in $(./package_list.sh); do sudo apt install -y $x; done
 
 	# Fin
@@ -48,6 +65,18 @@ if [[ $prompt == "D" || $prompt == "d" ]]; then
 elif [[ $prompt == "A" || $prompt == "a" ]]; then
 
 	# ----- Install Packages -----
+	sudo pacman -S xorg
+	# Lightweight volume control (compatible with ALSA)
+	yes | sudo pacman -S volumeicon
+	# unzip alternater
+	yes | sudo pacman -S unarchiver
+	# nmtui(Network Manager)
+	yes | sudo pacman -S networkmanager
+	# ctag
+	yes | sudo pacman -S ctags
+	# python
+	yes | sudo pacman -S python-pip 
+
 	for x in $(./package_list.sh); do sudo pacman -S --noconfirm $x; done
 
 else
