@@ -206,6 +206,7 @@ return {
       ensure_installed = {
         "stylua",
         "shellcheck",
+        "clang-format",
         "shfmt",
         "flake8",
       },
