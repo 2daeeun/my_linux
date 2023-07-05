@@ -1,7 +1,5 @@
 [global_config]
   enabled_plugins = ActivityWatch, LaunchpadBugURLHandler, LaunchpadCodeURLHandler, APTURLHandler
-  title_use_system_font = False
-  title_font = Hack Nerd Font 10
 [keybindings]
   line_up = <Primary><Shift>k
   line_down = <Primary><Shift>j
@@ -11,8 +9,7 @@
     icon_bell = False
     background_darkness = 0.93
     background_type = transparent
-    cursor_color = "#aaaaaa"
-    font = Hack Nerd Font 15
+    font = Hack Nerd Font 24
     use_system_font = False
 [layouts]
   [[default]]
