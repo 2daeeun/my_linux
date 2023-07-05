@@ -31,6 +31,7 @@ printf "xclip "       					# provides an interface to the clipboard
 printf "rofi "        					# Application dmenu
 printf "lightdm "     					# Lock Screen
 printf "xfce4-power-manager " 				# xfce power manager
+printf "xfce4-screensaver " 				# xfce screenaver
 printf "gpick "               				# Color Picker
 printf "numlockx "            				# Control the state of NumLock
 printf "vlc "                 				# Video Player
