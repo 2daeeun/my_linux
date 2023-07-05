@@ -64,6 +64,10 @@ if [[ $prompt == "D" || $prompt == "d" ]]; then
 
 elif [[ $prompt == "A" || $prompt == "a" ]]; then
 
+
+	# ----- Arch Update & Upgrade -----
+	sudo pacman -Syu
+
 	# ----- Install Packages -----
 	sudo pacman -S xorg
 	# Lightweight volume control (compatible with ALSA)
