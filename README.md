@@ -15,5 +15,3 @@ Not in use now
 |:---:|:---:|:---:|:---:|
 |[BunsenLabs](https://github.com/2daeeun/my_linux/tree/BunsenLabs_Openbox)|Openbox|Debian|Stop setting|
 |[Linux Mint (LMDE5)](https://github.com/2daeeun/my_linux/tree/Linux_Mint_Cinnamon)|Cinnamon|Debian|-|
-
-
