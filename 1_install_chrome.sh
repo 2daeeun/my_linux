@@ -36,10 +36,10 @@ elif [[ $prompt == "A" || $prompt == "a" ]]; then
 
 	# ----- Arch Update & Upgrade -----
 	yes | sudo pacman -Sy
+	yes | sudo pacman -S lvm2
 	yes | sudo pacman -S linux-lts linux-lts-headers
 	sudo grub-mkconfig -o /boot/grub/grub.cfg
 	yes | sudo pacman -S archlinux-keyring
-	sudo pacman -Syu
 
 	# ----- Install Chrome -----
 	yes | sudo pacman -Sy --needed base-devel git
