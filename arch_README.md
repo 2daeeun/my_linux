@@ -5,7 +5,7 @@ This is my personal Linux setting.
 |카테고리|GUI|
 |:---:|:---:|
 |Welcome|American English|
-|Location|The numbers and dates locale : ko-utf|
+|Location|The numbers and dates locale : ko_KR.UTF-8|
 |Keyboard|English(US) - Default|
 |Partitions(Swap)|Swap with Hibernate|
 
