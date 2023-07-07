@@ -1,6 +1,4 @@
 return {
-  { "navarasu/onedark.nvim" },
-
   {
     "LazyVim/LazyVim",
     opts = {
@@ -13,6 +11,7 @@ return {
     opts = {
       style = "deep",
       transparent = true,
+      background_colour = "#000000",
     },
   },
 }
