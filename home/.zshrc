@@ -16,7 +16,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 #alias 설정
-alias powerup='sudo pacman -Syu --ignore linux,linux-header,linux-lts,linux-lts-headers,linux-zen,linux-zen-headers'
+alias powerup='sudo pacman -Syu --ignore linux,linux-headers,linux-lts,linux-lts-headers,linux-zen,linux-zen-headers'
 # alias rrm="sudo mv -t /tmp"
 alias lg="lazygit"
 alias vi="nvim"
