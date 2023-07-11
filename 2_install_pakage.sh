@@ -80,6 +80,10 @@ elif [[ $prompt == "A" || $prompt == "a" ]]; then
 	yes | sudo pacman -S ctags
 	# python
 	yes | sudo pacman -S python-pip 
+	# cargo(rust)
+	yes | sudo pacman -S rust
+	# git-graph
+	cargo install git-graph
 
 	for x in $(./package_list.sh); do sudo pacman -S --noconfirm $x; done
 
