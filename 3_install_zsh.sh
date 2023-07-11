@@ -64,9 +64,12 @@ if [[ $prompt == "D" || $prompt == "d" ]]; then
 elif [[ $prompt == "A" || $prompt == "a" ]]; then
 
 	# ----- Arch Update & Upgrade -----
+	
 	yes | sudo pacman -Sy
 	yes | sudo pacman -S wget
 	yes | sudo pacman -S curl
+
+	sudo rm -rf ~/.oh-my-zsh/
 
 	# ----- zsh 설치 -----
 	yes | sudo pacman -S zsh
