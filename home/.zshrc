@@ -28,8 +28,9 @@ alias vid="cd ~/Videos"
 alias gh="cd ~/Documents/github"
 alias st="cd ~/Documents/study"
 alias al="cd ~/Documents/github/Algorithm_study/"
-alias br="cd ~/Documents/github/Algorithm_study/solved.ac/Bronze_V/"
-alias si="cd ~/Documents/github/Algorithm_study/solved.ac/Silver_V/"
+alias br="cd ~/Documents/github/Algorithm_study/solved.ac/Bronze/"
+alias si="cd ~/Documents/github/Algorithm_study/solved.ac/Silver/"
+alias bl="cd ~/Documents/github/2daeeun.github.io/"
 alias th="thunar $pwd"
 alias my="cd ~/Documents/github/my_linux"
 alias lock="xtrlock" 
@@ -60,6 +61,12 @@ export PATH="$PATH:/home/leedaeeun/.cargo/bin"
 
 # Dart 환경변수
 export PATH="$PATH:/usr/lib/dart/bin"
+
+# jekyll 환경변수
+export GEM_HOME="$HOME/.gems"
+export PATH="$HOME/.gems/bin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
 
 #Display man Pages in Color
 export LESS_TERMCAP_mb=$'\e[1;32m'
