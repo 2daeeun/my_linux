@@ -203,8 +203,10 @@ exec_always picom -f
 exec_always xset s 480 dpms 600 600 600
 exec_always dbus-launch dunst --config ~/.config/dunst/dunstrc
 exec_always xinput --set-prop "TPPS/2 Elan TrackPoint" "libinput Accel Speed" -1.0 &
-exec_always xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Accel Speed" 0.6 &
-exec_always xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1 &
+# exec_always xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Accel Speed" 0.6 &
+# exec_always xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1 &
+exec_always xinput --set-prop "ELAN0670:00 04F3:3150 Touchpad" "libinput Accel Speed" 0.6 &
+exec_always xinput set-prop "ELAN0670:00 04F3:3150 Touchpad" "libinput Tapping Enabled" 1 &
 exec_always xinput set-prop 12 312 0, 1, 0 &
 exec_always tlp start
 exec_always discord --start-minimized
