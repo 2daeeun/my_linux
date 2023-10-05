@@ -20,7 +20,7 @@ wireless _first_ {
 }
 
 battery 0 {
-    format = " 🔋%percentage (%remaining)"
+    format = " 🗲 %percentage (%remaining)"
 }
 
 cpu_usage {
