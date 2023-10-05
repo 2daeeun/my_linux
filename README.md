@@ -1,13 +1,13 @@
 # my_linux
-본 저장소는 저의 리눅스 배포판에 따른 GUI환경 설정값과,  
-저의 VIM세팅을 정리함을 목적으로 합니다.
-
+본 저장소는 제가 사용하는 리눅스 세팅 보관을 목적으로 만들어졌습니다.  
+현재 저는 EndeavourOS를 사용하고 있습니다.  
+시간이 날 때 Debian 세팅도 정리 하겠습니다.
 
 ## In use
 |Distro|GUI|Base OS|Note|
 |:---:|:---:|:---:|:---:|
 |Debian|i3|Debian|Setting up|
-|Arch Linux GUI|i3|Arch|Setting up|
+|[EndeavourOS](https://github.com/2daeeun/my_linux/blob/documents/EndeavourOS_README.md)|i3|Arch|-|
 
 ## Used in the past
 Not in use now
