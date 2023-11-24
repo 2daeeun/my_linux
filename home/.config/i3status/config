@@ -4,6 +4,7 @@ general {
     colors = true
     interval = 1
     separator = "│"
+    output_format = i3bar
 }
 
 order += "cpu_usage"
