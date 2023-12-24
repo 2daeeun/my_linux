@@ -25,7 +25,8 @@ printf "htop "                # Task manager
 printf "tlp tlp-rdw "         # Saving laptop battery power
 printf "neovim "              # NeoVim
 printf "xdotool "             # command-line X11 automation tool
-printf "arandr "              # arandr GUI
+printf "arandr "              # arandr
+printf "lxrandr "             # lxrandr
 printf "autorandr "           # auto arandr
 printf "xclip "               # provides an interface to the clipboard
 printf "rofi "                # Application dmenu
