@@ -15,27 +15,14 @@ plugins=(
 )
 source $ZSH/oh-my-zsh.sh
 
-#alias 설정
+#alias 설정(명령어)
 alias powerup='sudo pacman -Syu --ignore linux,linux-headers,linux-lts,linux-lts-headers,linux-zen,linux-zen-headers'
 # alias rrm="sudo mv -t /tmp"
 alias lg="lazygit"
 alias gg="git-graph"
 alias vi="nvim"
 alias rrm="trash-put"
-alias doc="cd ~/Documents"
-alias dow="cd ~/Downloads"
-alias vid="cd ~/Videos"
-alias gh="cd ~/Documents/github"
-alias st="cd ~/Documents/study"
-alias al="cd ~/Documents/github/Algorithm_study/"
-alias br="cd ~/Documents/github/Algorithm_study/solved.ac/Bronze/"
-alias si="cd ~/Documents/github/Algorithm_study/solved.ac/Silver/"
-alias bl="cd ~/Documents/github/2daeeun.github.io/"
-alias bld="cd ~/Documents/github/2daeeun.github.io/_data"
-alias blp="cd ~/Documents/github/2daeeun.github.io/_posts"
-alias bundle="bundle exec jekyll serve --trace"
 alias th="thunar $pwd"
-alias my="cd ~/Documents/github/my_linux"
 alias lock="xtrlock" 
 alias lock60="timeout 60 xtrlock" 
 # alias cal="if [ -t 1 ] ; then ncal -b ; else /usr/bin/cal ; fi"
@@ -45,6 +32,19 @@ alias gif="vlc --demux=avformat --loop"
 alias weather_home="curl wttr.in/37.5508,126.8648"
 alias weather_school="curl wttr.in/37.4868,126.8224"
 alias e="exit"
+
+#alias 설정(디렉토리 이동)
+alias vid="cd ~/Videos"
+alias doc="cd ~/Documents"
+alias dow="cd ~/Downloads"
+alias st="cd ~/Documents/study"
+alias gh="cd ~/Documents/github"
+alias my="cd ~/Documents/github/my_linux"
+alias ks="cd ~/Documents/github/kernel_study"
+alias ksl="cd ~/Documents/github/kernel_study/linux/"
+alias al="cd ~/Documents/github/Algorithm_study/"
+alias br="cd ~/Documents/github/Algorithm_study/solved.ac/Bronze/"
+alias si="cd ~/Documents/github/Algorithm_study/solved.ac/Silver/"
 
 #unzip 한글 깨짐 방지
 export UNZIP="-O cp949"
