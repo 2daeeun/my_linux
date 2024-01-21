@@ -42,7 +42,10 @@ bindsym $mod+semicolon exec thunar
 bindsym XF86Calculator exec mate-calc
 bindsym $mod+u exec terminator -e ~/.config/i3/monitor_choose.sh
 # bindsym $mod+$alt+l exec i3lock -i ~/.config/i3/thinkpad_wallpaper.png && systemctl hibernate
-bindsym $mod+$alt+l exec systemctl hibernate
+
+# 커널 업데이트 이후로 "systemctl hibernate"가 작동 안함. 그래서 suspend로 명령어를 임시로 바꿈
+# bindsym $mod+$alt+l exec systemctl hibernate
+bindsym $mod+$alt+l exec systemctl suspend
 
 # kill focused window
 bindsym $mod+x kill
