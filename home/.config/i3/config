@@ -215,3 +215,4 @@ exec_always discord --start-minimized
 exec_always numlockx on
 exec_always parcellite
 exec_always xfce4-power-manager
+exec_always systemctl start sshd
