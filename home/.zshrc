@@ -31,6 +31,7 @@ alias lock60="timeout 60 xtrlock"
 alias gif="vlc --demux=avformat --loop"
 alias weather_home="curl wttr.in/37.5508,126.8648"
 alias weather_school="curl wttr.in/37.4868,126.8224"
+alias cls="clear"
 alias e="exit"
 
 #alias 설정(디렉토리 이동)
