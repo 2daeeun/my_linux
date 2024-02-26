@@ -1,4 +1,4 @@
-# !/bin/bash
+# !/bin/sh
 
 # Create default directory
 mkdir -p ~/Documents
