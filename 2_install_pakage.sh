@@ -39,140 +39,156 @@ else
 	exit 1
 fi
 
-exit 0
-
-# install packages
-
-
-
-
-
+# 패키지들을 변수에 저장
 Basic_Package sudo wget git
 i3_Window_Manager i3-wm i3status
-Sound_Packages pulseaudio pavucontrol alsa-utils
-# pulseaudio  : Sound server program
-# pavucontrol : Volume Control
-# alsa-utils  : The Advanced Linux Sound Architecture (ALSA)
+Sound pulseaudio pavucontrol alsa-utils
+# ┌──────────────────────────────────────────────────────────
+# │ pulseaudio  		# Sound server program
+# │ pavucontrol 		# Volume Control
+# │ alsa-utils  		# The Advanced Linux Sound Architecture (ALSA)
+# └──────────────────────────────────────────────────────────
 Brightness brightnessctl
-# brightnessctl :Control device brightness
+# ┌──────────────────────────────────────────────────────────
+# │ brightnessctl 		# Control device brightness
+# └──────────────────────────────────────────────────────────
+Editors terminator neovim gedit
+# ┌──────────────────────────────────────────────────────────
+# │ terminator 			# Terminator
+# │ neovim 				# NeoVim
+# │ gedit 				# Text editor
+# │ # leafpad 			# Text editor
+# └──────────────────────────────────────────────────────────
+SystemInfo neofetch htop ncdu
+# ┌──────────────────────────────────────────────────────────
+# │ neofetch 			# Show system information
+# │ htop 				# Task manager
+# │ ncdu  				# du alternater, NCurses Disk Usage
+# └──────────────────────────────────────────────────────────
+Display_Management lightdm arandr lxrandr autorandr
+# ┌──────────────────────────────────────────────────────────
+# │ lightdm 			# Lock Screen
+# │ arandr 				# arandr
+# │ lxrandr 			# lxrandr
+# │ autorandr 			# auto arandr
+# └──────────────────────────────────────────────────────────
+Power_Management tlp tlp-rdw xfce4-power-manager xfce4-screensaver
+# ┌──────────────────────────────────────────────────────────
+# │ tlp tlp-rdw 		# Saving laptop battery power
+# │ xfce4-power-manager # xfce power manager
+# │ xfce4-screensaver 	# xfce screenaver
+# └──────────────────────────────────────────────────────────
+File_Management unzip trash-cli
+# ┌──────────────────────────────────────────────────────────
+# │ unzip 				# unzip
+# │ # ranger 			# ranger
+# │ trash-cli 			# trash-cli
+# └──────────────────────────────────────────────────────────
+Image_and_Video gpick kolourpaint mcomix feh peek vlc cheese gnome-screenshot
+# ┌──────────────────────────────────────────────────────────
+# │ gpick 				# Color Picker
+# │ kolourpaint 		# Paint
+# │ mcomix 				# Comic book viewer
+# │ feh					# Image viewer
+# │ peek 				# Simple GIF screen recorder
+# │ vlc 				# Video Player
+# │ cheese 				# Camera
+# │ # xfce4-screenshooter # screenshooter
+# │ # scrot 			# screenshooter
+# │ gnome-screenshot 	# screenshooter
+# └──────────────────────────────────────────────────────────
+Office libreoffice-still okular mate-calc
+# ┌──────────────────────────────────────────────────────────
+# │ libreoffice-still 	# Free office application
+# │ okular 				# PDF viewer
+# │ # xpad 				# Sticky note application
+# │ mate-calc 			# Mate calculator
+# │ # apcalc 			# CLI calculator
+# └──────────────────────────────────────────────────────────
+Clipboard xdotool xclip parcellite
+# ┌──────────────────────────────────────────────────────────
+# │ xdotool 			# command-line X11 automation tool
+# │ xclip 				# provides an interface to the clipboard
+# │ parcellite 			# Clipboard tool (Shortcut : Ctrl+Alt+H)
+# └──────────────────────────────────────────────────────────
+Keyboard_and_Mouse numlockx xtrlock barrier
+# ┌──────────────────────────────────────────────────────────
+# │ numlockx 			# Control the state of NumLock
+# │ xtrlock 			# Lock display and mouse
+# │ barrier 			# KVM software
+# └──────────────────────────────────────────────────────────
+Man tldr
+# ┌──────────────────────────────────────────────────────────
+# │ tldr				 # man alternater
+# │ man-db	             # The online manual database.
+# │ manpages-dev		 # Manual pages about using GNU/Linux for development
+# │ glibc-doc	         # GNU C Library: Documentation
+# └──────────────────────────────────────────────────────────
+Hangul_input ibus ibus-hangul
+# ┌──────────────────────────────────────────────────────────
+# │ ibus ibus-hangul	 # ibus
+# │ # fonts-nanum		 # 나눔 한글 글꼴
+# │ # fcitx-lib* fcitx-hangul	# fcitx
+# └──────────────────────────────────────────────────────────
+# Developer_Utility
+Compiler gcc g++ clang
+# ┌──────────────────────────────────────────────────────────
+# │ # gcc				 # GNU C Compiler
+# │ # g++				 # GNU C++ Compiler	
+# │ clang LLVM			 # LLVM C/C++ Compiler
+# └──────────────────────────────────────────────────────────
+Build make cmake
+# ┌──────────────────────────────────────────────────────────
+# │ make				 # Build automation utility (Makefile)
+# │ cmake			 	 # Build automation utility (CMakeLists.txt)
+# └──────────────────────────────────────────────────────────
+Other_Utility rofi aria2 barrier
+# ┌──────────────────────────────────────────────────────────
+# │ rofi 				# Application dmenu
+# │ aria2 				# Command-line download utility
+# │ barrier 			# KVM software
+# │ build-essential		# meta-package
+# │ ccls 	            # C/C++/Objective-C language server
+# │ cscope	            # cscope
+# │ gdb                 # debug tool
+# │ virtualbox          # Virtual machine
+# │ rsync               # one way
+# │ unison              # both way
+# │ openssh             # ssh
+# │ ufw                 # ufw
+# └──────────────────────────────────────────────────────────
 
-# ----- Utility -----
-printf "unzip "               # unzip
-printf "neofetch "            # Show system information
-printf "terminator "          # Terminator
-printf "htop "                # Task manager
-printf "tlp tlp-rdw "         # Saving laptop battery power
-printf "neovim "              # NeoVim
-printf "xdotool "             # command-line X11 automation tool
-printf "arandr "              # arandr
-printf "lxrandr "             # lxrandr
-printf "autorandr "           # auto arandr
-printf "xclip "               # provides an interface to the clipboard
-printf "rofi "                # Application dmenu
-printf "lightdm "             # Lock Screen
-printf "xfce4-power-manager " # xfce power manager
-printf "xfce4-screensaver "   # xfce screenaver
-printf "gpick "               # Color Picker
-printf "numlockx "            # Control the state of NumLock
-printf "vlc "                 # Video Player
-printf "ranger "              # ranger
-# printf "xpad "                # Sticky note application
-printf "kolourpaint " # Paint
-printf "mcomix "      # Comic book viewer
-printf "feh "         # Image viewer
-printf "peek "        # Simple GIF screen recorder
-printf "gedit "       # Text editor
-# printf "leafpad "             # Text editor
-# printf "xfce4-screenshooter " # screenshooter
-# printf "scrot "               # screenshooter
-printf "gnome-screenshot " # screenshooter
-printf "mate-calc "        # Mate calculator
-# printf "apcalc "              # CLI calculator
-printf "libreoffice-still " # Free office application
-printf "okular "            # PDF viewer
-printf "aria2 "             # Command-line download utility
-printf "cheese "            # Camera
-printf "parcellite "        # Clipboard tool (Shortcut : Ctrl+Alt+H)
-printf "barrier "           # KVM software
-printf "trash-cli "         # trash-cli
-printf "xtrlock "           # Lock display and mouse
+# 패키지 설치 함수
+install_packages() {
+    if [ -x "$(command -v apt)" ]; then
+        sudo apt install $1
+    elif [ -x "$(command -v pacman)" ]; then
+        sudo pacman -S $1
+    else
+        echo "Package manager not found. Exiting."
+        exit 1
+    fi
+}
 
-# ----- Man -----
-printf "tldr " # man alternater
-# printf "man-db "              # The online manual database.
-# printf "manpages-dev "        # Manual pages about using GNU/Linux for development
-# printf "glibc-doc "           # GNU C Library: Documentation
-printf "ncdu " # du alternater, NCurses Disk Usage
+# 패키지 설치 실행
+install_packages "$i3_wm"
+install_packages "$utils"
 
-# ----- Hangul_input -----
-printf "ibus ibus-hangul fonts-nanum " # ibus
-# printf "fcitx-lib* fcitx-hangul fonts-nanum "     	# fcitx
-
-# ----- Developer_Utility -----
-printf "openjdk-17-jdk "          # JDK 17
-printf "build-essential gcc g++ " # C/C++ 컴파일러 & 기본 라이브러리
-printf "make cmake "              # C/C++ 컴파일러 & 기본 라이브러리
-printf "ccls "                    # C/C++/Objective-C 언어 서버
-printf "cscope "                  # cscope
-printf "clang "                   # clang
-printf "gdb "                     # 디버거
-printf "virtualbox "              # Virtual machine
-printf "rsync "                   # one way
-printf "unison "                  # both way
-printf "openssh "                 # ssh
-printf "ufw "                     # ufw
 
 exit 0
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	# ----- Install Packages -----
-	sudo apt install xorg -y
-	# Lightweight volume control (compatible with ALSA)
-	sudo apt install volumeicon-alsa -y
-	# unzip alternater
-	sudo apt install unar -y
-	#nmtui(Network Manager)
-	sudo apt install network-manager -y
-	# ctag
-	sudo apt install exuberant-ctags
-	# python
-	sudo apt install python3-dev python3-pip python3-venv -y
-	# PPA Support
-	sudo apt install software-properties-common -y
-	# build-essential
-	sudo apt install build-essential -y
-
-	for x in $(./package_list.sh); do sudo apt install -y $x; done
+apt_exception_handling_package openjdk-17-jdk xorg volumeicon-alsa unar network-manager exuberant-ctags python3-dev python3-pip python3-venv software-properties-common build-essential
+# ┌──────────────────────────────────────────────────────────
+# │ openjdk-17-jdk       # JDK 17
+# │ xorg 				 # xorg
+# │	volumeicon-alsa 	 # Lightweight volume control (compatible with ALSA)
+# │	unar				 # unzip alternater
+# │	network-manager		 #nmtui(Network Manager)
+# │	exuberant-ctags		 # ctag
+# │	python3-dev python3-pip python3-venv	# python
+# │	software-properties-common				# PPA Support
+# │	build-essential		 # build-essential
+# └──────────────────────────────────────────────────────────
 
 	# Fin
 	sudo apt update
