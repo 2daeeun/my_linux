@@ -82,7 +82,7 @@ Display_Management="lightdm arandr lxrandr autorandr"
 # └─────────────────────────────────────────────────────────────────────────────────────┘
 Power_Management="tlp tlp-rdw xfce4-power-manager xfce4-screensaver"
 # ┌─────────────────────────────────────────────────────────────────────────────────────┐
-# │ tlp tlp-rdw                 # Saving laptop battery power                           │
+# │ # tlp tlp-rdw                 # Saving laptop battery power                         │
 # │ xfce4-power-manager         # xfce power manager                                    │
 # │ xfce4-screensaver           # xfce screenaver                                       │
 # └─────────────────────────────────────────────────────────────────────────────────────┘
@@ -259,6 +259,7 @@ sleep 5
 if [ -x "$(command -v apt-get)" ]; then
     # apt exception handling package (apt 예외 처리 패키지)
 	  sudo apt install openjdk-17-jdk                       # JDK 17
+    sudo apt install tlp tlp-rdw                          # Saving laptop battery power 
 		# sudo apt install xorg                                 # xorg
 		sudo apt install volumeicon-alsa                      # Lightweight volume control
 		sudo apt install unar                                 # unzip alternater
@@ -281,7 +282,7 @@ fi
 
 if [ -x "$(command -v pacman)" ]; then
 	  # pacman exception handling package (pacman 예외 처리 패키지)
-    yay -S --noconfirm mcomi                  # Comic book viewer x
+    yay -S --noconfirm mcomix                 # Comic book viewer x
 		# sudo pacman -S --noconfirm xorg           # xorg
 		sudo pacman -S --noconfirm volumeicon     # Lightweight volume control
 		sudo pacman -S --noconfirm unarchiver     # unzip alternater
