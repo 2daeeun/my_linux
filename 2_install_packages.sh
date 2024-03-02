@@ -80,7 +80,7 @@ Display_Management="lightdm arandr lxrandr autorandr"
 # │ lxrandr                     # lxrandr                                               │
 # │ autorandr                   # auto arandr                                           │
 # └─────────────────────────────────────────────────────────────────────────────────────┘
-Power_Management="tlp tlp-rdw xfce4-power-manager xfce4-screensaver"
+Power_Management="xfce4-power-manager xfce4-screensaver"
 # ┌─────────────────────────────────────────────────────────────────────────────────────┐
 # │ # tlp tlp-rdw                 # Saving laptop battery power                         │
 # │ xfce4-power-manager         # xfce power manager                                    │
