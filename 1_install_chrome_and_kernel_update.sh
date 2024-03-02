@@ -61,6 +61,8 @@ if [ -x "$(command -v pacman)" ]; then
 	fi
 
 	# Install Chrome
+  echo -e "\n\n\n\n\nInstall Chrome\n\n\n\n\n"
+  sleep 5
 	yay -S --noconfirm google-chrome
 
 	exit 0
