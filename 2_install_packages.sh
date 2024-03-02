@@ -39,7 +39,7 @@ else
 	exit 1
 fi
 
-# 패키지들을 변수에 저장
+# Common packages (공통 패키지들을 변수에 저장)
 Basic_Package sudo wget git
 i3_Window_Manager i3-wm i3status
 Sound pulseaudio pavucontrol alsa-utils
@@ -156,64 +156,67 @@ Other_Utility rofi aria2 barrier
 # │ ufw                         # ufw                                                   │
 # └─────────────────────────────────────────────────────────────────────────────────────┘
 
-# 패키지 설치 함수
+# install_packages function (패키지 설치 함수)
 install_packages() {
-    if [ -x "$(command -v apt)" ]; then
-        sudo apt install $1
-    elif [ -x "$(command -v pacman)" ]; then
-        sudo pacman -S $1
-    else
-        echo "Package manager not found. Exiting."
-        exit 1
-    fi
+	if [ -x "$(command -v apt)" ]; then
+		# Common packages install
+		sudo apt install $1
+
+		# apt exception handling package (apt 예외 처리 패키지)
+		sudo apt install openjdk-17-jdk # JDK 17
+		# sudo apt install xorg                         # xorg
+		sudo apt install volumeicon-alsa                      # Lightweight volume control (compatible with ALSA)
+		sudo apt install unar                                 # unzip alternater
+		sudo apt install network-manager                      # nmtui(Network Manager)
+		sudo apt install exuberant-ctags                      # ctag
+		sudo apt install python3-dev python3-pip python3-venv # python
+		sudo apt install software-properties-common           # PPA Support
+		sudo apt install build-essential                      # build-essential
+
+		# Fin
+		sudo apt update
+		sudo apt upgrade -y
+		sudo apt autoremove -y
+		sudo apt autoclean -y
+
+	elif [ -x "$(command -v pacman)" ]; then
+		# Common packages install
+		sudo pacman -S $1
+
+		# pacman exception handling package (pacman 예외 처리 패키지)
+		sudo apt install build-essential          # build-essential
+		sudo pacman -S --noconfirm xorg           # xorg
+		sudo pacman -S --noconfirm volumeicon     # Lightweight volume control (compatible with ALSA)
+		sudo pacman -S --noconfirm unarchiver     # unzip alternater
+		sudo pacman -S --noconfirm networkmanager # nmtui(Network Manager)
+		sudo pacman -S --noconfirm ctags          # ctag
+		sudo pacman -S --noconfirm python-pip     # python
+
+	else
+		echo "Package manager not found. Exiting."
+		exit 1
+	fi
 }
 
-# 패키지 설치 실행
-install_packages "$i3_wm"
-install_packages "$utils"
-
-
-exit 0
-
-apt_exception_handling_package openjdk-17-jdk xorg volumeicon-alsa unar network-manager exuberant-ctags python3-dev python3-pip python3-venv software-properties-common build-essential
-# ┌──────────────────────────────────────────────────────────
-# │ openjdk-17-jdk       # JDK 17
-# │ xorg 				 # xorg
-# │	volumeicon-alsa 	 # Lightweight volume control (compatible with ALSA)
-# │	unar				 # unzip alternater
-# │	network-manager		 #nmtui(Network Manager)
-# │	exuberant-ctags		 # ctag
-# │	python3-dev python3-pip python3-venv	# python
-# │	software-properties-common				# PPA Support
-# │	build-essential		 # build-essential
-# └──────────────────────────────────────────────────────────
-
-	# Fin
-	sudo apt update
-	sudo apt upgrade -y
-	sudo apt autoremove -y
-	sudo apt autoclean -y
-
-elif [[ $prompt == "A" || $prompt == "a" ]]; then
-
-	# ----- Install Packages -----
-	sudo pacman -S xorg
-	# Lightweight volume control (compatible with ALSA)
-	yes | sudo pacman -S volumeicon
-	# unzip alternater
-	yes | sudo pacman -S unarchiver
-	# nmtui(Network Manager)
-	yes | sudo pacman -S networkmanager
-	# ctag
-	yes | sudo pacman -S ctags
-	# python
-	yes | sudo pacman -S python-pip
-
-	for x in $(./package_list.sh); do sudo pacman -S --noconfirm $x; done
-
-else
-	echo "other"
-fi
+# run install_packages function (패키지 설치 함수 실행)
+install_packages "$Basic_Package"
+install_packages "$i3_Window_Manager"
+install_packages "$Sound"
+install_packages "$Brightness"
+install_packages "$Editors"
+install_packages "$SystemInfo"
+install_packages "$Display_Management"
+install_packages "$Power_Management"
+install_packages "$File_Management"
+install_packages "$Image_and_Video"
+install_packages "$Office"
+install_packages "$Clipboard"
+install_packages "$Keyboard_and_Mouse"
+install_packages "$Man"
+install_packages "$Hangul_input"
+install_packages "$Compiler"
+install_packages "$Build"
+install_packages "$Other_Utility"
 
 # Open 22 port
 sudo ufw enable
