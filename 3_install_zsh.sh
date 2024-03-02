@@ -5,6 +5,21 @@ mkdir -p ~/Documents
 mkdir -p ~/Downloads
 mkdir -p ~/Videos
 
+# Install ZSH Plugins Function
+install_zsh_plugins() {
+  echo -e "\n\n\n\n\n"
+  echo -e "┌─────Install ZSH Plugins─────┐"
+  echo -e "│ * Powerlevel10k 설치        │"
+  echo -e "│ * zsh 구문 강조 플러그인    │"
+  echo -e "│ * zsh 자동 제안 플러그인    │"
+  echo -e "└─────────────────────────────┘"
+  echo -e "\n\n\n\n\n"
+  sleep 5
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+}
+
 # Install vim-plug
 echo -e "\n\n\n\n\nInstall vim-plug\n\n\n\n\n"
 sleep 5
@@ -120,25 +135,6 @@ if [ -x "$(command -v pacman)" ]; then
 
 	exit 0
 fi
-
-
-
-
-
-# Install ZSH Plugins Function
-install_zsh_plugins() {
-  echo -e "\n\n\n\n\n"
-  echo -e "┌─────Install ZSH Plugins─────┐"
-  echo -e "│ * Powerlevel10k 설치        │"
-  echo -e "│ * zsh 구문 강조 플러그인    │"
-  echo -e "│ * zsh 자동 제안 플러그인    │"
-  echo -e "└─────────────────────────────┘"
-  echo -e "\n\n\n\n\n"
-  sleep 5
-  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
-  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-}
 
 # Exit the script
 exit 0
