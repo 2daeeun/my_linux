@@ -5,6 +5,12 @@ mkdir -p ~/Documents
 mkdir -p ~/Downloads
 mkdir -p ~/Videos
 
+# Install vim-plug
+echo -e "\n\n\n\n\nInstall vim-plug\n\n\n\n\n"
+sleep 5
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
 # Check if the OS is Debian or Ubuntu
 if [ -x "$(command -v apt-get)" ]; then
   # apt update && apt upgrade
@@ -57,6 +63,8 @@ if [ -x "$(command -v apt-get)" ]; then
 	sudo wget -P /usr/share/fonts https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/HackNerdFont-Regular.ttf
 	sudo fc-cache -f -v
 
+  # Run install_zsh_plugins Function
+  install_zsh_plugins
 	# Fin
   echo -e "\n\n\n\n\nFin\n\n\n\n\n"
   sleep 5
@@ -107,27 +115,30 @@ if [ -x "$(command -v pacman)" ]; then
 	yes | sudo pacman -S yarn
 	yes | sudo pacman -S npm
 
+  # Run install_zsh_plugins Function
+  install_zsh_plugins
+
 	exit 0
 fi
 
-# Install ZSH Plugins
-echo -e "\n\n\n\n\n"
-echo -e "┌─────Install ZSH Plugins─────┐"
-echo -e "│ * Powerlevel10k 설치        │"
-echo -e "│ * zsh 구문 강조 플러그인    │"
-echo -e "│ * zsh 자동 제안 플러그인    │"
-echo -e "└─────────────────────────────┘"
-echo -e "\n\n\n\n\n"
-sleep 5
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
-# Install vim-plug
-echo -e "\n\n\n\n\nInstall vim-plug\n\n\n\n\n"
-sleep 5
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+
+
+# Install ZSH Plugins Function
+install_zsh_plugins() {
+  echo -e "\n\n\n\n\n"
+  echo -e "┌─────Install ZSH Plugins─────┐"
+  echo -e "│ * Powerlevel10k 설치        │"
+  echo -e "│ * zsh 구문 강조 플러그인    │"
+  echo -e "│ * zsh 자동 제안 플러그인    │"
+  echo -e "└─────────────────────────────┘"
+  echo -e "\n\n\n\n\n"
+  sleep 5
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+}
 
 # Exit the script
 exit 0
