@@ -164,8 +164,8 @@ install_packages() {
 
 		# apt exception handling package (apt 예외 처리 패키지)
 		sudo apt install openjdk-17-jdk # JDK 17
-		# sudo apt install xorg                         # xorg
-		sudo apt install volumeicon-alsa                      # Lightweight volume control (compatible with ALSA)
+		# sudo apt install xorg                                 # xorg
+		sudo apt install volumeicon-alsa                      # Lightweight volume control
 		sudo apt install unar                                 # unzip alternater
 		sudo apt install network-manager                      # nmtui(Network Manager)
 		sudo apt install exuberant-ctags                      # ctag
@@ -181,12 +181,11 @@ install_packages() {
 
 	elif [ -x "$(command -v pacman)" ]; then
 		# Common packages install
-		sudo pacman -S $1
+		sudo pacman -S --noconfirm $1
 
 		# pacman exception handling package (pacman 예외 처리 패키지)
-		sudo apt install build-essential          # build-essential
-		sudo pacman -S --noconfirm xorg           # xorg
-		sudo pacman -S --noconfirm volumeicon     # Lightweight volume control (compatible with ALSA)
+		# sudo pacman -S --noconfirm xorg           # xorg
+		sudo pacman -S --noconfirm volumeicon     # Lightweight volume control
 		sudo pacman -S --noconfirm unarchiver     # unzip alternater
 		sudo pacman -S --noconfirm networkmanager # nmtui(Network Manager)
 		sudo pacman -S --noconfirm ctags          # ctag
