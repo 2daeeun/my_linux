@@ -86,11 +86,12 @@ Power_Management="xfce4-power-manager xfce4-screensaver"
 # │ xfce4-power-manager         # xfce power manager                                    │
 # │ xfce4-screensaver           # xfce screenaver                                       │
 # └─────────────────────────────────────────────────────────────────────────────────────┘
-File_Management="unzip trash-cli"
+File_Management="unzip trash-cli fzf"
 # ┌─────────────────────────────────────────────────────────────────────────────────────┐
 # │ unzip                       # unzip                                                 │
 # │ # ranger                    # ranger                                                │
 # │ trash-cli                   # trash-cli                                             │
+# │ fzf                         # fuzzy finder                                          │
 # └─────────────────────────────────────────────────────────────────────────────────────┘
 Image_and_Video="gpick kolourpaint feh peek vlc cheese gnome-screenshot"
 # ┌─────────────────────────────────────────────────────────────────────────────────────┐
