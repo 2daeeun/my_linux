@@ -1,4 +1,4 @@
-# !/bin/sh
+#!/bin/sh
 
 # Create default directory
 mkdir -p ~/Documents
@@ -17,14 +17,14 @@ fi
 
 # Check OS and install microcode
 if [ -x "$(command -v apt-get)" ]; then
-  if [ "$CPU_VENDOR" = "intel" ]; then
-    echo -e "\n\n\n\n\nInstall intel-microcode\n\n\n\n\n"
-    sleep 5
+	if [ "$CPU_VENDOR" = "intel" ]; then
+		echo -e "\n\n\n\n\nInstall intel-microcode\n\n\n\n\n"
+		sleep 5
 		sudo apt-get update
 		sudo apt-get install -y intel-microcode
 	elif [ "$CPU_VENDOR" = "amd" ]; then
-    echo -e "\n\n\n\n\nInstall amd64-microcode\n\n\n\n\n"
-    sleep 5
+		echo -e "\n\n\n\n\nInstall amd64-microcode\n\n\n\n\n"
+		sleep 5
 		sudo apt-get update
 		sudo apt-get install -y amd64-microcode
 		# AMD GPU firmware
@@ -32,13 +32,13 @@ if [ -x "$(command -v apt-get)" ]; then
 	fi
 elif [ -x "$(command -v pacman)" ]; then
 	if [ "$CPU_VENDOR" = "intel" ]; then
-    echo -e "\n\n\n\n\nInstall intel-ucode\n\n\n\n\n"
-    sleep 5
+		echo -e "\n\n\n\n\nInstall intel-ucode\n\n\n\n\n"
+		sleep 5
 		sudo pacman -Sy
 		sudo pacman -S --noconfirm intel-ucode
 	elif [ "$CPU_VENDOR" = "amd" ]; then
-    echo -e "\n\n\n\n\nInstall amd-ucode\n\n\n\n\n"
-    sleep 5
+		echo -e "\n\n\n\n\nInstall amd-ucode\n\n\n\n\n"
+		sleep 5
 		sudo pacman -Sy
 		sudo pacman -S --noconfirm amd-ucode
 	fi
@@ -138,10 +138,11 @@ Hangul_input="ibus ibus-hangul"
 # │ # fonts-nanum               # 나눔 한글 글꼴                                        │
 # │ # fcitx-lib* fcitx-hangul   # fcitx                                                 │
 # └─────────────────────────────────────────────────────────────────────────────────────┘
-Compiler="gcc clang"
+Compiler="gcc clang cargo"
 # ┌─────────────────────────────────────────────────────────────────────────────────────┐
 # │ gcc                         # GNU C Compiler                                        │
 # │ clang LLVM                  # LLVM C/C++ Compiler                                   │
+# │ cargo                       # Rust package manager                                  │
 # └─────────────────────────────────────────────────────────────────────────────────────┘
 Build="make cmake"
 # ┌─────────────────────────────────────────────────────────────────────────────────────┐
@@ -252,47 +253,46 @@ echo -e "\n\n\n\n\nRun Other_Utility\n\n\n\n\n"
 sleep 5
 install_packages "$Other_Utility"
 
-
 # Install exception handling package (예외 처리 패키지 설치)"
 echo -e "\n\n\n\n\nInstall exception handling package (예외 처리 패키지 설치)\n\n\n\n\n"
 sleep 5
 if [ -x "$(command -v apt-get)" ]; then
-    # apt exception handling package (apt 예외 처리 패키지)
-	  sudo apt install openjdk-17-jdk                       # JDK 17
-    sudo apt install tlp tlp-rdw                          # Saving laptop battery power 
-		# sudo apt install xorg                                 # xorg
-		sudo apt install volumeicon-alsa                      # Lightweight volume control
-		sudo apt install unar                                 # unzip alternater
-		sudo apt install network-manager                      # nmtui(Network Manager)
-    sudo apt install g++                                  # GNU C++ Compiler   
-		sudo apt install exuberant-ctags                      # ctag
-		sudo apt install python3-dev python3-pip python3-venv # python
-		sudo apt install software-properties-common           # PPA Support
-		sudo apt install build-essential                      # build-essential
+	# apt exception handling package (apt 예외 처리 패키지)
+	sudo apt install openjdk-17-jdk -y # JDK 17
+	sudo apt install tlp tlp-rdw -y    # Saving laptop battery power
+	# sudo apt install xorg                                 # xorg
+	sudo apt install volumeicon-alsa -y                      # Lightweight volume control
+	sudo apt install unar -y                                 # unzip alternater
+	sudo apt install network-manager -y                      # nmtui(Network Manager)
+	sudo apt install g++ -y                                  # GNU C++ Compiler
+	sudo apt install exuberant-ctags -y                      # ctag
+	sudo apt install python3-dev python3-pip python3-venv -y # python
+	sudo apt install software-properties-common -y           # PPA Support
+	sudo apt install build-essential -y                      # build-essential
 
-		# Fin
-		sudo apt update
-		sudo apt upgrade -y
-		sudo apt autoremove -y
-		sudo apt autoclean -y
+	# Fin
+	sudo apt update
+	sudo apt upgrade -y
+	sudo apt autoremove -y
+	sudo apt autoclean -y
 
 	exit 0
 
 fi
 
 if [ -x "$(command -v pacman)" ]; then
-	  # pacman exception handling package (pacman 예외 처리 패키지)
-    yay -S --noconfirm mcomix                 # Comic book viewer x
-		# sudo pacman -S --noconfirm xorg           # xorg
-		sudo pacman -S --noconfirm volumeicon     # Lightweight volume control
-		sudo pacman -S --noconfirm unarchiver     # unzip alternater
-		sudo pacman -S --noconfirm networkmanager # nmtui(Network Manager)
-		sudo pacman -S --noconfirm ctags          # ctag
-		sudo pacman -S --noconfirm python-pip     # python
+	# pacman exception handling package (pacman 예외 처리 패키지)
+	yay -S --noconfirm mcomix # Comic book viewer x
+	# sudo pacman -S --noconfirm xorg           # xorg
+	sudo pacman -S --noconfirm volumeicon     # Lightweight volume control
+	sudo pacman -S --noconfirm unarchiver     # unzip alternater
+	sudo pacman -S --noconfirm networkmanager # nmtui(Network Manager)
+	sudo pacman -S --noconfirm ctags          # ctag
+	sudo pacman -S --noconfirm python-pip     # python
+	sudo pacman -S --noconfirm lazygit        # lazygit
 
 	exit 0
 fi
-
 
 echo -e "\n\n\n\n\nPort and firewall settings\n\n\n\n\n"
 sleep 5
