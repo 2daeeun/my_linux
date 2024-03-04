@@ -14,25 +14,30 @@ This is my personal Linux setting.
 
 
 ## my_linux 다운로드
-```swift
-mkdir -p ~/Documents/github && cd ~/Documents/github && git clone https://github.com/2daeeun/my_linux.git
+```
+mkdir -p ~/Documents/github && cd ~/Documents/github && git clone https://github.com/2daeeun/my_linux.git && cd my_linux
 ```
 
 ## 각종 패키지 설치
-```swift
+```
 ./1_install_chrome.sh
 ./2_install_pakage.sh
 ./3_install_zsh.sh
 ```
 
 ## 설정 파일 복사
-```swift
+```
 ./symbolic_link.sh
 ```
 
+## lazygit의 mason 설정
+```
+MasonInstall clangd clang-format cmake-language-server asm-lsp asmfmt mdformat
+```
+
 ## 필요없는 패키지 삭제
-```swift
-sudo pacman -Rs gthumb xfce4-terminal
+```
+sudo pacman -Rs nano
 ```
 
 이후에는 재부팅
