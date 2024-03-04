@@ -290,6 +290,7 @@ if [ -x "$(command -v pacman)" ]; then
 	sudo pacman -S --noconfirm ctags          # ctag
 	sudo pacman -S --noconfirm python-pip     # python
 	sudo pacman -S --noconfirm lazygit        # lazygit
+	cargo install git-graph                   # git-graph
 
 	exit 0
 fi
