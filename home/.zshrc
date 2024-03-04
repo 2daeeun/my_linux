@@ -9,6 +9,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 #zsh 플러그인 설치
 plugins=(
     git
+    fzf
     zsh-syntax-highlighting
     zsh-autosuggestions
     # zsh-wakatime
