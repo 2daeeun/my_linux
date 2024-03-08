@@ -60,10 +60,11 @@ Brightness="brightnessctl"
 # ┌─────────────────────────────────────────────────────────────────────────────────────┐
 # │ brightnessctl               # Control device brightness                             │
 # └─────────────────────────────────────────────────────────────────────────────────────┘
-Editors="terminator neovim gedit"
+Editors="terminator neovim tmux gedit"
 # ┌─────────────────────────────────────────────────────────────────────────────────────┐
 # │ terminator                  # Terminator                                            │
 # │ neovim                      # NeoVim                                                │
+# │ tmux                        # terminal multiplexer                                  │
 # │ gedit                       # Text editor                                           │
 # │ # leafpad                   # Text editor                                           │
 # └─────────────────────────────────────────────────────────────────────────────────────┘
@@ -86,7 +87,7 @@ Power_Management="xfce4-power-manager xfce4-screensaver"
 # │ xfce4-power-manager         # xfce power manager                                    │
 # │ xfce4-screensaver           # xfce screenaver                                       │
 # └─────────────────────────────────────────────────────────────────────────────────────┘
-File_Management="unzip trash-cli fzf"
+File_Management="unzip trash-cli"
 # ┌─────────────────────────────────────────────────────────────────────────────────────┐
 # │ unzip                       # unzip                                                 │
 # │ # ranger                    # ranger                                                │
@@ -127,7 +128,7 @@ Keyboard_and_Mouse="numlockx xtrlock barrier"
 # │ barrier                     # KVM software                                          │
 # └─────────────────────────────────────────────────────────────────────────────────────┘
 Man="tldr"
-# ┌─────────────────────────────────────────────────────────────────────────────────────┐
+# ┌────────────────────────────────────────────────────────────────────────────────────┐
 # │ tldr                        # man alternater                                        │
 # │ man-db                      # The online manual database                            │
 # │ manpages-dev                # Manual pages about using GNU/Linux for development    │
