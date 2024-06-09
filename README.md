@@ -7,7 +7,7 @@
 |Distro|GUI|Base OS|Note|
 |:---:|:---:|:---:|:---:|
 |Debian|i3|Debian|Setting up|
-|[EndeavourOS](https://github.com/2daeeun/my_linux/tree/main/home/docs/EndeavourOS_README.md)|i3|Arch|-|
+|[EndeavourOS](https://github.com/2daeeun/my_linux/blob/main/docs/EndeavourOS_README.md)|i3|Arch|-|
 
 ## Used in the past
 Not in use now
