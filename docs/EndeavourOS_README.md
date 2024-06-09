@@ -2,6 +2,8 @@
 This is my personal Linux setting.
 
 ## EndeavourOS Installer
+"Endeavouros_Cassini_Nova-03-2023_R3" 기준으로 작성됨
+
 |카테고리|<center>선택</center>|
 |:---:|---|
 | Welcome | • American English |
