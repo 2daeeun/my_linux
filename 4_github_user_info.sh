@@ -23,6 +23,9 @@ git config --global color.ui "auto"
 # git 편집 에디터 바꾸기 (nano to vim)
 git config --global core.editor "nvim"
 
+# git 한글깨짐 문제 해결
+git config --global core.quotepath false
+
 # 사용자 정보 등록
 git config --global user.name "$username"
 git config --global user.email "$email"
