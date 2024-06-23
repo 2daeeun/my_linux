@@ -81,11 +81,11 @@ Display_Management="lightdm arandr lxrandr autorandr"
 # │ lxrandr                     # lxrandr                                               │
 # │ autorandr                   # auto arandr                                           │
 # └─────────────────────────────────────────────────────────────────────────────────────┘
-Power_Management="xfce4-power-manager xfce4-screensaver"
+Power_Management="tlp tlp-rdw"
 # ┌─────────────────────────────────────────────────────────────────────────────────────┐
-# │ # tlp tlp-rdw                 # Saving laptop battery power                         │
-# │ xfce4-power-manager         # xfce power manager                                    │
-# │ xfce4-screensaver           # xfce screenaver                                       │
+# │ tlp tlp-rdw                 # Saving laptop battery power                           │
+# │ # xfce4-power-manager         # xfce power manager                                  │
+# │ # xfce4-screensaver           # xfce screenaver                                     │
 # └─────────────────────────────────────────────────────────────────────────────────────┘
 File_Management="unzip trash-cli"
 # ┌─────────────────────────────────────────────────────────────────────────────────────┐
