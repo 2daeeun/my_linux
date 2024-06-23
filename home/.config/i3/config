@@ -217,3 +217,4 @@ exec_always discord --start-minimized
 exec_always numlockx on
 exec_always parcellite
 exec_always systemctl start sshd
+exec_always systemctl start restart tlp
