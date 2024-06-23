@@ -7,6 +7,7 @@ vim.opt.relativenumber = false
 vim.opt.wrap = true
 vim.opt.timeoutlen = 1000
 vim.opt.ttimeoutlen = 0
+vim.lsp.inlay_hint.enable = false
 
 vim.notify = require("notify")
 require("notify").setup({
