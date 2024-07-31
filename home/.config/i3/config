@@ -204,7 +204,6 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id dex --autostart --environment i3
 exec_always feh --bg-fill /home/leedaeeun/.config/i3/thinkpad_wallpaper.png
-exec_always xset s 360 dpms 600 600 600
 exec_always dbus-launch dunst --config ~/.config/dunst/dunstrc
 exec_always xinput --set-prop "TPPS/2 Elan TrackPoint" "libinput Accel Speed" -1.0 &
 # exec_always xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Accel Speed" 0.6 &
@@ -218,3 +217,6 @@ exec_always numlockx on
 exec_always parcellite
 exec_always systemctl start sshd
 exec_always systemctl start restart tlp
+exec_always --no-startup-id swayidle -w \
+    timeout 300 'brightnessctl set 20%' \
+    resume 'brightnessctl set $(brightnessctl get)'
