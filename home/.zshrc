@@ -17,11 +17,11 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 #alias 설정(명령어)
-alias powerup='sudo pacman -Syu --ignore linux,linux-headers,linux-lts,linux-lts-headers,linux-zen,linux-zen-headers'
-# alias rrm="sudo mv -t /tmp"
+alias powerup='sudo pacman -Syu --ignore linux,linux-headers,linux-lts,linux-lts-headers,linux-zen,linux-zen-headers && yay -Syu --noconfirm'
 alias lg="lazygit"
 alias gg="git-graph"
 alias vi="nvim"
+# alias rrm="sudo mv -t /tmp"
 alias rrm="trash-put"
 alias th="thunar $pwd"
 alias lock="xtrlock" 
@@ -36,13 +36,14 @@ alias cls="clear"
 alias e="exit"
 
 #alias 설정(디렉토리 이동)
-alias vid="cd ~/Videos"
-alias doc="cd ~/Documents"
-alias dow="cd ~/Downloads"
-alias st="cd ~/Documents/study"
-alias gh="cd ~/Documents/github"
-alias my="cd ~/Documents/github/my_linux"
-alias ks="cd ~/Documents/github/kernel_study"
+alias vid="cd ~/Videos/"
+alias doc="cd ~/Documents/"
+alias dow="cd ~/Downloads/"
+alias st="cd ~/Documents/study/"
+alias gh="cd ~/Documents/github/"
+alias to="cd ~/Documents/github/token/"
+alias my="cd ~/Documents/github/my_linux/"
+alias ks="cd ~/Documents/github/kernel_study/"
 alias ksl="cd ~/Documents/github/kernel_study/linux/"
 alias al="cd ~/Documents/github/Algorithm_study/"
 alias br="cd ~/Documents/github/Algorithm_study/solved.ac/Bronze/"
