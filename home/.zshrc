@@ -17,7 +17,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 #alias 설정(명령어)
-alias powerup='sudo pacman -Syu --ignore linux,linux-headers,linux-lts,linux-lts-headers,linux-zen,linux-zen-headers && yay -Syu --noconfirm'
+alias powerup='sudo pacman -Syu --ignore linux,linux-headers,linux-lts,linux-lts-headers,linux-zen,linux-zen-headers && yay -Syu --ignore linux,linux-headers,linux-lts,linux-lts-headers,linux-zen,linux-zen-headers --noconfirm'
 alias lg="lazygit"
 alias gg="git-graph"
 alias vi="nvim"
