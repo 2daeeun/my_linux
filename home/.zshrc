@@ -68,4 +68,5 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/sbin
 export PATH="$PATH:~/.cargo/bin/"
 
 #Display man Pages in Color
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANPAGER="less -R"
+# export MANPAGER="sh -c 'col -bx | bat -l man -p'"
