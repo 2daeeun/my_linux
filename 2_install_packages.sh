@@ -7,44 +7,44 @@ mkdir -p ~/Videos
 
 # Check CPU vendor
 if grep -q "GenuineIntel" /proc/cpuinfo; then
-	CPU_VENDOR="intel"
+  CPU_VENDOR="intel"
 elif grep -q "AuthenticAMD" /proc/cpuinfo; then
-	CPU_VENDOR="amd"
+  CPU_VENDOR="amd"
 else
-	echo "CPU vendor is unknown"
-	exit 1
+  echo "CPU vendor is unknown"
+  exit 1
 fi
 
 # Check OS and install microcode
 if [ -x "$(command -v apt-get)" ]; then
-	if [ "$CPU_VENDOR" = "intel" ]; then
-		echo -e "\n\n\n\n\nInstall intel-microcode\n\n\n\n\n"
-		sleep 5
-		sudo apt-get update
-		sudo apt-get install -y intel-microcode
-	elif [ "$CPU_VENDOR" = "amd" ]; then
-		echo -e "\n\n\n\n\nInstall amd64-microcode\n\n\n\n\n"
-		sleep 5
-		sudo apt-get update
-		sudo apt-get install -y amd64-microcode
-		# AMD GPU firmware
-		# sudo apt install -y firmware-amd-graphics libgl1-mesa-dri
-	fi
+  if [ "$CPU_VENDOR" = "intel" ]; then
+    echo -e "\n\n\n\n\nInstall intel-microcode\n\n\n\n\n"
+    sleep 5
+    sudo apt-get update
+    sudo apt-get install -y intel-microcode
+  elif [ "$CPU_VENDOR" = "amd" ]; then
+    echo -e "\n\n\n\n\nInstall amd64-microcode\n\n\n\n\n"
+    sleep 5
+    sudo apt-get update
+    sudo apt-get install -y amd64-microcode
+    # AMD GPU firmware
+    # sudo apt install -y firmware-amd-graphics libgl1-mesa-dri
+  fi
 elif [ -x "$(command -v pacman)" ]; then
-	if [ "$CPU_VENDOR" = "intel" ]; then
-		echo -e "\n\n\n\n\nInstall intel-ucode\n\n\n\n\n"
-		sleep 5
-		sudo pacman -Sy
-		sudo pacman -S --noconfirm intel-ucode
-	elif [ "$CPU_VENDOR" = "amd" ]; then
-		echo -e "\n\n\n\n\nInstall amd-ucode\n\n\n\n\n"
-		sleep 5
-		sudo pacman -Sy
-		sudo pacman -S --noconfirm amd-ucode
-	fi
+  if [ "$CPU_VENDOR" = "intel" ]; then
+    echo -e "\n\n\n\n\nInstall intel-ucode\n\n\n\n\n"
+    sleep 5
+    sudo pacman -Sy
+    sudo pacman -S --noconfirm intel-ucode
+  elif [ "$CPU_VENDOR" = "amd" ]; then
+    echo -e "\n\n\n\n\nInstall amd-ucode\n\n\n\n\n"
+    sleep 5
+    sudo pacman -Sy
+    sudo pacman -S --noconfirm amd-ucode
+  fi
 else
-	echo "Unsupported OS"
-	exit 1
+  echo "Unsupported OS"
+  exit 1
 fi
 
 # Common packages (공통 패키지들을 변수에 저장)
@@ -81,7 +81,7 @@ Display_Management="lightdm arandr lxrandr autorandr"
 # │ lxrandr                     # lxrandr                                               │
 # │ autorandr                   # auto arandr                                           │
 # └─────────────────────────────────────────────────────────────────────────────────────┘
-Power_Management="xfce4-power-manager xfce4-screensaver"
+Power_Management=""
 # ┌─────────────────────────────────────────────────────────────────────────────────────┐
 # │ # tlp tlp-rdw                 # Saving laptop battery power                         │
 # │ xfce4-power-manager         # xfce power manager                                    │
@@ -128,8 +128,9 @@ Keyboard_and_Mouse="numlockx xtrlock barrier"
 # │ barrier                     # KVM software                                          │
 # └─────────────────────────────────────────────────────────────────────────────────────┘
 Man="tldr"
-# ┌────────────────────────────────────────────────────────────────────────────────────┐
+# ┌─────────────────────────────────────────────────────────────────────────────────────┐
 # │ tldr                        # man alternater                                        │
+# │ bat                         # Cat clone with syntax highlighting and git integration│
 # │ man-db                      # The online manual database                            │
 # │ manpages-dev                # Manual pages about using GNU/Linux for development    │
 # │ glibc-doc                   # GNU C Library: Documentation                          │
@@ -169,16 +170,16 @@ Other_Utility="rofi aria2 barrier"
 
 # install_packages function (패키지 설치 함수)
 install_packages() {
-	if [ -x "$(command -v apt)" ]; then
-		# Common packages install
-		sudo apt install $1
-	elif [ -x "$(command -v pacman)" ]; then
-		# Common packages install
-		sudo pacman -S --noconfirm $1
-	else
-		echo "Package manager not found. Exiting."
-		exit 1
-	fi
+  if [ -x "$(command -v apt)" ]; then
+    # Common packages install
+    sudo apt install $1
+  elif [ -x "$(command -v pacman)" ]; then
+    # Common packages install
+    sudo pacman -S --noconfirm $1
+  else
+    echo "Package manager not found. Exiting."
+    exit 1
+  fi
 }
 
 # run install_packages function (패키지 설치 함수 실행)
@@ -259,42 +260,42 @@ install_packages "$Other_Utility"
 echo -e "\n\n\n\n\nInstall exception handling package (예외 처리 패키지 설치)\n\n\n\n\n"
 sleep 5
 if [ -x "$(command -v apt-get)" ]; then
-	# apt exception handling package (apt 예외 처리 패키지)
-	sudo apt install openjdk-17-jdk -y # JDK 17
-	sudo apt install tlp tlp-rdw -y    # Saving laptop battery power
-	# sudo apt install xorg                                 # xorg
-	sudo apt install volumeicon-alsa -y                      # Lightweight volume control
-	sudo apt install unar -y                                 # unzip alternater
-	sudo apt install network-manager -y                      # nmtui(Network Manager)
-	sudo apt install g++ -y                                  # GNU C++ Compiler
-	sudo apt install exuberant-ctags -y                      # ctag
-	sudo apt install python3-dev python3-pip python3-venv -y # python
-	sudo apt install software-properties-common -y           # PPA Support
-	sudo apt install build-essential -y                      # build-essential
+  # apt exception handling package (apt 예외 처리 패키지)
+  sudo apt install openjdk-17-jdk -y # JDK 17
+  sudo apt install tlp tlp-rdw -y    # Saving laptop battery power
+  # sudo apt install xorg                                 # xorg
+  sudo apt install volumeicon-alsa -y                      # Lightweight volume control
+  sudo apt install unar -y                                 # unzip alternater
+  sudo apt install network-manager -y                      # nmtui(Network Manager)
+  sudo apt install g++ -y                                  # GNU C++ Compiler
+  sudo apt install exuberant-ctags -y                      # ctag
+  sudo apt install python3-dev python3-pip python3-venv -y # python
+  sudo apt install software-properties-common -y           # PPA Support
+  sudo apt install build-essential -y                      # build-essential
 
-	# Fin
-	sudo apt update
-	sudo apt upgrade -y
-	sudo apt autoremove -y
-	sudo apt autoclean -y
+  # Fin
+  sudo apt update
+  sudo apt upgrade -y
+  sudo apt autoremove -y
+  sudo apt autoclean -y
 
-	exit 0
+  exit 0
 
 fi
 
 if [ -x "$(command -v pacman)" ]; then
-	# pacman exception handling package (pacman 예외 처리 패키지)
-	yay -S --noconfirm mcomix # Comic book viewer x
-	# sudo pacman -S --noconfirm xorg           # xorg
-	sudo pacman -S --noconfirm volumeicon     # Lightweight volume control
-	sudo pacman -S --noconfirm unarchiver     # unzip alternater
-	sudo pacman -S --noconfirm networkmanager # nmtui(Network Manager)
-	sudo pacman -S --noconfirm ctags          # ctag
-	sudo pacman -S --noconfirm python-pip     # python
-	sudo pacman -S --noconfirm lazygit        # lazygit
-	cargo install git-graph                   # git-graph
+  # pacman exception handling package (pacman 예외 처리 패키지)
+  yay -S --noconfirm mcomix # Comic book viewer x
+  # sudo pacman -S --noconfirm xorg           # xorg
+  sudo pacman -S --noconfirm volumeicon     # Lightweight volume control
+  sudo pacman -S --noconfirm unarchiver     # unzip alternater
+  sudo pacman -S --noconfirm networkmanager # nmtui(Network Manager)
+  sudo pacman -S --noconfirm ctags          # ctag
+  sudo pacman -S --noconfirm python-pip     # python
+  sudo pacman -S --noconfirm lazygit        # lazygit
+  cargo install git-graph                   # git-graph
 
-	exit 0
+  exit 0
 fi
 
 echo -e "\n\n\n\n\nPort and firewall settings\n\n\n\n\n"

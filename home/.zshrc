@@ -52,6 +52,11 @@ alias al="cd ~/Documents/github/Algorithm_study/"
 alias br="cd ~/Documents/github/Algorithm_study/solved.ac/Bronze/"
 alias si="cd ~/Documents/github/Algorithm_study/solved.ac/Silver/"
 
+# 임시 alias 설정
+alias io="cd ~/Documents/github/io_uring_Socket/"
+alias jsy="cd ~/Documents/github/JSY-s_TCP-IP_socket_programming/"
+alias asls="cd ~/Documents/github/Arduino_Smart_Logistics_System/ASLS_Management_Program/"
+
 #unzip 한글 깨짐 방지
 export UNZIP="-O cp949"
 export ZIPINFO="-O cp949"
@@ -60,13 +65,7 @@ export ZIPINFO="-O cp949"
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/sbin
 
 # Cargo 환경변수
-export PATH="$PATH:/home/leedaeeun/.cargo/bin"
+export PATH="$PATH:~/.cargo/bin/"
 
 #Display man Pages in Color
-export LESS_TERMCAP_mb=$'\e[1;32m'
-export LESS_TERMCAP_md=$'\e[1;32m'
-export LESS_TERMCAP_me=$'\e[0m'
-export LESS_TERMCAP_se=$'\e[0m'
-export LESS_TERMCAP_so=$'\e[01;33m'
-export LESS_TERMCAP_ue=$'\e[0m'
-export LESS_TERMCAP_us=$'\e[1;4;31m'
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
