@@ -127,7 +127,15 @@ Keyboard_and_Mouse="numlockx xtrlock barrier"
 # │ xtrlock                     # Lock display and mouse                                │
 # │ barrier                     # KVM software                                          │
 # └─────────────────────────────────────────────────────────────────────────────────────┘
-Man="tldr"
+Monitor_power_saving="xorg-xrandr xautolock xorg-xprintidle polkit-gnome"
+# ┌─────────────────────────────────────────────────────────────────────────────────────┐
+# │ xorg-xrandr                 # 화면 밝기를 조정하는 데 사용                          │
+# │ xautolock                   # 일정 시간 후에 스크립트를 실행하는 데 사용            │
+# │ xorg-xprintidle             # 셸 스크립트에서 유휴 상태를 감지하는 데 사용          │
+# │ polkit-gnome                # 시스템 권한 관리 및 인증을 처리                       │
+# │ dex                         # 자동 시작 애플리케이션을 관리하는 도구                │
+# └─────────────────────────────────────────────────────────────────────────────────────┘
+Man="tldr bat"
 # ┌─────────────────────────────────────────────────────────────────────────────────────┐
 # │ tldr                        # man alternater                                        │
 # │ bat                         # Cat clone with syntax highlighting and git integration│
@@ -235,6 +243,10 @@ install_packages "$Clipboard"
 echo -e "\n\n\n\n\nRun Keyboard_and_Mouse\n\n\n\n\n"
 sleep 5
 install_packages "$Keyboard_and_Mouse"
+
+echo -e "\n\n\n\n\nRun Monitor_power_saving\n\n\n\n\n"
+sleep 5
+install_packages "$Monitor_power_saving"
 
 echo -e "\n\n\n\n\nRun Man\n\n\n\n\n"
 sleep 5
