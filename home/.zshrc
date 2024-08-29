@@ -65,7 +65,7 @@ export ZIPINFO="-O cp949"
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/sbin
 
 # Cargo 환경변수
-export PATH="$PATH:~/.cargo/bin/"
+export PATH="$PATH:$HOME/.cargo/bin/"
 
 #Display man Pages in Color
 export MANPAGER="less -R"
