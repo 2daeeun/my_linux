@@ -52,10 +52,12 @@ alias al="cd ~/Documents/github/Algorithm_study/"
 alias br="cd ~/Documents/github/Algorithm_study/solved.ac/Bronze/"
 alias si="cd ~/Documents/github/Algorithm_study/solved.ac/Silver/"
 
+#alias 설정(셸 스크립트 실행)
+alias mo="~/Documents/mount_sshfs.sh"
+
 # 임시 alias 설정
-alias io="cd ~/Documents/github/io_uring_Socket/"
 alias jsy="cd ~/Documents/github/JSY-s_TCP-IP_socket_programming/"
-alias asls="cd ~/Documents/github/Arduino_Smart_Logistics_System/ASLS_Management_Program/"
+alias ardu="cd ~/Documents/github/Arduino_Smart_Logistics_System/ASLS_Management_Program/"
 
 #unzip 한글 깨짐 방지
 export UNZIP="-O cp949"
