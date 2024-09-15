@@ -49,7 +49,7 @@ fi
 
 # Common packages (공통 패키지들을 변수에 저장)
 Basic_Package="sudo wget git"
-i3_Window_Manager="i3-wm i3status"
+Window_Manager="sway xorg-xwayland i3status"
 Sound="pavucontrol alsa-utils"
 # ┌─────────────────────────────────────────────────────────────────────────────────────┐
 # │ # pulseaudio                  # Sound server program                                │
@@ -74,7 +74,7 @@ SystemInfo="neofetch htop ncdu"
 # │ htop                        # Task manager                                          │
 # │ ncdu                        # du alternater, NCurses Disk Usage                     │
 # └─────────────────────────────────────────────────────────────────────────────────────┘
-Display_Management="lightdm arandr lxrandr autorandr"
+Display_Management="ly arandr lxrandr autorandr"
 # ┌─────────────────────────────────────────────────────────────────────────────────────┐
 # │ lightdm                     # Lock Screen                                           │
 # │ arandr                      # arandr                                                │
@@ -115,7 +115,7 @@ Office="libreoffice-still okular mate-calc"
 # │ mate-calc                   # Mate calculator                                       │
 # │ # apcalc                    # CLI calculator                                        │
 # └─────────────────────────────────────────────────────────────────────────────────────┘
-Clipboard="xdotool xclip parcellite"
+Clipboard="copyq"
 # ┌─────────────────────────────────────────────────────────────────────────────────────┐
 # │ xdotool                     # command-line X11 automation tool                      │
 # │ xclip                       # provides an interface to the clipboard                │
@@ -127,7 +127,7 @@ Keyboard_and_Mouse="numlockx xtrlock barrier"
 # │ xtrlock                     # Lock display and mouse                                │
 # │ barrier                     # KVM software                                          │
 # └─────────────────────────────────────────────────────────────────────────────────────┘
-Monitor_power_saving="xorg-xrandr xautolock xorg-xprintidle polkit-gnome"
+Monitor_power_saving=""
 # ┌─────────────────────────────────────────────────────────────────────────────────────┐
 # │ xorg-xrandr                 # 화면 밝기를 조정하는 데 사용                          │
 # │ xautolock                   # 일정 시간 후에 스크립트를 실행하는 데 사용            │
@@ -306,6 +306,8 @@ if [ -x "$(command -v pacman)" ]; then
   sudo pacman -S --noconfirm python-pip     # python
   sudo pacman -S --noconfirm lazygit        # lazygit
   cargo install git-graph                   # git-graph
+  sudo systemctl enable ly.service
+  sudo systemctl start ly.service
 
   exit 0
 fi
