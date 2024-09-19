@@ -49,7 +49,7 @@ fi
 
 # Common packages (공통 패키지들을 변수에 저장)
 Basic_Package="sudo wget git"
-Window_Manager="sway xorg-xwayland i3status"
+Window_Manager="sway swayidle swaylock xorg-xwayland i3status"
 Sound="pavucontrol alsa-utils"
 # ┌─────────────────────────────────────────────────────────────────────────────────────┐
 # │ # pulseaudio                  # Sound server program                                │
@@ -60,7 +60,7 @@ Brightness="brightnessctl"
 # ┌─────────────────────────────────────────────────────────────────────────────────────┐
 # │ brightnessctl               # Control device brightness                             │
 # └─────────────────────────────────────────────────────────────────────────────────────┘
-Editors="terminator neovim tmux gedit"
+Editors="terminator kitty neovim tmux gedit"
 # ┌─────────────────────────────────────────────────────────────────────────────────────┐
 # │ terminator                  # Terminator                                            │
 # │ neovim                      # NeoVim                                                │
@@ -87,7 +87,7 @@ Power_Management=""
 # │ xfce4-power-manager         # xfce power manager                                    │
 # │ xfce4-screensaver           # xfce screenaver                                       │
 # └─────────────────────────────────────────────────────────────────────────────────────┘
-File_Management="unzip trash-cli"
+File_Management="pcmanfm unzip trash-cli"
 # ┌─────────────────────────────────────────────────────────────────────────────────────┐
 # │ unzip                       # unzip                                                 │
 # │ # ranger                    # ranger                                                │
@@ -121,11 +121,10 @@ Clipboard="copyq"
 # │ xclip                       # provides an interface to the clipboard                │
 # │ parcellite                  # Clipboard tool (Shortcut : Ctrl+Alt+H)                │
 # └─────────────────────────────────────────────────────────────────────────────────────┘
-Keyboard_and_Mouse="numlockx xtrlock barrier"
+Keyboard_and_Mouse="numlockx"
 # ┌─────────────────────────────────────────────────────────────────────────────────────┐
 # │ numlockx                    # Control the state of NumLock                          │
 # │ xtrlock                     # Lock display and mouse                                │
-# │ barrier                     # KVM software                                          │
 # └─────────────────────────────────────────────────────────────────────────────────────┘
 Monitor_power_saving=""
 # ┌─────────────────────────────────────────────────────────────────────────────────────┐
@@ -143,7 +142,7 @@ Man="tldr bat"
 # │ manpages-dev                # Manual pages about using GNU/Linux for development    │
 # │ glibc-doc                   # GNU C Library: Documentation                          │
 # └─────────────────────────────────────────────────────────────────────────────────────┘
-Hangul_input="ibus ibus-hangul"
+Hangul_input=""
 # ┌─────────────────────────────────────────────────────────────────────────────────────┐
 # │ ibus ibus-hangul            # ibus                                                  │
 # │ # fonts-nanum               # 나눔 한글 글꼴                                        │
@@ -297,36 +296,22 @@ fi
 
 if [ -x "$(command -v pacman)" ]; then
   # pacman exception handling package (pacman 예외 처리 패키지)
-  yay -S --noconfirm mcomix # Comic book viewer x
+  yay -S --noconfirm mcomix   # Comic book viewer x
+  yay -S --noconfirm kime-git # Comic book viewer x
   # sudo pacman -S --noconfirm xorg           # xorg
   sudo pacman -S --noconfirm volumeicon     # Lightweight volume control
   sudo pacman -S --noconfirm unarchiver     # unzip alternater
   sudo pacman -S --noconfirm networkmanager # nmtui(Network Manager)
-  sudo pacman -S --noconfirm ctags          # ctag
-  sudo pacman -S --noconfirm python-pip     # python
-  sudo pacman -S --noconfirm lazygit        # lazygit
-  cargo install git-graph                   # git-graph
+  sudo systemctl enable NetworkManager.service
+  sudo pacman -S --noconfirm ctags      # ctag
+  sudo pacman -S --noconfirm python-pip # python
+  sudo pacman -S --noconfirm lazygit    # lazygit
+  cargo install git-graph               # git-graph
   sudo systemctl enable ly.service
   sudo systemctl start ly.service
 
   exit 0
 fi
-
-echo -e "\n\n\n\n\nPort and firewall settings\n\n\n\n\n"
-sleep 5
-
-# Open 22 port
-sudo ufw enable
-sudo ufw allow 22/tcp
-
-# KDE Connect ufw setting
-sudo ufw allow 1714:1764/udp
-sudo ufw allow 1714:1764/tcp
-sudo ufw reload
-
-# KDE Connect ufw firewall
-sudo firewall-cmd --permanent --zone=public --add-service=kdeconnect
-sudo firewall-cmd --reload
 
 # Exit the script
 exit 0

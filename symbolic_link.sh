@@ -11,6 +11,7 @@ sudo rm -rf ~/.config/nvim
 sudo rm -rf ~/.config/nvim_old
 sudo rm -rf ~/.config/parcellite
 sudo rm -rf ~/.config/terminator
+sudo rm -rf ~/.config/kitty
 sudo rm -rf ~/.p10k.zsh
 sudo rm -rf ~/.xprofile
 sudo rm -rf ~/.zshrc
@@ -28,6 +29,7 @@ sudo ln -sf ~/Documents/github/my_linux/home/.config/nvim ~/.config/
 sudo ln -sf ~/Documents/github/my_linux/home/.config/nvim_old ~/.config/
 sudo ln -sf ~/Documents/github/my_linux/home/.config/parcellite ~/.config/
 sudo ln -sf ~/Documents/github/my_linux/home/.config/terminator ~/.config/
+sudo ln -sf ~/Documents/github/my_linux/home/.config/kitty ~/.config/
 sudo ln -sf ~/Documents/github/my_linux/home/.p10k.zsh ~/
 sudo ln -sf ~/Documents/github/my_linux/home/.xprofile ~/
 sudo ln -sf ~/Documents/github/my_linux/home/.zshrc ~/
