@@ -8,11 +8,11 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 #zsh 플러그인 설치
 plugins=(
-    git
-    fzf
-    zsh-syntax-highlighting
-    zsh-autosuggestions
-    # zsh-wakatime
+  git
+  fzf
+  zsh-syntax-highlighting
+  zsh-autosuggestions
+  # zsh-wakatime
 )
 source $ZSH/oh-my-zsh.sh
 
@@ -20,18 +20,17 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 #alias 설정(명령어)
-alias powerup='sudo pacman -Syu --ignore linux,linux-headers,linux-lts,linux-lts-headers,linux-zen,linux-zen-headers && yay -S google-chrome --noconfirm'
+alias powerup='yay -Syu --ignore linux,linux-headers,linux-lts,linux-lts-headers,linux-zen,linux-zen-headers'
 alias lg="lazygit"
 alias gg="git-graph"
 alias vi="nvim"
 # alias rrm="sudo mv -t /tmp"
 alias rrm="trash-put"
-alias th="thunar $pwd"
-alias lock="xtrlock" 
-alias lock60="timeout 60 xtrlock" 
+alias th="pcmanfm $pwd"
+alias lock="xtrlock"
+alias lock60="timeout 60 xtrlock"
 # alias cal="if [ -t 1 ] ; then ncal -b ; else /usr/bin/cal ; fi"
-# alias cap="scrot -s '%F_%T.png' -e 'xclip -selection clip -t image/png "$f"; mv "$f" ~/Pictures/'"
-# alias cap="~/./.scrot_clipboard.sh"
+alias cap='grim -g "$(slurp)" - | swappy -f -'
 alias gif="vlc --demux=avformat --loop"
 alias weather_home="curl wttr.in/37.5508,126.8648"
 alias weather_school="curl wttr.in/37.4868,126.8224"
@@ -70,5 +69,7 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/sbin
 export PATH="$PATH:$HOME/.cargo/bin/"
 
 #Display man Pages in Color
-export MANPAGER="less -R"
-# export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+man() {
+    command man "$@" | bat -pl man
+}
+

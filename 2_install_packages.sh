@@ -94,7 +94,7 @@ File_Management="pcmanfm unzip trash-cli"
 # │ trash-cli                   # trash-cli                                             │
 # │ fzf                         # fuzzy finder                                          │
 # └─────────────────────────────────────────────────────────────────────────────────────┘
-Image_and_Video="gpick kolourpaint feh peek vlc cheese gnome-screenshot"
+Image_and_Video="gpick kolourpaint feh peek vlc cheese gnome-screenshot grim slurp swappy"
 # ┌─────────────────────────────────────────────────────────────────────────────────────┐
 # │ gpick                       # Color Picker                                          │
 # │ kolourpaint                 # Paint                                                 │
@@ -115,13 +115,13 @@ Office="libreoffice-still okular mate-calc"
 # │ mate-calc                   # Mate calculator                                       │
 # │ # apcalc                    # CLI calculator                                        │
 # └─────────────────────────────────────────────────────────────────────────────────────┘
-Clipboard="copyq"
+Clipboard="copyq wl-clipboard"
 # ┌─────────────────────────────────────────────────────────────────────────────────────┐
 # │ xdotool                     # command-line X11 automation tool                      │
 # │ xclip                       # provides an interface to the clipboard                │
 # │ parcellite                  # Clipboard tool (Shortcut : Ctrl+Alt+H)                │
 # └─────────────────────────────────────────────────────────────────────────────────────┘
-Keyboard_and_Mouse="numlockx"
+Keyboard_and_Mouse="numlockx xtrlock"
 # ┌─────────────────────────────────────────────────────────────────────────────────────┐
 # │ numlockx                    # Control the state of NumLock                          │
 # │ xtrlock                     # Lock display and mouse                                │
@@ -148,7 +148,7 @@ Hangul_input=""
 # │ # fonts-nanum               # 나눔 한글 글꼴                                        │
 # │ # fcitx-lib* fcitx-hangul   # fcitx                                                 │
 # └─────────────────────────────────────────────────────────────────────────────────────┘
-Compiler="gcc clang cargo"
+Compiler="gcc llvm clang cargo"
 # ┌─────────────────────────────────────────────────────────────────────────────────────┐
 # │ gcc                         # GNU C Compiler                                        │
 # │ clang LLVM                  # LLVM C/C++ Compiler                                   │
@@ -159,7 +159,7 @@ Build="make cmake"
 # │ make                        # Build automation utility (Makefile)                   │
 # │ cmake                       # Build automation utility (CMakeLists.txt)             │
 # └─────────────────────────────────────────────────────────────────────────────────────┘
-Other_Utility="rofi aria2 barrier"
+Other_Utility="rofi aria2 sshfs openssh ufw"
 # ┌─────────────────────────────────────────────────────────────────────────────────────┐
 # │ rofi                        # Application dmenu                                     │
 # │ aria2                       # Command-line download utility                         │
@@ -194,9 +194,9 @@ echo -e "\n\n\n\n\nRun Basic_Package\n\n\n\n\n"
 sleep 5
 install_packages "$Basic_Package"
 
-echo -e "\n\n\n\n\nRun i3_Window_Manager\n\n\n\n\n"
+echo -e "\n\n\n\n\nRun Window_Manager\n\n\n\n\n"
 sleep 5
-install_packages "$i3_Window_Manager"
+install_packages "$Window_Manager"
 
 echo -e "\n\n\n\n\nRun Sound\n\n\n\n\n"
 sleep 5
@@ -308,7 +308,6 @@ if [ -x "$(command -v pacman)" ]; then
   sudo pacman -S --noconfirm lazygit    # lazygit
   cargo install git-graph               # git-graph
   sudo systemctl enable ly.service
-  sudo systemctl start ly.service
 
   exit 0
 fi

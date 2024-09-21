@@ -66,13 +66,8 @@ output eDP-1 scale 1
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
-set $mod Mod4
-set $shift Shift
-set $alt Mod1
 
-
-
-# ----- <Application> -----
+# Application
 set $term kitty
 bindsym $mod+t exec kitty
 bindsym $mod+Return exec kitty
@@ -232,20 +227,16 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
-
-
 #############################################
 # autostart applications/services on login: #
 #############################################
-
 # 5분 후 화면 밝기 10%
 # 10분 후 화면 끔
 exec_always swayidle \
-    timeout 300 'brightnessctl set 10%' \
+    timeout 300 'brightnessctl set 5%' \
     resume 'brightnessctl set 100%' \
-    timeout 600 'swaylock -f' \
+    timeout 600 'brightnessctl set 1% && swaylock -f' \
     resume 'brightnessctl set 100%'
-
 
 exec_always dbus-launch dunst --config ~/.config/dunst/dunstrc
 # exec_always tlp start
@@ -254,7 +245,23 @@ exec_always numlockx on
 exec_always copyq
 exec kime
 
-# exec nimf
+
+
+input "2:10:TPPS/2_Elan_TrackPoint" {
+    pointer_accel -1.0
+}
+
+input "1267:12624:ELAN0670:00_04F3:3150_Touchpad" {
+    pointer_accel 0.6
+    tap enabled         # enables click-on-tap
+    tap_button_map lrm  # tap with 1 finger = left click, 2 fingers = right click, 3 fingers = middle click
+    dwt enabled         # disable (touchpad) while typing
+    dwtp enabled        # disable (touchpad) while track pointing
+    scroll_method two_finger
+}
+
+
+
 
 
 include /etc/sway/config.d/*
