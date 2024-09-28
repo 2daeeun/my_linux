@@ -87,7 +87,7 @@ Power_Management=""
 # │ xfce4-power-manager         # xfce power manager                                    │
 # │ xfce4-screensaver           # xfce screenaver                                       │
 # └─────────────────────────────────────────────────────────────────────────────────────┘
-File_Management="pcmanfm unzip trash-cli"
+File_Management="pcmanfm unzip trash-cli tree"
 # ┌─────────────────────────────────────────────────────────────────────────────────────┐
 # │ unzip                       # unzip                                                 │
 # │ # ranger                    # ranger                                                │
