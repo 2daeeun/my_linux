@@ -30,7 +30,7 @@ bindsym $alt+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
 
 ### Output configuration
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg ~/.config/sway/thinkpad_wallpaper.png fill
 output eDP-1 resolution 2160x1350
 output eDP-1 scale 1
 #
