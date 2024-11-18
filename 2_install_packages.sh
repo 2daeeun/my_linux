@@ -148,11 +148,13 @@ Hangul_input=""
 # │ # fonts-nanum               # 나눔 한글 글꼴                                        │
 # │ # fcitx-lib* fcitx-hangul   # fcitx                                                 │
 # └─────────────────────────────────────────────────────────────────────────────────────┘
-Compiler="gcc llvm clang cargo"
+Compiler="gcc llvm clang cargo bear bc"
 # ┌─────────────────────────────────────────────────────────────────────────────────────┐
 # │ gcc                         # GNU C Compiler                                        │
 # │ clang LLVM                  # LLVM C/C++ Compiler                                   │
 # │ cargo                       # Rust package manager                                  │
+# │ bear                        # A tool to generate compliation database               │
+# │ bc                          # An arbitrary precision calculator language            │
 # └─────────────────────────────────────────────────────────────────────────────────────┘
 Build="make cmake"
 # ┌─────────────────────────────────────────────────────────────────────────────────────┐

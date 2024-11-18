@@ -232,11 +232,18 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 #############################################
 # 5분 후 화면 밝기 10%
 # 10분 후 화면 끔
+# exec_always swayidle \
+#     timeout 300 'brightnessctl set 5%' \
+#     resume 'brightnessctl set 100%' \
+#     timeout 600 'brightnessctl set 1% && swaylock -f' \
+#     resume 'brightnessctl set 100%'
+
 exec_always swayidle \
     timeout 300 'brightnessctl set 5%' \
     resume 'brightnessctl set 100%' \
-    timeout 600 'brightnessctl set 1% && swaylock -f' \
+    timeout 600 'brightnessctl set 30% && swaylock -f --image ~/.config/sway/thinkpad_screensaver.png' \
     resume 'brightnessctl set 100%'
+
 
 exec_always dbus-launch dunst --config ~/.config/dunst/dunstrc
 # exec_always tlp start
