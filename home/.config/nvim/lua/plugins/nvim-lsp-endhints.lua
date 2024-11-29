@@ -9,9 +9,10 @@ return {
       unknown = "  unknown : ", -- hint kind is nil
     },
     label = {
-      padding = 1,
-      marginLeft = 0,
+      padding = 8,
+      marginLeft = 8,
       bracketedParameters = true,
+      sameKindSeparator = ", ",
     },
     autoEnableHints = true,
   },
