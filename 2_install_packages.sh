@@ -74,11 +74,10 @@ SystemInfo="neofetch htop ncdu"
 # │ htop                        # Task manager                                          │
 # │ ncdu                        # du alternater, NCurses Disk Usage                     │
 # └─────────────────────────────────────────────────────────────────────────────────────┘
-Display_Management="ly arandr lxrandr autorandr"
+Display_Management="ly arandr autorandr"
 # ┌─────────────────────────────────────────────────────────────────────────────────────┐
 # │ lightdm                     # Lock Screen                                           │
 # │ arandr                      # arandr                                                │
-# │ lxrandr                     # lxrandr                                               │
 # │ autorandr                   # auto arandr                                           │
 # └─────────────────────────────────────────────────────────────────────────────────────┘
 Power_Management=""
@@ -161,7 +160,7 @@ Build="make cmake"
 # │ make                        # Build automation utility (Makefile)                   │
 # │ cmake                       # Build automation utility (CMakeLists.txt)             │
 # └─────────────────────────────────────────────────────────────────────────────────────┘
-Other_Utility="rofi aria2 sshfs openssh ufw"
+Other_Utility="rofi aria2 sshfs openssh ufw mako"
 # ┌─────────────────────────────────────────────────────────────────────────────────────┐
 # │ rofi                        # Application dmenu                                     │
 # │ aria2                       # Command-line download utility                         │
@@ -174,6 +173,7 @@ Other_Utility="rofi aria2 sshfs openssh ufw"
 # │ rsync                       # one way                                               │
 # │ unison                      # both way                                              │
 # │ openssh                     # ssh                                                   │
+# │ mako                        # Lightweight notification daemon for Wayland           │
 # │ ufw                         # ufw                                                   │
 # └─────────────────────────────────────────────────────────────────────────────────────┘
 
@@ -298,9 +298,9 @@ fi
 
 if [ -x "$(command -v pacman)" ]; then
   # pacman exception handling package (pacman 예외 처리 패키지)
-  yay -S --noconfirm mcomix   # Comic book viewer x
-  yay -S --noconfirm kime-git # Comic book viewer x
-  # sudo pacman -S --noconfirm xorg           # xorg
+  yay -S --noconfirm mcomix                 # Comic book viewer x
+  yay -S --noconfirm kime-git               # Korean IME
+  yay -S --noconfirm wdisplays              # GUI display configurator for wlroots compositors
   sudo pacman -S --noconfirm volumeicon     # Lightweight volume control
   sudo pacman -S --noconfirm unarchiver     # unzip alternater
   sudo pacman -S --noconfirm networkmanager # nmtui(Network Manager)
