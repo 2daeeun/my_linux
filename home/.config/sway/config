@@ -117,11 +117,6 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # ----- <창 이동> -----
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+i move up
-bindsym $mod+Shift+l move right
-
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Right move right
 bindsym $mod+Shift+Down move down
@@ -230,29 +225,28 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 #############################################
 # autostart applications/services on login: #
 #############################################
-# 5분 후 화면 밝기 10%
-# 10분 후 화면 끔
-# exec_always swayidle \
-#     timeout 300 'brightnessctl set 5%' \
-#     resume 'brightnessctl set 100%' \
-#     timeout 600 'brightnessctl set 1% && swaylock -f' \
-#     resume 'brightnessctl set 100%'
-
+# swayidle (feat. 화면 보호기)
 exec_always swayidle \
     timeout 300 'brightnessctl set 5%' \
     resume 'brightnessctl set 100%' \
     timeout 600 'brightnessctl set 30% && swaylock -f --image ~/.config/sway/thinkpad_screensaver.png' \
     resume 'brightnessctl set 100%'
 
+# swayidle 토글 키 바인딩
+bindsym $mod+Shift+l exec "pgrep swayidle && (pkill swayidle && notify-send '화면 보호기 OFF' 'Swayidle Disabled') || (swayidle \
+    timeout 300 'brightnessctl set 5%' \
+    resume 'brightnessctl set 100%' \
+    timeout 600 'brightnessctl set 30% && swaylock -f --image ~/.config/sway/thinkpad_screensaver.png' \
+    resume 'brightnessctl set 100%' & notify-send '화면 보호기 ON' 'Swayidle Enabled')"
 
+# 백그라운드 
 exec_always dbus-launch dunst --config ~/.config/dunst/dunstrc
-# exec_always tlp start
-# exec_always discord --start-minimized
+exec_always tlp start
+exec_always discord --start-minimized
 exec_always numlockx on
 exec_always copyq
+exec_always mako
 exec kime
-
-
 
 input "2:10:TPPS/2_Elan_TrackPoint" {
     pointer_accel -1.0
@@ -266,9 +260,3 @@ input "1267:12624:ELAN0670:00_04F3:3150_Touchpad" {
     dwtp enabled        # disable (touchpad) while track pointing
     scroll_method two_finger
 }
-
-
-
-
-
-include /etc/sway/config.d/*
