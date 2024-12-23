@@ -46,3 +46,6 @@ vim.cmd(
 vim.cmd(
   "autocmd FileType java nnoremap <buffer> <F9> :exec '!javac' shellescape(expand('%'), 1) '&& java' shellescape(expand('%:r'), 1)<CR>"
 )
+vim.cmd(
+  "autocmd FileType rust nnoremap <buffer> <F9> :w <bar> exec '!rustc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>"
+)
