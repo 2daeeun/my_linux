@@ -239,6 +239,9 @@ bindsym $mod+Shift+l exec "pgrep swayidle && (pkill swayidle && notify-send '화
     timeout 600 'brightnessctl set 30% && swaylock -f --image ~/.config/sway/thinkpad_screensaver.png' \
     resume 'brightnessctl set 100%' & notify-send '화면 보호기 ON' 'Swayidle Enabled')"
 
+# 마우스 커서 크기 변경
+seat * xcursor_theme Adwaita 48
+
 # 백그라운드 
 exec_always dbus-launch dunst --config ~/.config/dunst/dunstrc
 exec_always tlp start
