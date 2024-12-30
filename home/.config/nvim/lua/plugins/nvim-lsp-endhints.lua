@@ -14,6 +14,7 @@ return {
       bracketedParameters = true,
       sameKindSeparator = ", ",
     },
-    autoEnableHints = true,
+    -- autoEnableHints = true,
+    autoEnableHints = false,
   },
 }
