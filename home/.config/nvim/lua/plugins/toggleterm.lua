@@ -1,3 +1,4 @@
+-- toggleterm.lua
 return {
   "akinsho/toggleterm.nvim",
   keys = {

@@ -1,3 +1,4 @@
+-- tagbar.lua
 return {
   "majutsushi/tagbar", -- shows classes, methods inside file
   config = function()

@@ -1,3 +1,4 @@
+-- rustaceanvim.lua
 return {
   {
     "mrcjkb/rustaceanvim",

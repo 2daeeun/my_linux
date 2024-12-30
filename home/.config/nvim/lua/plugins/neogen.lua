@@ -1,3 +1,4 @@
+-- neogen.lua
 return {
   "danymat/neogen",
   dependencies = {

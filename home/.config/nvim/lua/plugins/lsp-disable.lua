@@ -1,3 +1,4 @@
+-- lsp-disable.lua
 return {
   "neovim/nvim-lspconfig",
   enabled = function()
