@@ -3,7 +3,16 @@ return {
   "akinsho/toggleterm.nvim",
   keys = {
     { [[<C-\>]] },
-    { "<leader>j", "<Cmd>2ToggleTerm<Cr>", desc = "Terminal #2" },
+    { "<leader>J", function()
+        require("toggleterm").toggle(2, nil, nil, "horizontal")
+      end,
+      desc = "Terminal (Horizontal)"
+    },
+    { "<leader>j", function()
+        require("toggleterm").toggle(2, nil, nil, "float")
+      end,
+      desc = "Terminal (Float)"
+    },
   },
   cmd = { "ToggleTerm", "TermExec" },
   opts = {
