@@ -54,6 +54,9 @@ alias al="cd ~/Documents/github/Algorithm_study/"
 alias br="cd ~/Documents/github/Algorithm_study/solved.ac/Bronze/"
 alias si="cd ~/Documents/github/Algorithm_study/solved.ac/Silver/"
 
+#alias 설정(임시)
+alias ro="~/rocksdb/"
+
 #alias 설정(셸 스크립트 실행)
 alias mo="~/Documents/mount_sshfs.sh"
 
