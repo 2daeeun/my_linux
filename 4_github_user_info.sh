@@ -4,11 +4,11 @@
 echo -e "\n\n\ngit 설치\n\n\n"
 
 if [ -x "$(command -v apt-get)" ]; then
-	sudo apt update
-	sudo apt install git -y
+  sudo apt update
+  sudo apt install git -y
 elif [ -x "$(command -v pacman)" ]; then
-	sudo pacman -Sy
-	sudo pacman -S --noconfirm git
+  sudo pacman -Sy
+  sudo pacman -S --noconfirm git
 fi
 
 echo -e "\n\n\n"
@@ -22,6 +22,9 @@ git config --global color.ui "auto"
 
 # git 편집 에디터 바꾸기 (nano to vim)
 git config --global core.editor "nvim"
+
+# git 한글 깨짐 방지
+git config --global core.quotepath false
 
 # 사용자 정보 등록
 git config --global user.name "$username"

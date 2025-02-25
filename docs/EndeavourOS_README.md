@@ -2,7 +2,7 @@
 This is my personal Linux setting.
 
 ## EndeavourOS Installer
-"Endeavouros_Cassini_Nova-03-2023_R3" 기준으로 작성됨
+"EndeavourOS_Gemini-2024.04.20.iso" 기준으로 작성됨
 
 |카테고리|<center>선택</center>|
 |:---:|---|
@@ -10,7 +10,7 @@ This is my personal Linux setting.
 | Location | • The numbers and dates locale : ko_KR.UTF-8 |
 | Keyboard | • English(US) - Default |
 | Desktop | • i3-wm |
-| Packages | • Desktop-Base + Common packages </br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─(선택 안 하기) EndeavourOS Apps </br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─(선택 안 하기) EndeavourOS applications selection </br>• LTS Kernel in addition </br> • i3-Window-Manager|
+| Packages | • Desktop-Base + Common packages </br>• Recommended applications selection </br>• Firefox and language package </br>• Spell Checker and language package </br>• Firewall </br>• LTS Kernel in addition </br>• i3-Window-Manager|
 | Bootloader | • Grub |
 | Partitions | • Erase disk </br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─Swap (with Hibernate) ― ext4|
 
@@ -22,9 +22,10 @@ mkdir -p ~/Documents/github && cd ~/Documents/github && git clone https://github
 
 ## 각종 패키지 설치
 ```
-./1_install_chrome.sh
-./2_install_pakage.sh
+./1_install_chrome_and_kernel_update.sh
+./2_install_packages.sh
 ./3_install_zsh.sh
+./4_github_user_info.sh
 ```
 
 ## 설정 파일 복사
