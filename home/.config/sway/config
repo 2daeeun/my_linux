@@ -195,17 +195,17 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# # Start i3bar
-# bar {
-#     # font pango:DejaVu Sans Mono 14
-#     font pango:Hack Nerd Font Regular 14
-#     status_command i3status
-#     status_command exec $HOME/.config/i3status/net-speed.sh
-#     #status_command RUN_PATH
-# }
+# Start i3bar
+bar {
+    # font pango:DejaVu Sans Mono 14
+    font pango:Hack Nerd Font Regular 14
+    status_command i3status
+    status_command exec $HOME/.config/i3status/net-speed.sh
+    #status_command RUN_PATH
+}
 
-# Start waybar
-exec waybar
+# # Start waybar
+# exec waybar
 
 
 

@@ -3,72 +3,34 @@
 	"position": "bottom",
 
 	"modules-left": [
-		"hyprland/workspaces",
-		"custom/arrow10",
-		"hyprland/window"
+		"hyprland/workspaces"
 	],
 
 	"modules-right": [
-		"custom/arrow9",
-		"pulseaudio",
-		"custom/arrow8",
-		"network",
-		"custom/arrow7",
-		"memory",
-		"custom/arrow6",
+		"custom/net_speed",
 		"cpu",
-		"custom/arrow5",
+		"memory",
 		"temperature",
-		"custom/arrow4",
+		"network",
 		"battery",
-		"custom/arrow3",
-		"custom/language",
-		"custom/arrow2",
-		"tray",
+		"pulseaudio",
 		"clock#date",
-		"custom/arrow1",
-		"clock#time"
+		"clock#time",
+		"tray"
 	],
 
-	"battery": {
-		"interval": 10,
-		"states": {
-			"warning": 30,
-			"critical": 15
-		},
-		"format-time": "{H}:{M:02}",
-		"format": "{icon} {capacity}% ({time})",
-		"format-charging": " {capacity}% ({time})",
-		"format-charging-full": " {capacity}%",
-		"format-full": "{icon} {capacity}%",
-		"format-alt": "{icon} {power}W",
-		"format-icons": [
-			"",
-			"",
-			"",
-			"",
-			""
-		],
-		"tooltip": false
-	},
-
-	"clock#time": {
-		"interval": 10,
-		"format": "{:%H:%M}",
-		"tooltip": false
-	},
-
-	"clock#date": {
-		"interval": 20,
-		"format": "{:%e %b %Y}",
+	"custom/net_speed": {
+		"exec": "~/.config/waybar/net_speed.sh",
+		"interval": 1,
+		"format": " {} ",
 		"tooltip": false
 	},
 
 	"cpu": {
-		"interval": 5,
+		"interval": 1,
 		"tooltip": false,
-		"format": " {usage}%",
-		"format-alt": " {load}",
+		"format": " CPU: {usage}% ",
+		"format-alt": " CPU: {load} ",
 		"states": {
 			"warning": 70,
 			"critical": 90
@@ -77,7 +39,7 @@
 
 	"memory": {
 		"interval": 5,
-		"format": " {used:0.1f}G/{total:0.1f}G",
+		"format": " Mem: {used:0.1f}G/{total:0.1f}G ",
 		"states": {
 			"warning": 70,
 			"critical": 90
@@ -85,19 +47,54 @@
 		"tooltip": false
 	},
 
+	"temperature": {
+		"critical-threshold": 90,
+		"interval": 5,
+		"format": " {icon} {temperatureC}° ",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		],
+		"tooltip": false
+	},
+
 	"network": {
 		"interval": 5,
-		"format-wifi": " {essid} ({signalStrength}%)",
-		"format-ethernet": " {ifname}",
-		"format-disconnected": "No connection",
-		"format-alt": " {ipaddr}/{cidr}",
+		"format-wifi": "  {essid} ({signalStrength}%) ",
+		"format-ethernet": "  {ifname} ",
+		"format-disconnected": " No connection ",
+		"format-alt": " IP: {ipaddr}/{cidr} ",
+		"tooltip": false
+	},
+
+	"battery": {
+		"interval": 5,
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format-time": "{H}:{M:02}",
+		"format": " {icon} {capacity}% ({time}) ",
+		"format-charging": "  {capacity}% ({time}) ",
+		"format-charging-full": "  {capacity}% ",
+		"format-full": " {icon} {capacity}% ",
+		"format-icons": [
+			" ",
+			" ",
+			" ",
+			" ",
+			" "
+		],
 		"tooltip": false
 	},
 
 	"pulseaudio": {
-		"format": "{icon} {volume}%",
-		"format-bluetooth": "{icon} {volume}%",
-		"format-muted": "",
+		"format": " {icon} {volume}% ",
+		"format-bluetooth": " {icon} {volume}% ",
+		"format-muted": "  ",
 		"format-icons": {
 			"headphone": "",
 			"hands-free": "",
@@ -115,72 +112,27 @@
 		"tooltip": false
 	},
 
-	"temperature": {
-		"critical-threshold": 90,
-		"interval": 5,
-		"format": "{icon} {temperatureC}°",
-		"format-icons": [
-			"",
-			"",
-			"",
-			"",
-			""
-		],
-		"tooltip": false
-	},
-
 	"tray": {
-		"icon-size": 18
+		"icon-size": 21
 	},
 
-	"custom/arrow1": {
-		"format": "",
-		"tooltip": false
+	"clock#date": {
+		"interval": 60,
+    	"format": "   {:%Y년 %m월 %d일 (%A)} ",
+    	"tooltip": false,
+    	"env": {
+        	"LANG": "ko_KR.UTF-8",
+        	"LC_TIME": "ko_KR.UTF-8"
+    	}
 	},
 
-	"custom/arrow2": {
-		"format": "",
-		"tooltip": false
-	},
-
-	"custom/arrow3": {
-		"format": "",
-		"tooltip": false
-	},
-
-	"custom/arrow4": {
-		"format": "",
-		"tooltip": false
-	},
-
-	"custom/arrow5": {
-		"format": "",
-		"tooltip": false
-	},
-
-	"custom/arrow6": {
-		"format": "",
-		"tooltip": false
-	},
-
-	"custom/arrow7": {
-		"format": "",
-		"tooltip": false
-	},
-
-	"custom/arrow8": {
-		"format": "",
-		"tooltip": false
-	},
-
-	"custom/arrow9": {
-		"format": "",
-		"tooltip": false
-	},
-
-	"custom/arrow10": {
-		"format": "",
-		"tooltip": false
+	"clock#time": {
+		"interval": 1,
+		"format": "{:%H:%M:%S} ",
+		"tooltip": false,
+		"env": {
+			"LC_TIME": "ko_KR.UTF-8"
+		}
 	},
 
 	"hyprland/window": {
@@ -197,14 +149,5 @@
 		"smooth-scrolling-threshold": 4,
 		"enable-bar-scroll": true,
 		"format": "{}"
-	},
-
-	"custom/language": {
-		"exec": "setxkbmap -query | awk '/layout/ {print $2}'",
-		"format": " {}",
-		"min-length": 5,
-		"on-click": "your_language_switch_command_here",
-		"tooltip": false
 	}
 }
-
