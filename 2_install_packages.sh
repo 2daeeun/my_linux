@@ -47,272 +47,294 @@ else
   exit 1
 fi
 
-# Common packages (공통 패키지들을 변수에 저장)
-Basic_Package="sudo wget git"
-Window_Manager="sway swayidle swaylock xorg-xwayland i3status"
-Sound="pavucontrol alsa-utils"
-# ┌─────────────────────────────────────────────────────────────────────────────────────┐
-# │ # pulseaudio                  # Sound server program                                │
-# │ pavucontrol                 # Volume Control                                        │
-# │ alsa-utils                  # The Advanced Linux Sound Architecture (ALSA)          │
-# └─────────────────────────────────────────────────────────────────────────────────────┘
-Brightness="brightnessctl"
-# ┌─────────────────────────────────────────────────────────────────────────────────────┐
-# │ brightnessctl               # Control device brightness                             │
-# └─────────────────────────────────────────────────────────────────────────────────────┘
-Editors="terminator kitty neovim tmux gedit"
-# ┌─────────────────────────────────────────────────────────────────────────────────────┐
-# │ terminator                  # Terminator                                            │
-# │ neovim                      # NeoVim                                                │
-# │ tmux                        # terminal multiplexer                                  │
-# │ gedit                       # Text editor                                           │
-# │ # leafpad                   # Text editor                                           │
-# └─────────────────────────────────────────────────────────────────────────────────────┘
-SystemInfo="neofetch htop ncdu"
-# ┌─────────────────────────────────────────────────────────────────────────────────────┐
-# │ neofetch                    # Show system information                               │
-# │ htop                        # Task manager                                          │
-# │ ncdu                        # du alternater, NCurses Disk Usage                     │
-# └─────────────────────────────────────────────────────────────────────────────────────┘
-Display_Management="ly arandr autorandr"
-# ┌─────────────────────────────────────────────────────────────────────────────────────┐
-# │ lightdm                     # Lock Screen                                           │
-# │ arandr                      # arandr                                                │
-# │ autorandr                   # auto arandr                                           │
-# └─────────────────────────────────────────────────────────────────────────────────────┘
-Power_Management=""
-# ┌─────────────────────────────────────────────────────────────────────────────────────┐
-# │ # tlp tlp-rdw                 # Saving laptop battery power                         │
-# │ xfce4-power-manager         # xfce power manager                                    │
-# │ xfce4-screensaver           # xfce screenaver                                       │
-# └─────────────────────────────────────────────────────────────────────────────────────┘
-File_Management="pcmanfm unzip trash-cli tree"
-# ┌─────────────────────────────────────────────────────────────────────────────────────┐
-# │ unzip                       # unzip                                                 │
-# │ # ranger                    # ranger                                                │
-# │ trash-cli                   # trash-cli                                             │
-# │ fzf                         # fuzzy finder                                          │
-# └─────────────────────────────────────────────────────────────────────────────────────┘
-Image_and_Video="gpick kolourpaint feh peek vlc cheese gnome-screenshot grim slurp swappy"
-# ┌─────────────────────────────────────────────────────────────────────────────────────┐
-# │ gpick                       # Color Picker                                          │
-# │ kolourpaint                 # Paint                                                 │
-# │ # mcomix                      # Comic book viewer                                   │
-# │ feh                         # Image viewer                                          │
-# │ peek                        # Simple GIF screen recorder                            │
-# │ vlc                         # Video Player                                          │
-# │ cheese                      # Camera                                                │
-# │ # xfce4-screenshooter       # screenshooter                                         │
-# │ # scrot                     # screenshooter                                         │
-# │ gnome-screenshot            # screenshooter                                         │
-# └─────────────────────────────────────────────────────────────────────────────────────┘
-Office="libreoffice-still okular mate-calc"
-# ┌─────────────────────────────────────────────────────────────────────────────────────┐
-# │ libreoffice-still           # Free office application                               │
-# │ okular                      # PDF viewer                                            │
-# │ # xpad                      # Sticky note application                               │
-# │ mate-calc                   # Mate calculator                                       │
-# │ # apcalc                    # CLI calculator                                        │
-# └─────────────────────────────────────────────────────────────────────────────────────┘
-Clipboard="copyq wl-clipboard"
-# ┌─────────────────────────────────────────────────────────────────────────────────────┐
-# │ xdotool                     # command-line X11 automation tool                      │
-# │ xclip                       # provides an interface to the clipboard                │
-# │ parcellite                  # Clipboard tool (Shortcut : Ctrl+Alt+H)                │
-# └─────────────────────────────────────────────────────────────────────────────────────┘
-Keyboard_and_Mouse="numlockx xtrlock"
-# ┌─────────────────────────────────────────────────────────────────────────────────────┐
-# │ numlockx                    # Control the state of NumLock                          │
-# │ xtrlock                     # Lock display and mouse                                │
-# └─────────────────────────────────────────────────────────────────────────────────────┘
-Monitor_power_saving=""
-# ┌─────────────────────────────────────────────────────────────────────────────────────┐
-# │ xorg-xrandr                 # 화면 밝기를 조정하는 데 사용                          │
-# │ xautolock                   # 일정 시간 후에 스크립트를 실행하는 데 사용            │
-# │ xorg-xprintidle             # 셸 스크립트에서 유휴 상태를 감지하는 데 사용          │
-# │ polkit-gnome                # 시스템 권한 관리 및 인증을 처리                       │
-# │ dex                         # 자동 시작 애플리케이션을 관리하는 도구                │
-# └─────────────────────────────────────────────────────────────────────────────────────┘
-Man="tldr bat"
-# ┌─────────────────────────────────────────────────────────────────────────────────────┐
-# │ tldr                        # man alternater                                        │
-# │ bat                         # Cat clone with syntax highlighting and git integration│
-# │ man-db                      # The online manual database                            │
-# │ manpages-dev                # Manual pages about using GNU/Linux for development    │
-# │ glibc-doc                   # GNU C Library: Documentation                          │
-# └─────────────────────────────────────────────────────────────────────────────────────┘
-Hangul_input=""
-# ┌─────────────────────────────────────────────────────────────────────────────────────┐
-# │ ibus ibus-hangul            # ibus                                                  │
-# │ # fonts-nanum               # 나눔 한글 글꼴                                        │
-# │ # fcitx-lib* fcitx-hangul   # fcitx                                                 │
-# └─────────────────────────────────────────────────────────────────────────────────────┘
-Compiler="gcc llvm clang cargo bear bc"
-# ┌─────────────────────────────────────────────────────────────────────────────────────┐
-# │ gcc                         # GNU C Compiler                                        │
-# │ clang LLVM                  # LLVM C/C++ Compiler                                   │
-# │ cargo                       # Rust package manager                                  │
-# │ bear                        # A tool to generate compliation database               │
-# │ bc                          # An arbitrary precision calculator language            │
-# └─────────────────────────────────────────────────────────────────────────────────────┘
-Build="make cmake"
-# ┌─────────────────────────────────────────────────────────────────────────────────────┐
-# │ make                        # Build automation utility (Makefile)                   │
-# │ cmake                       # Build automation utility (CMakeLists.txt)             │
-# └─────────────────────────────────────────────────────────────────────────────────────┘
-Other_Utility="rofi aria2 sshfs openssh ufw mako"
-# ┌─────────────────────────────────────────────────────────────────────────────────────┐
-# │ rofi                        # Application dmenu                                     │
-# │ aria2                       # Command-line download utility                         │
-# │ barrier                     # KVM software                                          │
-# │ build-essential             # meta-package                                          │
-# │ ccls                        # C/C++/Objective-C language server                     │
-# │ cscope                      # cscope                                                │
-# │ gdb                         # debug tool                                            │
-# │ virtualbox                  # Virtual machine                                       │
-# │ rsync                       # one way                                               │
-# │ unison                      # both way                                              │
-# │ openssh                     # ssh                                                   │
-# │ mako                        # Lightweight notification daemon for Wayland           │
-# │ ufw                         # ufw                                                   │
-# └─────────────────────────────────────────────────────────────────────────────────────┘
 
-# install_packages function (패키지 설치 함수)
-install_packages() {
-  if [ -x "$(command -v apt)" ]; then
-    # Common packages install
-    sudo apt install $1
-  elif [ -x "$(command -v pacman)" ]; then
-    # Common packages install
-    sudo pacman -S --noconfirm $1
-  else
-    echo "Package manager not found. Exiting."
-    exit 1
-  fi
+
+# function define
+Basic_Package() {
+  echo -e "\n\n\n\n\n"
+  echo -e "Basic_Package"
+  echo -e "┌──────────────────────────────────────────────────────────────────────────────────────┐"
+  echo -e "│ * sudo                       # Authorization                                         │"
+  echo -e "│ * wget                       # Network utility to retrieve files from the web        │"
+  echo -e "│ * git                        # The fast distributed version control system           │"
+  echo -e "└──────────────────────────────────────────────────────────────────────────────────────┘"
+  echo -e "\n\n\n\n\n"
+  sleep 5
+  yes | sudo pacman -S sudo wget git
 }
+# function run
+Basic_Package
 
-# run install_packages function (패키지 설치 함수 실행)
-echo -e "\n\n\n\n\nRun Basic_Package\n\n\n\n\n"
-sleep 5
-install_packages "$Basic_Package"
+Window_Manager() {
+  echo -e "\n\n\n\n\n"
+  echo -e "Window_Manager"
+  echo -e "┌──────────────────────────────────────────────────────────────────────────────────────┐"
+  echo -e "│ * hyprland                   # Dynamic tiling Wayland compositor                     │"
+  echo -e "│ * hyprpaper                  # Wayland wallpaper utility         │"
+  echo -e "│ * xdg-desktop-portal-hyprland    # xdg-desktop-portal backend for hyprland             │"
+  echo -e "│ * waybar                     # Wayland bar                                 │"
+  echo -e "│ * rofi-wayland               # A window switcher          │"
+  echo -e "└─────────────────────────────────────────────────────────────────────────────────────┘"
+  echo -e "\n\n\n\n\n"
+  sleep 5
+  yes | sudo pacman -S hyprland hyprpaper xdg-desktop-portal-hyprland waybar rofi-wayland
+}
+Window_Manager
 
-echo -e "\n\n\n\n\nRun Window_Manager\n\n\n\n\n"
-sleep 5
-install_packages "$Window_Manager"
+Sound() {
+  echo -e "\n\n\n\n\n"
+  echo -e "Sound"
+  echo -e "┌──────────────────────────────────────────────────────────────────────────────────────┐"
+  echo -e "│ * pavucontrol                # Volume Control                                        │"
+  echo -e "│ * alsa-utils                 # The Advanced Linux Sound Architecture (ALSA)          │"
+  echo -e "│ * volumeicon                 # Lightweight volume contro          │"
+  echo -e "└──────────────────────────────────────────────────────────────────────────────────────┘"
+  echo -e "\n\n\n\n\n"
+  sleep 5
+  yes | sudo pacman -S pavucontrol alsa-utils volumeicon
+}
+Sound
 
-echo -e "\n\n\n\n\nRun Sound\n\n\n\n\n"
-sleep 5
-install_packages "$Sound"
+Brightness() {
+  echo -e "\n\n\n\n\n"
+  echo -e "Brightness"
+  echo -e "┌──────────────────────────────────────────────────────────────────────────────────────┐"
+  echo -e "│ * brightnessctl              # Control device brightness                             │"
+  echo -e "└──────────────────────────────────────────────────────────────────────────────────────┘"
+  echo -e "\n\n\n\n\n"
+  sleep 5
+  yes | sudo pacman -S brightnessctl
+}
+Brightness
 
-echo -e "\n\n\n\n\nRun Brightness\n\n\n\n\n"
-sleep 5
-install_packages "$Brightness"
+Editors() {
+  echo -e "\n\n\n\n\n"
+  echo -e "Editors"
+  echo -e "┌──────────────────────────────────────────────────────────────────────────────────────┐"
+  echo -e "│ * terminator                  # Terminator                                           │"
+  echo -e "│ * kitty                       # kitty                                                │"
+  echo -e "│ * neovim                      # NeoVim                                               │"
+  echo -e "│ * tmux                        # terminal multiplexer                                 │"
+  echo -e "│ * gedit                       # Text editor                                          │"
+  echo -e "└──────────────────────────────────────────────────────────────────────────────────────┘"
+  sleep 5
+  yes | sudo pacman -S terminator kitty neovim tmux gedit
+}
+Editors
 
-echo -e "\n\n\n\n\nRun Editors\n\n\n\n\n"
-sleep 5
-install_packages "$Editors"
+SystemInfo() {
+  echo -e "\n\n\n\n\n"
+  echo -e "SystemInfo"
+  echo -e "┌─────────────────────────────────────────────────────────────────────────────────────┐"
+  echo -e "│ * neofetch                    # Show system information                               │"
+  echo -e "│ * htop                        # Task manager                                          │"
+  echo -e "│ * ncdu                        # du alternater, NCurses Disk Usage                     │"
+  echo -e "└─────────────────────────────────────────────────────────────────────────────────────┘"
+  echo -e "\n\n\n\n\n"
+  sleep 5
+  yes | sudo pacman -S neofetch htop ncdu
+}
+SystemInfo
 
-echo -e "\n\n\n\n\nRun SystemInfo\n\n\n\n\n"
-sleep 5
-echo "Run SystemInfo"
-install_packages "$SystemInfo"
-
-echo -e "\n\n\n\n\nRun Display_Management\n\n\n\n\n"
-sleep 5
-install_packages "$Display_Management"
-
-echo -e "\n\n\n\n\nRun Power_Management\n\n\n\n\n"
-sleep 5
-install_packages "$Power_Management"
-
-echo -e "\n\n\n\n\nRun File_Management\n\n\n\n\n"
-sleep 5
-install_packages "$File_Management"
-
-echo -e "\n\n\n\n\nRun Image_and_Video\n\n\n\n\n"
-sleep 5
-install_packages "$Image_and_Video"
-
-echo -e "\n\n\n\n\nRun Office\n\n\n\n\n"
-sleep 5
-install_packages "$Office"
-
-echo -e "\n\n\n\n\nRun Clipboard\n\n\n\n\n"
-sleep 5
-install_packages "$Clipboard"
-
-echo -e "\n\n\n\n\nRun Keyboard_and_Mouse\n\n\n\n\n"
-sleep 5
-install_packages "$Keyboard_and_Mouse"
-
-echo -e "\n\n\n\n\nRun Monitor_power_saving\n\n\n\n\n"
-sleep 5
-install_packages "$Monitor_power_saving"
-
-echo -e "\n\n\n\n\nRun Man\n\n\n\n\n"
-sleep 5
-install_packages "$Man"
-
-echo -e "\n\n\n\n\nRun Hangul_input\n\n\n\n\n"
-sleep 5
-install_packages "$Hangul_input"
-
-echo -e "\n\n\n\n\nRun Compiler\n\n\n\n\n"
-sleep 5
-install_packages "$Compiler"
-
-echo -e "\n\n\n\n\nRun Build\n\n\n\n\n"
-sleep 5
-install_packages "$Build"
-
-echo -e "\n\n\n\n\nRun Other_Utility\n\n\n\n\n"
-sleep 5
-install_packages "$Other_Utility"
-
-# Install exception handling package (예외 처리 패키지 설치)"
-echo -e "\n\n\n\n\nInstall exception handling package (예외 처리 패키지 설치)\n\n\n\n\n"
-sleep 5
-if [ -x "$(command -v apt-get)" ]; then
-  # apt exception handling package (apt 예외 처리 패키지)
-  sudo apt install openjdk-17-jdk -y # JDK 17
-  sudo apt install tlp tlp-rdw -y    # Saving laptop battery power
-  # sudo apt install xorg                                 # xorg
-  sudo apt install volumeicon-alsa -y                      # Lightweight volume control
-  sudo apt install unar -y                                 # unzip alternater
-  sudo apt install network-manager -y                      # nmtui(Network Manager)
-  sudo apt install g++ -y                                  # GNU C++ Compiler
-  sudo apt install exuberant-ctags -y                      # ctag
-  sudo apt install python3-dev python3-pip python3-venv -y # python
-  sudo apt install software-properties-common -y           # PPA Support
-  sudo apt install build-essential -y                      # build-essential
-
-  # Fin
-  sudo apt update
-  sudo apt upgrade -y
-  sudo apt autoremove -y
-  sudo apt autoclean -y
-
-  exit 0
-
-fi
-
-if [ -x "$(command -v pacman)" ]; then
-  # pacman exception handling package (pacman 예외 처리 패키지)
-  yay -S --noconfirm mcomix                 # Comic book viewer x
-  yay -S --noconfirm kime-git               # Korean IME
-  yay -S --noconfirm wdisplays              # GUI display configurator for wlroots compositors
-  sudo pacman -S --noconfirm volumeicon     # Lightweight volume control
-  sudo pacman -S --noconfirm unarchiver     # unzip alternater
-  sudo pacman -S --noconfirm networkmanager # nmtui(Network Manager)
-  sudo systemctl enable NetworkManager.service
-  sudo pacman -S --noconfirm ctags      # ctag
-  sudo pacman -S --noconfirm python-pip # python
-  sudo pacman -S --noconfirm lazygit    # lazygit
-  cargo install git-graph               # git-graph
+Display_Management() {
+  echo -e "\n\n\n\n\n"
+  echo -e "Display_Management"
+  echo -e "┌─────────────────────────────────────────────────────────────────────────────────────┐"
+  echo -e "│ * ly                     # TUI display manager                                          │"
+  echo -e "│ * wdisplays                    # GUI display configurator for wlroots compositors  │"
+  echo -e "│ // * lightdm                     # Lock Screen                                           │"
+  echo -e "│ // * arandr                      # arandr                                                │"
+  echo -e "│ // * autorandr                   # auto arandr                                           │"
+  echo -e "└─────────────────────────────────────────────────────────────────────────────────────┘"
+  echo -e "\n\n\n\n\n"
+  sleep 5
+  yes | sudo pacman -S ly arandr autorandr
   sudo systemctl enable ly.service
+  yes | yay -S --noconfirm wdisplays
+}
+Display_Management
 
-  exit 0
-fi
+File_Management() {
+  echo -e "\n\n\n\n\n"
+  echo -e "File_Management"
+  echo -e "┌─────────────────────────────────────────────────────────────────────────────────────┐"
+  echo -e "│ * pcmanfm                     # file anager                                           │"
+  echo -e "│ * unzip                       # unzip                                                 │"
+  echo -e "│ * unarchiver                  # unzip alternater                  │"
+  echo -e "│ * trash-cli                   # trash-cli                                             │"
+  echo -e "│ * tree                        # tree                                                  │"
+  echo -e "│ * fzf                         # fuzzy finder                                          │"
+  echo -e "└─────────────────────────────────────────────────────────────────────────────────────┘"
+  echo -e "\n\n\n\n\n"
+  sleep 5
+  yes | sudo pacman -S pcmanfm unzip trash-cli tree fzf
+}
+File_Management
+
+Image_and_Video() {
+  echo -e "\n\n\n\n\n"
+  echo -e "Image_and_Video"
+  echo -e "┌─────────────────────────────────────────────────────────────────────────────────────┐"
+  echo -e "│ * gpick                       # Color Picker                                          │"
+  echo -e "│ * kolourpaint                 # Paint                                                 │"
+  echo -e "│ * feh                         # Image viewer                                          │"
+  echo -e "│ * peek                        # Simple GIF screen recorder                            │"
+  echo -e "│ * vlc                         # Video Player                                          │"
+  echo -e "│ * cheese                      # Camera                                                │"
+  echo -e "│ * gnome-screenshot            # screenshooter                                         │"
+  echo -e "│ * grim                        # Screenshot utility for Wayland             │"
+  echo -e "│ * slurp                       # Select a region in a Wayland compositor             │"
+  echo -e "│ * swappy                      # A Wayland native snapshot editing tool               │"
+  echo -e "└─────────────────────────────────────────────────────────────────────────────────────┘"
+  echo -e "\n\n\n\n\n"
+  sleep 5
+  yes | sudo pacman -S gpick kolourpaint feh peek vlc cheese gnome-screenshot grim slurp swappy
+}
+Image_and_Video
+
+Office() {
+  echo -e "\n\n\n\n\n"
+  echo -e "Office"
+  echo -e "┌─────────────────────────────────────────────────────────────────────────────────────┐"
+  echo -e "│ * libreoffice-still           # Free office application                               │"
+  echo -e "│ * okular                      # PDF viewer                                            │"
+  echo -e "│ * mate-calc                   # Mate calculator                                       │"
+  echo -e "└─────────────────────────────────────────────────────────────────────────────────────┘"
+  echo -e "\n\n\n\n\n"
+  sleep 5
+  yes | sudo pacman -S libreoffice-still okular mate-calc
+}
+Office
+
+Clipboard() {
+  echo -e "\n\n\n\n\n"
+  echo -e "Clipboard"
+  echo -e "┌─────────────────────────────────────────────────────────────────────────────────────┐"
+  echo -e "│ * copyq                       # 	Clipboard manager                              │"
+  echo -e "│ * wl-clipboard                #  Command-line copy/paste utilities for Wayland │"
+  echo -e "└─────────────────────────────────────────────────────────────────────────────────────┘"
+  echo -e "\n\n\n\n\n"
+  sleep 5
+  yes | sudo pacman -S copyq wl-clipboard
+}
+Clipboard
+
+Keyboard_and_Mouse() {
+  echo -e "\n\n\n\n\n"
+  echo -e "Keyboard_and_Mouse"
+  echo -e "┌─────────────────────────────────────────────────────────────────────────────────────┐"
+  echo -e "│ * numlockx                    # Control the state of NumLock                          │"
+  echo -e "│ * xtrlock                     # Lock display and mouse                                │"
+  echo -e "└─────────────────────────────────────────────────────────────────────────────────────┘"
+  echo -e "\n\n\n\n\n"
+  sleep 5
+  yes | sudo pacman -S numlockx xtrlock
+}
+Keyboard_and_Mouse
+
+Monitor_power_saving() {
+  echo -e "\n\n\n\n\n"
+  echo -e "Monitor_power_saving"
+  echo -e "┌─────────────────────────────────────────────────────────────────────────────────────┐"
+  echo -e "│ * xorg-xrandr                 # 화면 밝기를 조정하는 데 사용                          │"
+  echo -e "│ * xautolock                   # 일정 시간 후에 스크립트를 실행하는 데 사용            │"
+  echo -e "│ * xorg-xprintidle             # 셸 스크립트에서 유휴 상태를 감지하는 데 사용          │"
+  echo -e "│ * polkit-gnome                # 시스템 권한 관리 및 인증을 처리                       │"
+  echo -e "│ * dex                         # 자동 시작 애플리케이션을 관리하는 도구                │"
+  echo -e "└─────────────────────────────────────────────────────────────────────────────────────┘"
+  echo -e "\n\n\n\n\n"
+  sleep 5
+  yes | sudo pacman -S xorg-xrandr xautolock xorg-xprintidle polkit-gnome dex
+}
+Monitor_power_saving
+
+Hangul_input() {
+  echo -e "\n\n\n\n\n"
+  echo -e "Hangul_input"
+  echo -e "┌─────────────────────────────────────────────────────────────────────────────────────┐"
+  echo -e "│ * kime-bin                  # Korean IME     │"
+  echo -e "│ // * ibus ibus-hangul            # ibus                                        │"
+  echo -e "│ // fonts-nanum               # 나눔 한글 글꼴                                       │"
+  echo -e "│ // fcitx-lib* fcitx-hangul   # fcitx                                       │"
+  echo -e "└─────────────────────────────────────────────────────────────────────────────────────┘"
+  echo -e "\n\n\n\n\n"
+  yes | yay -S --noconfirm kime-bin
+}
+Hangul_input
+
+Man() {
+  echo -e "\n\n\n\n\n"
+  echo -e "Man"
+  echo -e "┌─────────────────────────────────────────────────────────────────────────────────────┐"
+  echo -e "│ * tldr                        # man alternater                                        │"
+  echo -e "│ * bat                         # Cat clone with syntax highlighting and git integration│"
+  echo -e "│ * man-db                      # The online manual database                            │"
+  echo -e "│ * manpages-dev                # Manual pages about using GNU/Linux for development    │"
+  echo -e "│ * glib2-docs                  # Low level core library - documentation                │"
+  echo -e "└─────────────────────────────────────────────────────────────────────────────────────┘"
+  echo -e "\n\n\n\n\n"
+  sleep 5
+  yes | sudo pacman -S tldr bat man-db manpages-dev glib2-docs
+}
+Man
+
+Compiler() {
+  echo -e "\n\n\n\n\n"
+  echo -e "Compiler"
+  echo -e "┌─────────────────────────────────────────────────────────────────────────────────────┐"
+  echo -e "│ * gcc                         # GNU C Compiler                                        │"
+  echo -e "│ * clang                       # LLVM C/C++ Compiler                                   │"
+  echo -e "│ * llvm                        # 	Compiler infrastructure                              │"
+  echo -e "│ * cargo                       # Rust package manager                                  │"
+  echo -e "│ * bear                        # A tool to generate compilation database               │"
+  echo -e "│ * bc                          # An arbitrary precision calculator language            │"
+  echo -e "└─────────────────────────────────────────────────────────────────────────────────────┘"
+  echo -e "\n\n\n\n\n"
+  sleep 5
+  yes | sudo pacman -S gcc clang llvm cargo bear bc
+}
+Compiler
+
+Build() {
+  echo -e "\n\n\n\n\n"
+  echo -e "Build"
+  echo -e "┌─────────────────────────────────────────────────────────────────────────────────────┐"
+  echo -e "│ * make                        # Build automation utility (Makefile)                   │"
+  echo -e "│ * cmake                       # Build automation utility (CMakeLists.txt)             │"
+  echo -e "└─────────────────────────────────────────────────────────────────────────────────────┘"
+  echo -e "\n\n\n\n\n"
+  sleep 5
+  yes | sudo pacman -S make cmake
+}
+Build
+
+Other_Utility() {
+  echo -e "\n\n\n\n\n"
+  echo -e "Other_Utility"
+  echo -e "┌─────────────────────────────────────────────────────────────────────────────────────┐"
+  echo -e "│ * aria2                       # Command-line download utility                         │"
+  echo -e "│ * ctag                        # Generates an index file of C/C++ Language        │"
+  echo -e "│ * ccls                        # C/C++/Objective-C language server                     │"
+  echo -e "│ * cscope                      # cscope                                                │"
+  echo -e "│ * gdb                         # debug tool                                            │"
+  echo -e "│ * python-pip                  # python-pip                                            │"
+  echo -e "│ * lazygit                  # Simple terminal UI for git commands                        │"
+  echo -e "│ * git-graph                  # Visualize Git history graphs                        │"
+  echo -e "│ * rsync                       # one way                                               │"
+  echo -e "│ * unison                      # both way                                              │"
+  echo -e "│ * openssh                     # ssh                                                   │"
+  echo -e "│ * sshfs                       # FUSE client based on the SSH                          │"
+  echo -e "│ * mako                        # Lightweight notification daemon for Wayland           │"
+  echo -e "│ * ufw                         # ufw                                                   │"
+  echo -e "│ * networkmanager                         # nmtui(Network Manager)               │"
+  echo -e "└─────────────────────────────────────────────────────────────────────────────────────┘"
+  echo -e "\n\n\n\n\n"
+  sleep 5
+  yes | sudo pacman -S aria2 ctag ccls cscope gdb python-pip rsync unison openssh sshfs mako ufw
+  cargo install git-graph
+  sudo systemctl enable NetworkManager.service
+}
+Other_Utility
 
 # Exit the script
 exit 0
