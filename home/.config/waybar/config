@@ -1,153 +1,169 @@
 {
-	"layer": "top",
-	"position": "bottom",
+  "layer": "top",
+    "position": "bottom",
 
-	"modules-left": [
-		"hyprland/workspaces"
-	],
+    "modules-left": [
+      "hyprland/workspaces"
+    ],
 
-	"modules-right": [
-		"custom/net_speed",
-		"cpu",
-		"memory",
-		"temperature",
-		"network",
-		"battery",
-		"pulseaudio",
-		"clock#date",
-		"clock#time",
-		"tray"
-	],
+    "modules-right": [
+      "custom/net_speed",
+    "cpu",
+    "memory",
+    "temperature",
+    "network",
+    "battery",
+    "pulseaudio",
+    "clock#date",
+    "clock#time",
+    "tray"
+    ],
 
-	"custom/net_speed": {
-		"exec": "~/.config/waybar/net_speed.sh",
-		"interval": 1,
-		"format": " {} ",
-		"tooltip": false
-	},
+    "custom/net_speed": {
+      "exec": "~/.config/waybar/net_speed.sh",
+      "interval": 1,
+      "format": " {} ",
+      "tooltip": false
+    },
 
-	"cpu": {
-		"interval": 1,
-		"tooltip": false,
-		"format": " CPU: {usage}% ",
-		"format-alt": " CPU: {load} ",
-		"states": {
-			"warning": 70,
-			"critical": 90
-		}
-	},
+    "cpu": {
+      "interval": 1,
+      "tooltip": false,
+      "format": " CPU: {usage}% ",
+      "states": {
+        "idle": 20,
+        "low": 40,
+        "normal": 60,
+        "busy": 75,
+        "high": 85,
+        "warning": 90,
+        "critical": 95
+      }
+    },
 
-	"memory": {
-		"interval": 5,
-		"format": " Mem: {used:0.1f}G/{total:0.1f}G ",
-		"states": {
-			"warning": 70,
-			"critical": 90
-		},
-		"tooltip": false
-	},
+    "memory": {
+      "interval": 5,
+      "format": " Mem: {used:0.1f}G/{total:0.1f}G ",
+      "states": {
+        "idle": 20,
+        "low": 40,
+        "normal": 60,
+        "busy": 75,
+        "high": 85,
+        "warning": 90,
+        "critical": 95
+      },
+      "tooltip": false
+    },
 
-	"temperature": {
-		"critical-threshold": 90,
-		"interval": 5,
-		"format": " {icon} {temperatureC}° ",
-		"format-icons": [
-			"",
-			"",
-			"",
-			"",
-			""
-		],
-		"tooltip": false
-	},
+    "temperature": {
+      "interval": 5,
+      "format": " {icon} {temperatureC}° ",
+      "format-icons": [
+        "",
+      "",
+      "",
+      "",
+      ""
+      ],
+      "tooltip": false,
+	    "states": {
+	"normal": 50,
+    "busy": 60,
+    "high": 70,
+    "warning": 80,
+    "critical": 90
+  }
+    },
 
-	"network": {
-		"interval": 5,
-		"format-wifi": "  {essid} ({signalStrength}%) ",
-		"format-ethernet": "  {ifname} ",
-		"format-disconnected": " No connection ",
-		"format-alt": " IP: {ipaddr}/{cidr} ",
-		"tooltip": false
-	},
+    "network": {
+      "interval": 5,
+      "format-wifi": "  {essid} ({signalStrength}%) ",
+      "format-ethernet": "  {ifname} ",
+      "format-disconnected": " No connection ",
+      "on-click": "kitty -e nmtui-connect",
+      "tooltip": false
+    },
 
-	"battery": {
-		"interval": 5,
-		"states": {
-			"warning": 30,
-			"critical": 15
-		},
-		"format-time": "{H}:{M:02}",
-		"format": " {icon} {capacity}% ({time}) ",
-		"format-charging": "  {capacity}% ({time}) ",
-		"format-charging-full": "  {capacity}% ",
-		"format-full": " {icon} {capacity}% ",
-		"format-icons": [
-			" ",
-			" ",
-			" ",
-			" ",
-			" "
-		],
-		"tooltip": false
-	},
+    "battery": {
+      "interval": 5,
+      "states": {
+    "normal": 40,
+    "low": 20,
+    "critical": 15
+      },
+      "format-time": "{H}:{M:02}",
+      "format": " {icon} {capacity}% ({time}) ",
+      "format-charging": "  {capacity}% ({time}) ",
+      "format-charging-full": "  {capacity}% ",
+      "format-full": " {icon} {capacity}% ",
+      "format-icons": [
+        " ",
+      " ",
+      " ",
+      " ",
+      " "
+      ],
+      "tooltip": false
+    },
 
-	"pulseaudio": {
-		"format": " {icon} {volume}% ",
-		"format-bluetooth": " {icon} {volume}% ",
-		"format-muted": "  ",
-		"format-icons": {
-			"headphone": "",
-			"hands-free": "",
-			"headset": "",
-			"phone": "",
-			"portable": "",
-			"car": "",
-			"default": [
-				"",
-				""
-			]
-		},
-		"scroll-step": 1,
-		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-		"tooltip": false
-	},
+    "pulseaudio": {
+      "format": " {icon} {volume}% ",
+      "format-bluetooth": " {icon} {volume}% ",
+      "format-muted": "  ",
+      "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": [
+          "",
+        ""
+        ]
+      },
+      "scroll-step": 1,
+      "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+      "tooltip": false
+    },
 
-	"tray": {
-		"icon-size": 21
-	},
+    "tray": {
+      "icon-size": 21
+    },
 
-	"clock#date": {
-		"interval": 60,
-    	"format": "   {:%Y년 %m월 %d일 (%A)} ",
-    	"tooltip": false,
-    	"env": {
-        	"LANG": "ko_KR.UTF-8",
-        	"LC_TIME": "ko_KR.UTF-8"
-    	}
-	},
+    "clock#date": {
+      "interval": 60,
+      "format": "   {:%Y년 %m월 %d일 (%A)} ",
+      "tooltip": false,
+      "env": {
+        "LANG": "ko_KR.UTF-8",
+        "LC_TIME": "ko_KR.UTF-8"
+      }
+    },
 
-	"clock#time": {
-		"interval": 1,
-		"format": "{:%H:%M:%S} ",
-		"tooltip": false,
-		"env": {
-			"LC_TIME": "ko_KR.UTF-8"
-		}
-	},
+    "clock#time": {
+      "interval": 1,
+      "format": "{:%H:%M:%S} ",
+      "tooltip": false,
+      "env": {
+        "LC_TIME": "ko_KR.UTF-8"
+      }
+    },
 
-	"hyprland/window": {
-		"exec": "hyprctl activewindow | grep 'title:' | cut -d ' ' -f2-",
-		"interval": 1,
-		"max-length": 30,
-		"tooltip": false,
-		"format": "{}"
-	},
+    "hyprland/window": {
+      "exec": "hyprctl activewindow | grep 'title:' | cut -d ' ' -f2-",
+      "interval": 1,
+      "max-length": 30,
+      "tooltip": false,
+      "format": "{}"
+    },
 
-	"hyprland/workspaces": {
-		"exec": "hyprctl workspaces -j | jq -r '[.[] | .name] | join(\" \")'",
-		"disable-scroll-wraparound": true,
-		"smooth-scrolling-threshold": 4,
-		"enable-bar-scroll": true,
-		"format": "{}"
-	}
+    "hyprland/workspaces": {
+      "exec": "hyprctl workspaces -j | jq -r '[.[] | .name] | join(\" \")'",
+      "disable-scroll-wraparound": true,
+      "smooth-scrolling-threshold": 4,
+      "enable-bar-scroll": true,
+      "format": "{}"
+    }
 }
