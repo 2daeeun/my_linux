@@ -47,8 +47,6 @@ else
   exit 1
 fi
 
-
-
 # function define
 Basic_Package() {
   echo -e "\n\n\n\n\n"
@@ -70,14 +68,15 @@ Window_Manager() {
   echo -e "Window_Manager"
   echo -e "┌──────────────────────────────────────────────────────────────────────────────────────┐"
   echo -e "│ * hyprland                   # Dynamic tiling Wayland compositor                     │"
-  echo -e "│ * hyprpaper                  # Wayland wallpaper utility         │"
-  echo -e "│ * xdg-desktop-portal-hyprland    # xdg-desktop-portal backend for hyprland             │"
-  echo -e "│ * waybar                     # Wayland bar                                 │"
-  echo -e "│ * rofi-wayland               # A window switcher          │"
-  echo -e "└─────────────────────────────────────────────────────────────────────────────────────┘"
+  echo -e "│ * hyprpaper                  # Wayland wallpaper utility                             │"
+  echo -e "│ * hypridle                   # hyprland’s idle daemon                                │"
+  echo -e "│ * xdg-desktop-portal-hyprland    # xdg-desktop-portal backend for hyprland           │"
+  echo -e "│ * waybar                     # Wayland bar                                           │"
+  echo -e "│ * rofi-wayland               # A window switcher                                     │"
+  echo -e "└──────────────────────────────────────────────────────────────────────────────────────┘"
   echo -e "\n\n\n\n\n"
   sleep 5
-  yes | sudo pacman -S hyprland hyprpaper xdg-desktop-portal-hyprland waybar rofi-wayland
+  yes | sudo pacman -S hyprland hyprpaper hypridle xdg-desktop-portal-hyprland waybar rofi-wayland
 }
 Window_Manager
 
@@ -87,7 +86,7 @@ Sound() {
   echo -e "┌──────────────────────────────────────────────────────────────────────────────────────┐"
   echo -e "│ * pavucontrol                # Volume Control                                        │"
   echo -e "│ * alsa-utils                 # The Advanced Linux Sound Architecture (ALSA)          │"
-  echo -e "│ * volumeicon                 # Lightweight volume contro          │"
+  echo -e "│ * volumeicon                 # Lightweight volume contro                             │"
   echo -e "└──────────────────────────────────────────────────────────────────────────────────────┘"
   echo -e "\n\n\n\n\n"
   sleep 5
@@ -111,12 +110,13 @@ Editors() {
   echo -e "\n\n\n\n\n"
   echo -e "Editors"
   echo -e "┌──────────────────────────────────────────────────────────────────────────────────────┐"
-  echo -e "│ * terminator                  # Terminator                                           │"
-  echo -e "│ * kitty                       # kitty                                                │"
-  echo -e "│ * neovim                      # NeoVim                                               │"
-  echo -e "│ * tmux                        # terminal multiplexer                                 │"
-  echo -e "│ * gedit                       # Text editor                                          │"
+  echo -e "│ * terminator                 # Terminator                                            │"
+  echo -e "│ * kitty                      # kitty                                                 │"
+  echo -e "│ * neovim                     # NeoVim                                                │"
+  echo -e "│ * tmux                       # terminal multiplexer                                  │"
+  echo -e "│ * gedit                      # Text editor                                           │"
   echo -e "└──────────────────────────────────────────────────────────────────────────────────────┘"
+  echo -e "\n\n\n\n\n"
   sleep 5
   yes | sudo pacman -S terminator kitty neovim tmux gedit
 }
@@ -125,11 +125,11 @@ Editors
 SystemInfo() {
   echo -e "\n\n\n\n\n"
   echo -e "SystemInfo"
-  echo -e "┌─────────────────────────────────────────────────────────────────────────────────────┐"
-  echo -e "│ * neofetch                    # Show system information                               │"
-  echo -e "│ * htop                        # Task manager                                          │"
-  echo -e "│ * ncdu                        # du alternater, NCurses Disk Usage                     │"
-  echo -e "└─────────────────────────────────────────────────────────────────────────────────────┘"
+  echo -e "┌──────────────────────────────────────────────────────────────────────────────────────┐"
+  echo -e "│ * neofetch                   # Show system information                               │"
+  echo -e "│ * htop                       # Task manager                                          │"
+  echo -e "│ * ncdu                       # du alternater, NCurses Disk Usage                     │"
+  echo -e "└──────────────────────────────────────────────────────────────────────────────────────┘"
   echo -e "\n\n\n\n\n"
   sleep 5
   yes | sudo pacman -S neofetch htop ncdu
@@ -139,13 +139,13 @@ SystemInfo
 Display_Management() {
   echo -e "\n\n\n\n\n"
   echo -e "Display_Management"
-  echo -e "┌─────────────────────────────────────────────────────────────────────────────────────┐"
-  echo -e "│ * ly                     # TUI display manager                                          │"
-  echo -e "│ * wdisplays                    # GUI display configurator for wlroots compositors  │"
-  echo -e "│ // * lightdm                     # Lock Screen                                           │"
-  echo -e "│ // * arandr                      # arandr                                                │"
-  echo -e "│ // * autorandr                   # auto arandr                                           │"
-  echo -e "└─────────────────────────────────────────────────────────────────────────────────────┘"
+  echo -e "┌──────────────────────────────────────────────────────────────────────────────────────┐"
+  echo -e "│ * ly                         # TUI display manager                                   │"
+  echo -e "│ * wdisplays                  # GUI display configurator for wlroots compositors      │"
+  echo -e "│ // * lightdm                    # Lock Screen                                        │"
+  echo -e "│ // * arandr                     # arandr                                             │"
+  echo -e "│ // * autorandr                  # auto arandr                                        │"
+  echo -e "└──────────────────────────────────────────────────────────────────────────────────────┘"
   echo -e "\n\n\n\n\n"
   sleep 5
   yes | sudo pacman -S ly arandr autorandr
@@ -157,35 +157,35 @@ Display_Management
 File_Management() {
   echo -e "\n\n\n\n\n"
   echo -e "File_Management"
-  echo -e "┌─────────────────────────────────────────────────────────────────────────────────────┐"
-  echo -e "│ * pcmanfm                     # file anager                                           │"
-  echo -e "│ * unzip                       # unzip                                                 │"
-  echo -e "│ * unarchiver                  # unzip alternater                  │"
-  echo -e "│ * trash-cli                   # trash-cli                                             │"
-  echo -e "│ * tree                        # tree                                                  │"
-  echo -e "│ * fzf                         # fuzzy finder                                          │"
-  echo -e "└─────────────────────────────────────────────────────────────────────────────────────┘"
+  echo -e "┌──────────────────────────────────────────────────────────────────────────────────────┐"
+  echo -e "│ * pcmanfm                    # file anager                                           │"
+  echo -e "│ * unzip                      # unzip                                                 │"
+  echo -e "│ * unarchiver                 # unzip alternater                                      │"
+  echo -e "│ * trash-cli                  # trash-cli                                             │"
+  echo -e "│ * tree                       # tree                                                  │"
+  echo -e "│ * fzf                        # fuzzy finder                                          │"
+  echo -e "└──────────────────────────────────────────────────────────────────────────────────────┘"
   echo -e "\n\n\n\n\n"
   sleep 5
-  yes | sudo pacman -S pcmanfm unzip trash-cli tree fzf
+  yes | sudo pacman -S pcmanfm unzip unarchiver trash-cli tree fzf
 }
 File_Management
 
 Image_and_Video() {
   echo -e "\n\n\n\n\n"
   echo -e "Image_and_Video"
-  echo -e "┌─────────────────────────────────────────────────────────────────────────────────────┐"
-  echo -e "│ * gpick                       # Color Picker                                          │"
-  echo -e "│ * kolourpaint                 # Paint                                                 │"
-  echo -e "│ * feh                         # Image viewer                                          │"
-  echo -e "│ * peek                        # Simple GIF screen recorder                            │"
-  echo -e "│ * vlc                         # Video Player                                          │"
-  echo -e "│ * cheese                      # Camera                                                │"
-  echo -e "│ * gnome-screenshot            # screenshooter                                         │"
-  echo -e "│ * grim                        # Screenshot utility for Wayland             │"
-  echo -e "│ * slurp                       # Select a region in a Wayland compositor             │"
-  echo -e "│ * swappy                      # A Wayland native snapshot editing tool               │"
-  echo -e "└─────────────────────────────────────────────────────────────────────────────────────┘"
+  echo -e "┌──────────────────────────────────────────────────────────────────────────────────────┐"
+  echo -e "│ * gpick                      # Color Picker                                          │"
+  echo -e "│ * kolourpaint                # Paint                                                 │"
+  echo -e "│ * feh                        # Image viewer                                          │"
+  echo -e "│ * peek                       # Simple GIF screen recorder                            │"
+  echo -e "│ * vlc                        # Video Player                                          │"
+  echo -e "│ * cheese                     # Camera                                                │"
+  echo -e "│ * gnome-screenshot           # screenshooter                                         │"
+  echo -e "│ * grim                       # Screenshot utility for Wayland                        │"
+  echo -e "│ * slurp                      # Select a region in a Wayland compositor               │"
+  echo -e "│ * swappy                     # A Wayland native snapshot editing tool                │"
+  echo -e "└──────────────────────────────────────────────────────────────────────────────────────┘"
   echo -e "\n\n\n\n\n"
   sleep 5
   yes | sudo pacman -S gpick kolourpaint feh peek vlc cheese gnome-screenshot grim slurp swappy
@@ -195,24 +195,27 @@ Image_and_Video
 Office() {
   echo -e "\n\n\n\n\n"
   echo -e "Office"
-  echo -e "┌─────────────────────────────────────────────────────────────────────────────────────┐"
-  echo -e "│ * libreoffice-still           # Free office application                               │"
-  echo -e "│ * okular                      # PDF viewer                                            │"
-  echo -e "│ * mate-calc                   # Mate calculator                                       │"
-  echo -e "└─────────────────────────────────────────────────────────────────────────────────────┘"
+  echo -e "┌──────────────────────────────────────────────────────────────────────────────────────┐"
+  echo -e "│ * libreoffice-still          # Free office application                               │"
+  echo -e "│ * libreoffice-still-ko       # Korean language pack for LibreOffice still            │"
+  echo -e "│ * hoffice                    # Hancom Office Editor                                  │"
+  echo -e "│ * okular                     # PDF viewer                                            │"
+  echo -e "│ * mate-calc                  # Mate calculator                                       │"
+  echo -e "└──────────────────────────────────────────────────────────────────────────────────────┘"
   echo -e "\n\n\n\n\n"
   sleep 5
-  yes | sudo pacman -S libreoffice-still okular mate-calc
+  yes | sudo pacman -S libreoffice-still libreoffice-still-ko okular mate-calc
+  yes | yay -S --noconfirm hoffice
 }
 Office
 
 Clipboard() {
   echo -e "\n\n\n\n\n"
   echo -e "Clipboard"
-  echo -e "┌─────────────────────────────────────────────────────────────────────────────────────┐"
-  echo -e "│ * copyq                       # 	Clipboard manager                              │"
-  echo -e "│ * wl-clipboard                #  Command-line copy/paste utilities for Wayland │"
-  echo -e "└─────────────────────────────────────────────────────────────────────────────────────┘"
+  echo -e "┌──────────────────────────────────────────────────────────────────────────────────────┐"
+  echo -e "│ * copyq                      # Clipboard manager                                     │"
+  echo -e "│ * wl-clipboard               # Command-line copy/paste utilities for Wayland         │"
+  echo -e "└──────────────────────────────────────────────────────────────────────────────────────┘"
   echo -e "\n\n\n\n\n"
   sleep 5
   yes | sudo pacman -S copyq wl-clipboard
@@ -222,10 +225,10 @@ Clipboard
 Keyboard_and_Mouse() {
   echo -e "\n\n\n\n\n"
   echo -e "Keyboard_and_Mouse"
-  echo -e "┌─────────────────────────────────────────────────────────────────────────────────────┐"
-  echo -e "│ * numlockx                    # Control the state of NumLock                          │"
-  echo -e "│ * xtrlock                     # Lock display and mouse                                │"
-  echo -e "└─────────────────────────────────────────────────────────────────────────────────────┘"
+  echo -e "┌──────────────────────────────────────────────────────────────────────────────────────┐"
+  echo -e "│ * numlockx                   # Control the state of NumLock                          │"
+  echo -e "│ * xtrlock                    # Lock display and mouse                                │"
+  echo -e "└──────────────────────────────────────────────────────────────────────────────────────┘"
   echo -e "\n\n\n\n\n"
   sleep 5
   yes | sudo pacman -S numlockx xtrlock
@@ -235,28 +238,28 @@ Keyboard_and_Mouse
 Monitor_power_saving() {
   echo -e "\n\n\n\n\n"
   echo -e "Monitor_power_saving"
-  echo -e "┌─────────────────────────────────────────────────────────────────────────────────────┐"
-  echo -e "│ * xorg-xrandr                 # 화면 밝기를 조정하는 데 사용                          │"
-  echo -e "│ * xautolock                   # 일정 시간 후에 스크립트를 실행하는 데 사용            │"
-  echo -e "│ * xorg-xprintidle             # 셸 스크립트에서 유휴 상태를 감지하는 데 사용          │"
-  echo -e "│ * polkit-gnome                # 시스템 권한 관리 및 인증을 처리                       │"
-  echo -e "│ * dex                         # 자동 시작 애플리케이션을 관리하는 도구                │"
-  echo -e "└─────────────────────────────────────────────────────────────────────────────────────┘"
+  echo -e "┌──────────────────────────────────────────────────────────────────────────────────────┐"
+  echo -e "│ * xorg-xrandr                # 화면 밝기를 조정하는 데 사용                          │"
+  echo -e "│ // * xautolock                  # 일정 시간 후에 스크립트를 실행하는 데 사용         │"
+  echo -e "│ // * xorg-xprintidle            # 셸 스크립트에서 유휴 상태를 감지하는 데 사용       │"
+  echo -e "│ * polkit-gnome               # 시스템 권한 관리 및 인증을 처리                       │"
+  echo -e "│ * dex                        # 자동 시작 애플리케이션을 관리하는 도구                │"
+  echo -e "└──────────────────────────────────────────────────────────────────────────────────────┘"
   echo -e "\n\n\n\n\n"
   sleep 5
-  yes | sudo pacman -S xorg-xrandr xautolock xorg-xprintidle polkit-gnome dex
+  yes | sudo pacman -S xorg-xrandr polkit-gnome dex
 }
 Monitor_power_saving
 
 Hangul_input() {
   echo -e "\n\n\n\n\n"
   echo -e "Hangul_input"
-  echo -e "┌─────────────────────────────────────────────────────────────────────────────────────┐"
-  echo -e "│ * kime-bin                  # Korean IME     │"
-  echo -e "│ // * ibus ibus-hangul            # ibus                                        │"
-  echo -e "│ // fonts-nanum               # 나눔 한글 글꼴                                       │"
-  echo -e "│ // fcitx-lib* fcitx-hangul   # fcitx                                       │"
-  echo -e "└─────────────────────────────────────────────────────────────────────────────────────┘"
+  echo -e "┌──────────────────────────────────────────────────────────────────────────────────────┐"
+  echo -e "│ * kime-bin                   # Korean IME                                            │"
+  echo -e "│ // * ibus ibus-hangul           # ibus                                               │"
+  echo -e "│ // fonts-nanum                  # 나눔 한글 글꼴                                     │"
+  echo -e "│ // fcitx-lib* fcitx-hangul      # fcitx                                              │"
+  echo -e "└──────────────────────────────────────────────────────────────────────────────────────┘"
   echo -e "\n\n\n\n\n"
   yes | yay -S --noconfirm kime-bin
 }
@@ -265,43 +268,43 @@ Hangul_input
 Man() {
   echo -e "\n\n\n\n\n"
   echo -e "Man"
-  echo -e "┌─────────────────────────────────────────────────────────────────────────────────────┐"
+  echo -e "┌───────────────────────────────────────────────────────────────────────────────────────┐"
   echo -e "│ * tldr                        # man alternater                                        │"
   echo -e "│ * bat                         # Cat clone with syntax highlighting and git integration│"
   echo -e "│ * man-db                      # The online manual database                            │"
-  echo -e "│ * manpages-dev                # Manual pages about using GNU/Linux for development    │"
+  echo -e "│ // * manpages-dev               # Manual pages about using GNU/Linux for development  │"
   echo -e "│ * glib2-docs                  # Low level core library - documentation                │"
-  echo -e "└─────────────────────────────────────────────────────────────────────────────────────┘"
+  echo -e "└───────────────────────────────────────────────────────────────────────────────────────┘"
   echo -e "\n\n\n\n\n"
   sleep 5
-  yes | sudo pacman -S tldr bat man-db manpages-dev glib2-docs
+  yes | sudo pacman -S tldr bat man-db glib2-docs
 }
 Man
 
 Compiler() {
   echo -e "\n\n\n\n\n"
   echo -e "Compiler"
-  echo -e "┌─────────────────────────────────────────────────────────────────────────────────────┐"
-  echo -e "│ * gcc                         # GNU C Compiler                                        │"
-  echo -e "│ * clang                       # LLVM C/C++ Compiler                                   │"
-  echo -e "│ * llvm                        # 	Compiler infrastructure                              │"
-  echo -e "│ * cargo                       # Rust package manager                                  │"
-  echo -e "│ * bear                        # A tool to generate compilation database               │"
-  echo -e "│ * bc                          # An arbitrary precision calculator language            │"
-  echo -e "└─────────────────────────────────────────────────────────────────────────────────────┘"
+  echo -e "┌───────────────────────────────────────────────────────────────────────────────────────┐"
+  echo -e "│ * gcc                        # GNU C Compiler                                         │"
+  echo -e "│ * clang                      # LLVM C/C++ Compiler                                    │"
+  echo -e "│ * llvm                       # Compiler infrastructure                                │"
+  echo -e "│ * rust                       # rust                                                   │"
+  echo -e "│ * bear                       # A tool to generate compilation database                │"
+  echo -e "│ * bc                         # An arbitrary precision calculator language             │"
+  echo -e "└───────────────────────────────────────────────────────────────────────────────────────┘"
   echo -e "\n\n\n\n\n"
   sleep 5
-  yes | sudo pacman -S gcc clang llvm cargo bear bc
+  yes | sudo pacman -S gcc clang llvm rust bear bc
 }
 Compiler
 
 Build() {
   echo -e "\n\n\n\n\n"
   echo -e "Build"
-  echo -e "┌─────────────────────────────────────────────────────────────────────────────────────┐"
-  echo -e "│ * make                        # Build automation utility (Makefile)                   │"
-  echo -e "│ * cmake                       # Build automation utility (CMakeLists.txt)             │"
-  echo -e "└─────────────────────────────────────────────────────────────────────────────────────┘"
+  echo -e "┌──────────────────────────────────────────────────────────────────────────────────────┐"
+  echo -e "│ * make                       # Build automation utility (Makefile)                   │"
+  echo -e "│ * cmake                      # Build automation utility (CMakeLists.txt)             │"
+  echo -e "└──────────────────────────────────────────────────────────────────────────────────────┘"
   echo -e "\n\n\n\n\n"
   sleep 5
   yes | sudo pacman -S make cmake
@@ -311,30 +314,37 @@ Build
 Other_Utility() {
   echo -e "\n\n\n\n\n"
   echo -e "Other_Utility"
-  echo -e "┌─────────────────────────────────────────────────────────────────────────────────────┐"
-  echo -e "│ * aria2                       # Command-line download utility                         │"
-  echo -e "│ * ctag                        # Generates an index file of C/C++ Language        │"
-  echo -e "│ * ccls                        # C/C++/Objective-C language server                     │"
-  echo -e "│ * cscope                      # cscope                                                │"
-  echo -e "│ * gdb                         # debug tool                                            │"
-  echo -e "│ * python-pip                  # python-pip                                            │"
-  echo -e "│ * lazygit                  # Simple terminal UI for git commands                        │"
-  echo -e "│ * git-graph                  # Visualize Git history graphs                        │"
-  echo -e "│ * rsync                       # one way                                               │"
-  echo -e "│ * unison                      # both way                                              │"
-  echo -e "│ * openssh                     # ssh                                                   │"
-  echo -e "│ * sshfs                       # FUSE client based on the SSH                          │"
-  echo -e "│ * mako                        # Lightweight notification daemon for Wayland           │"
-  echo -e "│ * ufw                         # ufw                                                   │"
-  echo -e "│ * networkmanager                         # nmtui(Network Manager)               │"
-  echo -e "└─────────────────────────────────────────────────────────────────────────────────────┘"
+  echo -e "┌──────────────────────────────────────────────────────────────────────────────────────┐"
+  echo -e "│ * aria2                      # Command-line download utility                         │"
+  echo -e "│ * ctag                       # Generates an index file of C/C++ Language             │"
+  echo -e "│ * ccls                       # C/C++/Objective-C language server                     │"
+  echo -e "│ * cscope                     # cscope                                                │"
+  echo -e "│ * gdb                        # debug tool                                            │"
+  echo -e "│ * python-pip                 # python-pip                                            │"
+  echo -e "│ * lazygit                    # Simple terminal UI for git commands                   │"
+  echo -e "│ * git-graph                  # Visualize Git history graphs                          │"
+  echo -e "│ * rsync                      # one way                                               │"
+  echo -e "│ * unison                     # both way                                              │"
+  echo -e "│ * openssh                    # ssh                                                   │"
+  echo -e "│ * sshfs                      # FUSE client based on the SSH                          │"
+  echo -e "│ * mako                       # Lightweight notification daemon for Wayland           │"
+  echo -e "│ * ufw                        # ufw                                                   │"
+  echo -e "│ * networkmanager             # nmtui(Network Manager)                                │"
+  echo -e "│ * VSCode                     # Visual Studio Code                                    │"
+  echo -e "└──────────────────────────────────────────────────────────────────────────────────────┘"
   echo -e "\n\n\n\n\n"
   sleep 5
-  yes | sudo pacman -S aria2 ctag ccls cscope gdb python-pip rsync unison openssh sshfs mako ufw
+  yes | sudo pacman -S aria2 ctags ccls cscope gdb python-pip lazygit rsync unison openssh sshfs mako ufw networkmanager
   cargo install git-graph
+  yes | yay -S visual-studio-code-bin
   sudo systemctl enable NetworkManager.service
 }
 Other_Utility
+
+echo -e "\n\n\n\n\n"
+echo -e "┌──────────┐"
+echo -e "│  Finish  │"
+echo -e "└──────────┘"
 
 # Exit the script
 exit 0

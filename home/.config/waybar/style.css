@@ -82,7 +82,6 @@ window#waybar {
 }
 
 /* CPU 상태 색상 (7단계) */
-#cpu.idle     { color: #008000; } /* 짙은 녹색 */
 #cpu.low      { color: #00cc00; } /* 밝은 녹색 */
 #cpu.normal   { color: #ffff00; } /* 노랑 */
 #cpu.busy     { color: #ff8000; } /* 주황 */
@@ -90,28 +89,23 @@ window#waybar {
 #cpu.warning  { color: #ff0000; } /* 빨강 */
 #cpu.critical { color: #bf0000; } /* 진한 빨강 */
 
-/* Memory 상태 색상 (7단계) */
-#memory.idle     { color: #008000; }
-#memory.low      { color: #00cc00; }
-#memory.normal   { color: #ffff00; }
-#memory.busy     { color: #ff8000; }
-#memory.high     { color: #ff4000; }
-#memory.warning  { color: #ff0000; }
-#memory.critical { color: #bf0000; }
+/* 메모리 사용량에 따른 상태 (16 GB 기준) */
+#memory.low      { color: #00cc00; } /* 밝은 녹색, ≤ 5 GB (≈31%) */
+#memory.normal   { color: #ffff00; } /* 노랑,      ≤ 6 GB (≈38%) */
+#memory.busy     { color: #ff8000; } /* 주황,      ≤ 7 GB (≈44%) */
+#memory.high     { color: #ff4000; } /* 주황-빨강, ≤ 8 GB (50%) */
+#memory.warning  { color: #ff0000; } /* 빨강,      ≤ 9 GB (≈56%) */
+#memory.critical { color: #bf0000; } /* 진한 빨강, ≤10 GB (≈63%) */
 
 /* Temperature 상태 색상 (7단계) */
-#temperature.idle     { color: #008000; }
-#temperature.low      { color: #00cc00; }
-#temperature.normal   { color: #ffff00; }
-#temperature.busy     { color: #ff8000; }
-#temperature.high     { color: #ff4000; }
-#temperature.warning  { color: #ff0000; }
-#temperature.critical { color: #bf0000; }
+#temperature.warning  { color: #ffff00; } /* 노랑, 70°C 이상 */
+#temperature.critical { color: #ff0000; } /* 빨강, 85°C 이상 */
 
 /* Battery 상태 색상 (5단계) */
-#battery.full     { color: #00ff00; } /* 라임 */
-#battery.high     { color: #00cc00; } /* 녹색 */
+#battery.full     { color: #00cc00; } /* 밝은 녹색 */
 #battery.normal   { color: #ffff00; } /* 노랑 */
-#battery.low      { color: #ff0000; } /* 빨강 */
+#battery.busy     { color: #ff8000; } /* 주황 */
+#battery.high     { color: #ff4000; } /* 주황-빨강 */
+#battery.warning  { color: #ff0000; } /* 빨강 */
 #battery.critical { color: #bf0000; } /* 진한 빨강 */
 

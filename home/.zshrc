@@ -20,7 +20,7 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 #alias 설정(명령어)
-alias powerup='yay -Syu --ignore linux,linux-headers,linux-lts,linux-lts-headers,linux-zen,linux-zen-headers'
+alias powerup='yay -Syu --ignore linux,linux-headers,linux-lts,linux-lts-headers,linux-zen,linux-zen-headers,firefox,libreoffice-still,vlc,discord'
 alias lg="lazygit"
 alias gg="git-graph"
 alias vi="nvim"
@@ -36,7 +36,7 @@ alias lock60="timeout 60 xtrlock"
 alias cap='grim -g "$(slurp)" - | swappy -f -'
 alias gif="vlc --demux=avformat --loop"
 alias weather_home="curl wttr.in/37.5508,126.8648"
-alias weather_school="curl wttr.in/37.4868,126.8224"
+alias weather_school="curl https://wttr.in/37.3211,127.1325"
 alias cls="clear"
 alias e="exit"
 
@@ -57,9 +57,10 @@ alias si="cd ~/Documents/github/Algorithm_study/solved.ac/Silver/"
 #alias 설정(셸 스크립트 실행)
 alias mo="~/Documents/mount_sshfs.sh"
 
-# 임시 alias 설정
-alias jsy="cd ~/Documents/github/JSY-s_TCP-IP_socket_programming/"
-alias ardu="cd ~/Documents/github/Arduino_Smart_Logistics_System/ASLS_Management_Program/"
+# 임시 alias 파일 불러오기
+if [ -f ~/.aliases ]; then
+    source ~/.aliases
+fi
 
 #unzip 한글 깨짐 방지
 export UNZIP="-O cp949"

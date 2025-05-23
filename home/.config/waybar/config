@@ -31,13 +31,12 @@
       "tooltip": false,
       "format": " CPU: {usage}% ",
       "states": {
-        "idle": 20,
-        "low": 40,
-        "normal": 60,
-        "busy": 75,
-        "high": 85,
-        "warning": 90,
-        "critical": 95
+        "low": 30,
+        "normal": 40,
+        "busy": 50,
+        "high": 60,
+        "warning": 70,
+        "critical": 80
       }
     },
 
@@ -45,13 +44,12 @@
       "interval": 5,
       "format": " Mem: {used:0.1f}G/{total:0.1f}G ",
       "states": {
-        "idle": 20,
-        "low": 40,
-        "normal": 60,
-        "busy": 75,
-        "high": 85,
-        "warning": 90,
-        "critical": 95
+        "low": 31,
+        "normal": 38,
+        "busy": 44,
+        "high": 50,
+        "warning": 56,
+        "critical": 63
       },
       "tooltip": false
     },
@@ -67,30 +65,28 @@
       ""
       ],
       "tooltip": false,
-	    "states": {
-	"normal": 50,
-    "busy": 60,
-    "high": 70,
-    "warning": 80,
-    "critical": 90
-  }
+      "warning-threshold": 70,
+      "critical-threshold": 85
     },
 
     "network": {
       "interval": 5,
-      "format-wifi": "  {essid} ({signalStrength}%) ",
+      "format-wifi": "   {essid} ({signalStrength}%) ",
       "format-ethernet": "  {ifname} ",
       "format-disconnected": " No connection ",
-      "on-click": "kitty -e nmtui-connect",
+      "on-click": "terminator -e nmtui-connect",
       "tooltip": false
     },
 
     "battery": {
       "interval": 5,
       "states": {
-    "normal": 40,
-    "low": 20,
-    "critical": 15
+        "full": 60,
+        "normal": 50,
+        "busy": 40,
+        "high": 30,
+        "warning": 20,
+        "critical": 15
       },
       "format-time": "{H}:{M:02}",
       "format": " {icon} {capacity}% ({time}) ",
@@ -110,7 +106,7 @@
     "pulseaudio": {
       "format": " {icon} {volume}% ",
       "format-bluetooth": " {icon} {volume}% ",
-      "format-muted": "  ",
+      "format-muted": "   X  ",
       "format-icons": {
         "headphone": "",
         "hands-free": "",
