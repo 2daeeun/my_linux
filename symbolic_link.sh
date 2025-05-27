@@ -20,7 +20,8 @@ sudo rm -rf ~/.zshrc
 
 sudo ln -sf ~/Documents/github/my_linux/root/.bashrc /root
 sudo ln -sf ~/Documents/github/my_linux/root/.config/ /root
-sudo ln -sf ~/Documents/github/my_linux/home/.config/gtk-3.0 ~/.config/
+# sudo ln -sf ~/Documents/github/my_linux/home/.config/gtk-3.0 ~/.config/
+sudo cp -r ~/Documents/github/my_linux/home/.config/gtk-3.0 ~/.config/
 sudo ln -sf ~/Documents/github/my_linux/home/.config/htop ~/.config/
 sudo ln -sf ~/Documents/github/my_linux/home/.config/hypr ~/.config/
 sudo ln -sf ~/Documents/github/my_linux/home/.config/i3 ~/.config/
