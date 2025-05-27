@@ -5,10 +5,10 @@ echo -e "\n\n\ngit 설치\n\n\n"
 
 if [ -x "$(command -v apt-get)" ]; then
   sudo apt update
-  sudo apt install git -y
+  sudo apt install git git-delta -y
 elif [ -x "$(command -v pacman)" ]; then
   sudo pacman -Sy
-  sudo pacman -S --noconfirm git
+  sudo pacman -S --noconfirm git git-delta
 fi
 
 echo -e "\n\n\n"
@@ -25,6 +25,9 @@ git config --global core.editor "nvim"
 
 # git 한글 깨짐 방지
 git config --global core.quotepath false
+
+# git diff에 git-delta 적용
+git config --global core.pager "delta --side-by-side"
 
 # 사용자 정보 등록
 git config --global user.name "$username"
