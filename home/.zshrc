@@ -20,7 +20,7 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 #alias 설정(명령어)
-alias powerup='yay -Syu --ignore linux,linux-headers,linux-lts,linux-lts-headers,linux-zen,linux-zen-headers,firefox,libreoffice-still,vlc,discord'
+alias powerup='yay -Syu --ignore linux,linux-headers,linux-lts,linux-lts-headers,linux-zen,linux-zen-headers,firefox,google-chrome,libreoffice-still,vlc,discord'
 alias lg="lazygit"
 alias gg="git-graph"
 alias vi="nvim"
