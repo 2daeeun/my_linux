@@ -132,7 +132,8 @@ SystemInfo() {
   echo -e "└──────────────────────────────────────────────────────────────────────────────────────┘"
   echo -e "\n\n\n\n\n"
   sleep 5
-  yes | sudo pacman -S neofetch htop ncdu
+  yes | sudo pacman -S htop ncdu
+  yes | yay -S --noconfirm neofetch
 }
 SystemInfo
 
@@ -141,7 +142,6 @@ Display_Management() {
   echo -e "Display_Management"
   echo -e "┌──────────────────────────────────────────────────────────────────────────────────────┐"
   echo -e "│ * ly                         # TUI display manager                                   │"
-  echo -e "│ * wdisplays                  # GUI display configurator for wlroots compositors      │"
   echo -e "│ // * lightdm                    # Lock Screen                                        │"
   echo -e "│ // * arandr                     # arandr                                             │"
   echo -e "│ // * autorandr                  # auto arandr                                        │"
@@ -150,7 +150,6 @@ Display_Management() {
   sleep 5
   yes | sudo pacman -S ly arandr autorandr
   sudo systemctl enable ly.service
-  yes | yay -S --noconfirm wdisplays
 }
 Display_Management
 
