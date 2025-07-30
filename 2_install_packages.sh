@@ -277,6 +277,7 @@ Man() {
   echo -e "\n\n\n\n\n"
   sleep 5
   yes | sudo pacman -S tldr bat man-db glib2-docs
+  tldr -u
 }
 Man
 
