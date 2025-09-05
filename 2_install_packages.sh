@@ -174,11 +174,12 @@ Image_and_Video() {
   echo -e "\n\n\n\n\n"
   echo -e "Image_and_Video"
   echo -e "┌──────────────────────────────────────────────────────────────────────────────────────┐"
+  echo -e "│ * vlc                        # Video Player                                          │"
+  echo -e "│ * FFmpeg                     # Convert and stream audio and video                    │"
   echo -e "│ * gpick                      # Color Picker                                          │"
   echo -e "│ * kolourpaint                # Paint                                                 │"
   echo -e "│ * feh                        # Image viewer                                          │"
   echo -e "│ * peek                       # Simple GIF screen recorder                            │"
-  echo -e "│ * vlc                        # Video Player                                          │"
   echo -e "│ * cheese                     # Camera                                                │"
   echo -e "│ * gnome-screenshot           # screenshooter                                         │"
   echo -e "│ * grim                       # Screenshot utility for Wayland                        │"
@@ -187,7 +188,8 @@ Image_and_Video() {
   echo -e "└──────────────────────────────────────────────────────────────────────────────────────┘"
   echo -e "\n\n\n\n\n"
   sleep 5
-  yes | sudo pacman -S gpick kolourpaint feh peek vlc cheese gnome-screenshot grim slurp swappy
+  yes | sudo pacman -S $(pacman -Ssq '^vlc-') # vlc 와 관련된 모든 패키지 설치
+  yes | sudo pacman -S vlc ffmpeg gpick kolourpaint feh peek vlc cheese gnome-screenshot grim slurp swappy
 }
 Image_and_Video
 
