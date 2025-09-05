@@ -216,10 +216,13 @@ Clipboard() {
   echo -e "┌──────────────────────────────────────────────────────────────────────────────────────┐"
   echo -e "│ * copyq                      # Clipboard manager                                     │"
   echo -e "│ * wl-clipboard               # Command-line copy/paste utilities for Wayland         │"
+  echo -e "│ * xclip                      # Command line interface to the X11 clipboard           │"
+  echo -e "│ * clipboard-sync             # Synchronizes the clipboard across multiple X11        │"
   echo -e "└──────────────────────────────────────────────────────────────────────────────────────┘"
   echo -e "\n\n\n\n\n"
   sleep 5
-  yes | sudo pacman -S copyq wl-clipboard
+  yes | sudo pacman -S copyq wl-clipboard xclip
+  yes | yay -S clipboard-sync
 }
 Clipboard
 
@@ -256,13 +259,13 @@ Hangul_input() {
   echo -e "\n\n\n\n\n"
   echo -e "Hangul_input"
   echo -e "┌──────────────────────────────────────────────────────────────────────────────────────┐"
-  echo -e "│ * kime-bin                   # Korean IME                                            │"
+  echo -e "│ * kime                          # Korean IME                                         │"
   echo -e "│ // * ibus ibus-hangul           # ibus                                               │"
   echo -e "│ // fonts-nanum                  # 나눔 한글 글꼴                                     │"
   echo -e "│ // fcitx-lib* fcitx-hangul      # fcitx                                              │"
   echo -e "└──────────────────────────────────────────────────────────────────────────────────────┘"
   echo -e "\n\n\n\n\n"
-  yes | yay -S --noconfirm kime-bin
+  yes | yay -S --noconfirm kime
 }
 Hangul_input
 
