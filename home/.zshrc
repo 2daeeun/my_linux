@@ -20,7 +20,7 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 #alias 설정(명령어)
-alias powerup='yay -Syu --ignore linux,linux-headers,linux-lts,linux-lts-headers,linux-zen,linux-zen-headers,firefox,google-chrome,libreoffice-still,vlc,discord'
+alias powerup='yay -Syu --color=always --ignore linux,linux-headers,linux-lts,linux-lts-headers,linux-zen,linux-zen-headers,firefox,google-chrome,libreoffice-still,vlc,discord,$(pacman -Qq | grep "^haskell-" | paste -sd, -) | grep -v "haskell-"'
 alias lg="lazygit"
 alias gg="git-graph"
 alias vi="nvim"
@@ -54,6 +54,7 @@ alias al="cd ~/Documents/github/Algorithm_study/"
 alias br="cd ~/Documents/github/Algorithm_study/solved.ac/Bronze/"
 alias si="cd ~/Documents/github/Algorithm_study/solved.ac/Silver/"
 alias pa="cd ~/Documents/github/papers_collection/"
+alias pau="cd ~/Documents/github/papers_collection/papers/_File\ System/_User-Space\ File\ System/"
 
 #alias 설정(셸 스크립트 실행)
 alias mo="~/Documents/mount_sshfs.sh"
