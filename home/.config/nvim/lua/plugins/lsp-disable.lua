@@ -2,23 +2,18 @@
 return {
   "neovim/nvim-lspconfig",
   enabled = function()
-    -- 현재 작업 디렉토리에서 마지막 폴더명 또는 파일명을 가져오기
-    local cwd = vim.fn.fnamemodify(vim.fn.getcwd(), ":t") -- 현재 디렉토리명 가져오기
-    local filename = vim.fn.expand("%:t") -- 현재 열려 있는 파일명 가져오기
+    -- use absolute paths; basename 말고 전체 경로 검사
+    local cwd = vim.fn.getcwd() or ""
+    local file = vim.api.nvim_buf_get_name(0) or ""
 
-    -- LSP를 비활성화할 키워드 목록
-    local disabled_keywords = {
-      "kernel_study",
-      "skiplist.h",
-    }
+    -- false positive 줄이려 슬래시 포함
+    local disabled = { "/kernel_study/", "/linux/", "/fuse/" }
 
-    -- 현재 디렉토리명 또는 파일명에 키워드가 포함되는지 확인
-    for _, keyword in ipairs(disabled_keywords) do
-      if cwd:find(keyword, 1, true) or filename:find(keyword, 1, true) then
-        return false -- LSP 비활성화
+    for _, k in ipairs(disabled) do
+      if cwd:find(k, 1, true) or file:find(k, 1, true) then
+        return false -- disable LSP
       end
     end
-
-    return true -- 그 외에는 LSP 활성화
+    return true
   end,
 }
