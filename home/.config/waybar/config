@@ -13,6 +13,7 @@
     "temperature",
     "network",
     "battery",
+    "backlight",
     "pulseaudio",
     "clock#date",
     "clock#time",
@@ -116,6 +117,12 @@
       " ",
       " "
       ],
+      "tooltip": false
+    },
+
+    "backlight": {
+      "device": "intel_backlight",
+      "format": " 󰖨 {percent}% ",
       "tooltip": false
     },
 
