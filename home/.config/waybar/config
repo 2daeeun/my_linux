@@ -31,12 +31,20 @@
       "tooltip": false,
       "format": " CPU: {usage}% ",
       "states": {
-        "low": 30,
-        "normal": 40,
-        "busy": 50,
-        "high": 60,
-        "warning": 70,
-        "critical": 80
+        "level1": 10,
+        "level2": 15,
+        "level3": 20,
+        "level4": 25,
+        "level5": 30,
+        "level6": 35,
+        "level7": 40,
+        "level8": 45,
+        "level9": 50,
+        "level10": 55,
+        "level11": 60,
+        "level12": 65,
+        "level13": 70,
+        "level14": 75
       }
     },
 
@@ -44,12 +52,18 @@
       "interval": 5,
       "format": " Mem: {used:0.1f}G/{total:0.1f}G ",
       "states": {
-        "low": 31,
-        "normal": 38,
-        "busy": 44,
-        "high": 50,
-        "warning": 56,
-        "critical": 63
+        "level3": 25,
+        "level4": 31,
+        "level5": 38,
+        "level6": 44,
+        "level7": 50,
+        "level8": 56,
+        "level9": 62,
+        "level10": 69,
+        "level11": 75,
+        "level12": 81,
+        "level13": 88,
+        "level14": 94
       },
       "tooltip": false
     },
@@ -66,27 +80,29 @@
       ],
       "tooltip": false,
       "warning-threshold": 70,
-      "critical-threshold": 85
+      "critical-threshold": 80
     },
 
     "network": {
       "interval": 5,
+      "family": "ipv4",
       "format-wifi": "   {essid} ({signalStrength}%) ",
       "format-ethernet": "  {ifname} ",
+      "format-alt": " IPv4: {ipaddr} ",
       "format-disconnected": " No connection ",
-      "on-click": "terminator -e nmtui-connect",
       "tooltip": false
     },
 
     "battery": {
       "interval": 5,
       "states": {
-        "full": 60,
-        "normal": 50,
-        "busy": 40,
-        "high": 30,
-        "warning": 20,
-        "critical": 15
+        "level1": 55,
+        "level2": 50,
+        "level3": 45,
+        "level4": 40,
+        "level5": 35,
+        "level6": 30,
+        "level7": 25
       },
       "format-time": "{H}:{M:02}",
       "format": " {icon} {capacity}% ({time}) ",

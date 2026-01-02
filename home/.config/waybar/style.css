@@ -1,26 +1,26 @@
 /* 기본 스타일 초기화 및 기본 색상 지정 */
 * {
-    border: none;
-    box-shadow: none;
-    text-shadow: none;
-    color: #ffffff;
-    font-family: monospace;
-    font-size: 21px;
-    padding: 0;
-    margin: 0;
+  border: none;
+  box-shadow: none;
+  text-shadow: none;
+  color: #ffffff;
+  font-family: monospace;
+  font-size: 21px;
+  padding: 0;
+  margin: 0;
 }
 
 /* Waybar 전체 배경을 검정으로 설정 */
 window#waybar {
-    background: #000000;
-    color: #ffffff;
+  background: #000000;
+  color: #ffffff;
 }
 
 /* 모듈 영역들 배경도 검정으로 맞춤 */
 .modules-left,
 .modules-center,
 .modules-right {
-    background: #000000;
+  background: #000000;
 }
 
 /* 주요 모듈 스타일 - separator 포함 */
@@ -37,75 +37,93 @@ window#waybar {
 #tray,
 
 #custom-* {
-    background: #000000;
-    color: #ffffff;
-    padding: 0 5px;
-    border-right: 2px solid #555555; /* separator 역할 */
+  background: #000000;
+  color: #ffffff;
+  padding: 0 5px;
+  border-right: 2px solid #555555; /* separator 역할 */
 }
 
 /* custom net_speed 모듈 */
 #custom-net_speed {
-    background: #000000;
-    color: #ffffff;
-    padding: 0 5px;
-    border-right: 2px solid #555555; /* separator */
+  background: #000000;
+  color: #ffffff;
+  padding: 0 5px;
+  border-right: 2px solid #555555; /* separator */
 }
 
 /* workspace 버튼 스타일 */
 #workspaces {
-    background: transparent;
+  background: transparent;
 }
 
 #workspaces button {
-    background: #222222;
-    color: #ffffff;
-    padding: 0 5px;
-    border: none;
-    margin: 0 2px;
+  background: #222222;
+  color: #ffffff;
+  padding: 0 5px;
+  border: none;
+  margin: 0 2px;
 }
 
 #workspaces button.active {
-    background: #3977aa;
-    color: #ffffff;
-    font-weight: bold;
-    border-bottom: 2px solid #ffffff;
+  background: #3977aa;
+  color: #ffffff;
+  font-weight: bold;
+  border-bottom: 2px solid #ffffff;
 }
 
 #workspaces button.urgent {
-    background: #ff0000;
-    color: #ffffff;
-    font-weight: bold;
+  background: #ff0000;
+  color: #ffffff;
+  font-weight: bold;
 }
 
 #network {
-    color: #39ff14; /* 형광 연두색 */
+  color: #00FF06; /* 형광 연두색 */
 }
 
 /* CPU 상태 색상 (7단계) */
-#cpu.low      { color: #00cc00; } /* 밝은 녹색 */
-#cpu.normal   { color: #ffff00; } /* 노랑 */
-#cpu.busy     { color: #ff8000; } /* 주황 */
-#cpu.high     { color: #ff4000; } /* 주황-빨강 */
-#cpu.warning  { color: #ff0000; } /* 빨강 */
-#cpu.critical { color: #bf0000; } /* 진한 빨강 */
+#cpu.level1   { color: #D5FF00; }  /* 10% */
+#cpu.level2   { color: #E5FF00; }  /* 15% */
+#cpu.level3   { color: #F2FF00; }  /* 20% */
+#cpu.level4   { color: #FFF700; }  /* 25% */
+#cpu.level5   { color: #FFE500; }  /* 30% */
+#cpu.level6   { color: #FFD400; }  /* 35% */
+#cpu.level7   { color: #FFBF00; }  /* 40% */
+#cpu.level8   { color: #FFAA00; }  /* 45% */
+#cpu.level9   { color: #FF9500; }  /* 50% */
+#cpu.level10  { color: #FF7F00; }  /* 55% */
+#cpu.level11  { color: #FF6A00; }  /* 60% */
+#cpu.level12  { color: #FF5500; }  /* 65% */
+#cpu.level13  { color: #FF2A00; }  /* 70% */
+#cpu.level14  { color: #FF0000; }  /* 75% */
+
 
 /* 메모리 사용량에 따른 상태 (16 GB 기준) */
-#memory.low      { color: #00cc00; } /* 밝은 녹색, ≤ 5 GB (≈31%) */
-#memory.normal   { color: #ffff00; } /* 노랑,      ≤ 6 GB (≈38%) */
-#memory.busy     { color: #ff8000; } /* 주황,      ≤ 7 GB (≈44%) */
-#memory.high     { color: #ff4000; } /* 주황-빨강, ≤ 8 GB (50%) */
-#memory.warning  { color: #ff0000; } /* 빨강,      ≤ 9 GB (≈56%) */
-#memory.critical { color: #bf0000; } /* 진한 빨강, ≤10 GB (≈63%) */
+/* #memory.level1   { color: #D5FF00; }  ≥ 2 GiB (≈13%) */
+/* #memory.level2   { color: #E5FF00; }  ≥ 3 GiB (≈19%) */
+#memory.level3   { color: #F2FF00; } /* ≥ 4 GiB (25%) */
+#memory.level4   { color: #FFF700; } /* ≥ 5 GiB (≈31%) */
+#memory.level5   { color: #FFE500; } /* ≥ 6 GiB (≈38%) */
+#memory.level6   { color: #FFD400; } /* ≥ 7 GiB (≈44%) */
+#memory.level7   { color: #FFBF00; } /* ≥ 8 GiB (50%) */
+#memory.level8   { color: #FFAA00; } /* ≥ 9 GiB (≈56%) */
+#memory.level9   { color: #FF9500; } /* ≥10 GiB (≈62%) */
+#memory.level10  { color: #FF7F00; } /* ≥11 GiB (≈69%) */
+#memory.level11  { color: #FF6A00; } /* ≥12 GiB (≈75%) */
+#memory.level12  { color: #FF5500; } /* ≥13 GiB (≈81%) */
+#memory.level13  { color: #FF2A00; } /* ≥14 GiB (≈88%) */
+#memory.level14  { color: #FF0000; } /* ≥15 GiB (≈94%) */
+
 
 /* Temperature 상태 색상 (7단계) */
-#temperature.warning  { color: #ffff00; } /* 노랑, 70°C 이상 */
+#temperature.warning  { color: #FFAA00; } /* 노랑, 70°C 이상 */
 #temperature.critical { color: #ff0000; } /* 빨강, 85°C 이상 */
 
 /* Battery 상태 색상 (5단계) */
-#battery.full     { color: #00cc00; } /* 밝은 녹색 */
-#battery.normal   { color: #ffff00; } /* 노랑 */
-#battery.busy     { color: #ff8000; } /* 주황 */
-#battery.high     { color: #ff4000; } /* 주황-빨강 */
-#battery.warning  { color: #ff0000; } /* 빨강 */
-#battery.critical { color: #bf0000; } /* 진한 빨강 */
-
+#battery.level1  { color: #E5FF00; }  /* 55% */
+#battery.level2  { color: #FFF700; }  /* 50% */
+#battery.level3  { color: #FFD400; }  /* 45% */
+#battery.level4  { color: #FFAA00; }  /* 40% */
+#battery.level5  { color: #FF7F00; }  /* 35% */
+#battery.level6  { color: #FF5500; }  /* 30% */
+#battery.level7  { color: #FF0000; }  /* 25% */
