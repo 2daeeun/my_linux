@@ -78,3 +78,4 @@ export PATH="$PATH:$HOME/.cargo/bin/"
 man() {
     command man "$@" | bat -pl man
 }
+export PATH="$HOME/.local/bin:$PATH"

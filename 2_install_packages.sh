@@ -129,11 +129,12 @@ SystemInfo() {
   echo -e "│ * neofetch                   # Show system information                               │"
   echo -e "│ * htop                       # Task manager                                          │"
   echo -e "│ * ncdu                       # du alternater, NCurses Disk Usage                     │"
+  echo -e "│ * power-options-gtk          # Linux GUI power management                            │"
   echo -e "└──────────────────────────────────────────────────────────────────────────────────────┘"
   echo -e "\n\n\n\n\n"
   sleep 5
   yes | sudo pacman -S htop ncdu
-  yes | yay -S --noconfirm neofetch
+  yes | yay -S --noconfirm neofetch power-options-gtk
 }
 SystemInfo
 
@@ -141,15 +142,15 @@ Display_Management() {
   echo -e "\n\n\n\n\n"
   echo -e "Display_Management"
   echo -e "┌──────────────────────────────────────────────────────────────────────────────────────┐"
-  echo -e "│ * ly                         # TUI display manager                                   │"
+  echo -e "│ // * ly                         # TUI display manager                                │"
   echo -e "│ // * lightdm                    # Lock Screen                                        │"
   echo -e "│ // * arandr                     # arandr                                             │"
   echo -e "│ // * autorandr                  # auto arandr                                        │"
   echo -e "└──────────────────────────────────────────────────────────────────────────────────────┘"
   echo -e "\n\n\n\n\n"
   sleep 5
-  yes | sudo pacman -S ly arandr autorandr
-  sudo systemctl enable ly.service
+  # yes | sudo pacman -S ly arandr autorandr
+  # sudo systemctl enable ly.service
 }
 Display_Management
 
@@ -328,6 +329,7 @@ Other_Utility() {
   echo -e "│ * python-pip                 # python-pip                                            │"
   echo -e "│ * lazygit                    # Simple terminal UI for git commands                   │"
   echo -e "│ * git-graph                  # Visualize Git history graphs                          │"
+  echo -e "│ * git-delta                  # Syntax-highlighting pager for git and diff output     │"
   echo -e "│ * rsync                      # one way                                               │"
   echo -e "│ * unison                     # both way                                              │"
   echo -e "│ * openssh                    # ssh                                                   │"
@@ -339,7 +341,7 @@ Other_Utility() {
   echo -e "└──────────────────────────────────────────────────────────────────────────────────────┘"
   echo -e "\n\n\n\n\n"
   sleep 5
-  yes | sudo pacman -S aria2 ctags ccls cscope gdb python-pip lazygit rsync unison openssh sshfs mako ufw networkmanager
+  yes | sudo pacman -S aria2 ctags ccls cscope gdb python-pip lazygit git-delta rsync unison openssh sshfs mako ufw networkmanager
   cargo install git-graph
   yes | yay -S visual-studio-code-bin
   sudo systemctl enable NetworkManager.service
