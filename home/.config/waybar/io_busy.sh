@@ -45,5 +45,16 @@ fi
 [ "$UTIL" -gt 100 ] && UTIL=100
 [ "$UTIL" -lt 0 ] && UTIL=0
 
-# JSON 출력: percentage로 states(levelN) 색상 적용
-printf '{"text": "I/O: %d%%", "percentage": %d}\n' "$UTIL" "$UTIL"
+# CPU와 동일한 14단계 임계값(%) → style.css의 #custom-io_busy.levelN 색상 적용
+# custom 모듈은 config의 states가 적용되지 않으므로 class를 직접 내보낸다
+LEVELS=(10 15 20 25 30 35 40 45 50 55 60 65 70 75)
+CLASS=""
+for ((i = ${#LEVELS[@]} - 1; i >= 0; i--)); do
+  if [ "$UTIL" -ge "${LEVELS[i]}" ]; then
+    CLASS="level$((i + 1))"
+    break
+  fi
+done
+
+# JSON 출력
+printf '{"text": "I/O: %d%%", "percentage": %d, "class": "%s"}\n' "$UTIL" "$UTIL" "$CLASS"

@@ -32,28 +32,14 @@
     "format": "{}",
     "tooltip": false
   },
+  // 색상 단계(levelN)는 custom 모듈에 states가 적용되지 않아
+  // io_busy.sh가 JSON의 class 필드로 직접 내보낸다 (임계값은 cpu와 동일)
   "custom/io_busy": {
     "exec": "~/.config/waybar/io_busy.sh",
     "return-type": "json",
     "interval": 1,
     "format": "{}",
-    "tooltip": false,
-    "states": {
-      "level1": 10,
-      "level2": 15,
-      "level3": 20,
-      "level4": 25,
-      "level5": 30,
-      "level6": 35,
-      "level7": 40,
-      "level8": 45,
-      "level9": 50,
-      "level10": 55,
-      "level11": 60,
-      "level12": 65,
-      "level13": 70,
-      "level14": 75
-    }
+    "tooltip": false
   },
   "cpu": {
     "interval": 1,

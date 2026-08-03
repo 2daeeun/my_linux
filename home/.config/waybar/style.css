@@ -46,7 +46,10 @@ window#waybar {
   border-right: 2px solid #555555; /* separator 역할 */
 }
 
-/* custom net_speed 모듈 */
+/* custom net_speed 모듈
+   ↓/↑ 각 값의 색상은 net_speed.sh가 pango markup(<span color>)으로 직접 지정한다.
+   (모듈 전체가 아니라 값마다 색이 달라야 하므로 CSS levelN을 쓸 수 없음)
+   색상표/임계값을 바꾸려면 net_speed.sh의 COLORS·THRESHOLDS 배열을 수정할 것. */
 #custom-net_speed {
   background: #000000;
   color: #ffffff;
@@ -55,7 +58,9 @@ window#waybar {
   border-right: 2px solid #555555; /* separator */
 }
 
-/* custom disk_speed 모듈 (디스크 read/write 속도) */
+/* custom disk_speed 모듈 (디스크 read/write 속도)
+   R/W 각 값의 색상은 disk_speed.sh가 pango markup(<span color>)으로 직접 지정한다.
+   색상표/임계값을 바꾸려면 disk_speed.sh의 COLORS·THRESHOLDS 배열을 수정할 것. */
 #custom-disk_speed {
   background: #000000;
   color: #ffffff;
@@ -66,7 +71,9 @@ window#waybar {
 
 /* disk 모듈 (남은 용량) - 색상 없이 기본 흰색 사용 */
 
-/* custom io_busy 모듈 (디스크 I/O 사용률 %) - CPU처럼 바쁨 정도로 색상 변화 */
+/* custom io_busy 모듈 (디스크 I/O 사용률 %) - CPU처럼 바쁨 정도로 색상 변화
+   custom 모듈에는 config의 states가 적용되지 않으므로,
+   io_busy.sh가 JSON의 class 필드로 levelN을 직접 내보낸다. */
 #custom-io_busy {
   background: #000000;
   color: #ffffff;

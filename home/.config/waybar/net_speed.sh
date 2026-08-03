@@ -33,7 +33,33 @@ readable() {
   fi
 }
 
-DOWN=$(readable $RX_RATE)
-UP=$(readable $TX_RATE)
+# CPU/MEM(style.css)과 동일한 14단계 색상표
+COLORS=(
+  "#D5FF00" "#E5FF00" "#F2FF00" "#FFF700" "#FFE500" "#FFD400" "#FFBF00"
+  "#FFAA00" "#FF9500" "#FF7F00" "#FF6A00" "#FF5500" "#FF2A00" "#FF0000"
+)
+
+# 각 단계의 하한 임계값 (bytes/s, 로그 스케일)
+# 64KB → 128KB → 256KB → 512KB → 1MB → 2MB → 3MB
+# → 5MB → 8MB → 12MB → 20MB → 30MB → 45MB → 60MB
+THRESHOLDS=(
+  65536 131072 262144 524288 1048576 2097152 3145728
+  5242880 8388608 12582912 20971520 31457280 47185920 62914560
+)
+
+# 속도에 맞는 색을 pango markup으로 입힘 (임계값 미만이면 기본 흰색)
+colorize() {
+  local bytes=$1 text=$2 i
+  for ((i = ${#THRESHOLDS[@]} - 1; i >= 0; i--)); do
+    if [ "$bytes" -ge "${THRESHOLDS[i]}" ]; then
+      echo "<span color=\"${COLORS[i]}\">$text</span>"
+      return
+    fi
+  done
+  echo "$text"
+}
+
+DOWN=$(colorize "$RX_RATE" "$(readable $RX_RATE)")
+UP=$(colorize "$TX_RATE" "$(readable $TX_RATE)")
 
 echo "$DOWN↓ $UP↑"

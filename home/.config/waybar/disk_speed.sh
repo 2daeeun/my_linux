@@ -55,7 +55,33 @@ readable() {
   fi
 }
 
-READ=$(readable $READ_RATE)
-WRITE=$(readable $WRITE_RATE)
+# CPU/MEM(style.css)과 동일한 14단계 색상표
+COLORS=(
+  "#D5FF00" "#E5FF00" "#F2FF00" "#FFF700" "#FFE500" "#FFD400" "#FFBF00"
+  "#FFAA00" "#FF9500" "#FF7F00" "#FF6A00" "#FF5500" "#FF2A00" "#FF0000"
+)
+
+# 각 단계의 하한 임계값 (bytes/s, 로그 스케일 / NVMe 기준)
+# 1MB → 2MB → 5MB → 10MB → 20MB → 40MB → 70MB
+# → 120MB → 200MB → 350MB → 600MB → 1GB → 1.6GB → 2.5GB
+THRESHOLDS=(
+  1048576 2097152 5242880 10485760 20971520 41943040 73400320
+  125829120 209715200 367001600 629145600 1048576000 1677721600 2621440000
+)
+
+# 속도에 맞는 색을 pango markup으로 입힘 (임계값 미만이면 기본 흰색)
+colorize() {
+  local bytes=$1 text=$2 i
+  for ((i = ${#THRESHOLDS[@]} - 1; i >= 0; i--)); do
+    if [ "$bytes" -ge "${THRESHOLDS[i]}" ]; then
+      echo "<span color=\"${COLORS[i]}\">$text</span>"
+      return
+    fi
+  done
+  echo "$text"
+}
+
+READ=$(colorize "$READ_RATE" "$(readable $READ_RATE)")
+WRITE=$(colorize "$WRITE_RATE" "$(readable $WRITE_RATE)")
 
 echo "R:$READ W:$WRITE"
