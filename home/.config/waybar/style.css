@@ -4,8 +4,10 @@
   box-shadow: none;
   text-shadow: none;
   color: #ffffff;
-  font-family: monospace;
-  font-size: 21px;
+  /* 아이콘이 작게 보이는 문제 해결: 텍스트+아이콘을 같은 Nerd Font에서 렌더링.
+     아래 이름은 예시 — 실제 설치된 이름으로 바꾸세요: fc-list | grep -i "nerd" */
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 16px;
   padding: 0;
   margin: 0;
 }
@@ -29,6 +31,7 @@ window#waybar {
 #clock,
 #cpu,
 #memory,
+#disk,
 #network,
 #pulseaudio,
 #battery,
@@ -39,7 +42,7 @@ window#waybar {
 #custom-* {
   background: #000000;
   color: #ffffff;
-  padding: 0 5px;
+  padding: 0 12px;
   border-right: 2px solid #555555; /* separator 역할 */
 }
 
@@ -47,9 +50,43 @@ window#waybar {
 #custom-net_speed {
   background: #000000;
   color: #ffffff;
-  padding: 0 5px;
+  min-width: 200px; /* 구분선(separator) 위치 고정: 값이 바뀌어도 모듈 폭 유지 */
+  padding: 0 12px;
   border-right: 2px solid #555555; /* separator */
 }
+
+/* custom disk_speed 모듈 (디스크 read/write 속도) */
+#custom-disk_speed {
+  background: #000000;
+  color: #ffffff;
+  min-width: 200px; /* 구분선(separator) 위치 고정 */
+  padding: 0 12px;
+  border-right: 2px solid #555555; /* separator */
+}
+
+/* disk 모듈 (남은 용량) - 색상 없이 기본 흰색 사용 */
+
+/* custom io_busy 모듈 (디스크 I/O 사용률 %) - CPU처럼 바쁨 정도로 색상 변화 */
+#custom-io_busy {
+  background: #000000;
+  color: #ffffff;
+  padding: 0 12px;
+  border-right: 2px solid #555555; /* separator */
+}
+#custom-io_busy.level1   { color: #D5FF00; }  /* 10% */
+#custom-io_busy.level2   { color: #E5FF00; }  /* 15% */
+#custom-io_busy.level3   { color: #F2FF00; }  /* 20% */
+#custom-io_busy.level4   { color: #FFF700; }  /* 25% */
+#custom-io_busy.level5   { color: #FFE500; }  /* 30% */
+#custom-io_busy.level6   { color: #FFD400; }  /* 35% */
+#custom-io_busy.level7   { color: #FFBF00; }  /* 40% */
+#custom-io_busy.level8   { color: #FFAA00; }  /* 45% */
+#custom-io_busy.level9   { color: #FF9500; }  /* 50% */
+#custom-io_busy.level10  { color: #FF7F00; }  /* 55% */
+#custom-io_busy.level11  { color: #FF6A00; }  /* 60% */
+#custom-io_busy.level12  { color: #FF5500; }  /* 65% */
+#custom-io_busy.level13  { color: #FF2A00; }  /* 70% */
+#custom-io_busy.level14  { color: #FF0000; }  /* 75% */
 
 /* workspace 버튼 스타일 */
 #workspaces {

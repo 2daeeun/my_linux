@@ -1,16 +1,17 @@
 {
   "layer": "top",
-    "position": "bottom",
-
-    "modules-left": [
-      "hyprland/workspaces"
-    ],
-
-    "modules-right": [
-      "custom/net_speed",
+  "position": "bottom",
+  "modules-left": [
+    "hyprland/workspaces"
+  ],
+  "modules-right": [
     "cpu",
     "memory",
     "temperature",
+    "custom/net_speed",
+    "custom/disk_speed",
+    "custom/io_busy",
+    // "disk",
     "network",
     "battery",
     "backlight",
@@ -18,171 +19,193 @@
     "clock#date",
     "clock#time",
     "tray"
-    ],
-
-    "custom/net_speed": {
-      "exec": "~/.config/waybar/net_speed.sh",
-      "interval": 1,
-      "format": " {} ",
-      "tooltip": false
+  ],
+  "custom/net_speed": {
+    "exec": "~/.config/waybar/net_speed.sh",
+    "interval": 1,
+    "format": "{}",
+    "tooltip": false
+  },
+  "custom/disk_speed": {
+    "exec": "~/.config/waybar/disk_speed.sh",
+    "interval": 1,
+    "format": "{}",
+    "tooltip": false
+  },
+  "custom/io_busy": {
+    "exec": "~/.config/waybar/io_busy.sh",
+    "return-type": "json",
+    "interval": 1,
+    "format": "{}",
+    "tooltip": false,
+    "states": {
+      "level1": 10,
+      "level2": 15,
+      "level3": 20,
+      "level4": 25,
+      "level5": 30,
+      "level6": 35,
+      "level7": 40,
+      "level8": 45,
+      "level9": 50,
+      "level10": 55,
+      "level11": 60,
+      "level12": 65,
+      "level13": 70,
+      "level14": 75
+    }
+  },
+  "cpu": {
+    "interval": 1,
+    "tooltip": false,
+    "format": "CPU: {usage}%",
+    "states": {
+      "level1": 10,
+      "level2": 15,
+      "level3": 20,
+      "level4": 25,
+      "level5": 30,
+      "level6": 35,
+      "level7": 40,
+      "level8": 45,
+      "level9": 50,
+      "level10": 55,
+      "level11": 60,
+      "level12": 65,
+      "level13": 70,
+      "level14": 75
+    }
+  },
+  "memory": {
+    "interval": 5,
+    "format": "Mem: {used:0.1f}G/{total:0.1f}G",
+    "states": {
+      "level3": 25,
+      "level4": 31,
+      "level5": 38,
+      "level6": 44,
+      "level7": 50,
+      "level8": 56,
+      "level9": 62,
+      "level10": 69,
+      "level11": 75,
+      "level12": 81,
+      "level13": 88,
+      "level14": 94
     },
-
-    "cpu": {
-      "interval": 1,
-      "tooltip": false,
-      "format": " CPU: {usage}% ",
-      "states": {
-        "level1": 10,
-        "level2": 15,
-        "level3": 20,
-        "level4": 25,
-        "level5": 30,
-        "level6": 35,
-        "level7": 40,
-        "level8": 45,
-        "level9": 50,
-        "level10": 55,
-        "level11": 60,
-        "level12": 65,
-        "level13": 70,
-        "level14": 75
-      }
-    },
-
-    "memory": {
-      "interval": 5,
-      "format": " Mem: {used:0.1f}G/{total:0.1f}G ",
-      "states": {
-        "level3": 25,
-        "level4": 31,
-        "level5": 38,
-        "level6": 44,
-        "level7": 50,
-        "level8": 56,
-        "level9": 62,
-        "level10": 69,
-        "level11": 75,
-        "level12": 81,
-        "level13": 88,
-        "level14": 94
-      },
-      "tooltip": false
-    },
-
-    "temperature": {
-      "interval": 5,
-      "format": " {icon} {temperatureC}° ",
-      "format-icons": [
-        "",
+    "tooltip": false
+  },
+  "disk": {
+    "interval": 30,
+    "path": "/",
+    "format": "Disk: {used}/{total}",
+    "tooltip": false
+  },
+  "temperature": {
+    "interval": 5,
+    "format": "{icon} {temperatureC}°",
+    "format-icons": [
+      "",
       "",
       "",
       "",
       ""
-      ],
-      "tooltip": false,
-      "warning-threshold": 70,
-      "critical-threshold": 80
+    ],
+    "tooltip": false,
+    "warning-threshold": 70,
+    "critical-threshold": 80
+  },
+  "network": {
+    "interval": 5,
+    "family": "ipv4",
+    "format-wifi": " {essid} ({signalStrength}%)",
+    "format-ethernet": "  {ifname} ",
+    "format-alt": " IPv4: {ipaddr} ",
+    "format-disconnected": " No connection ",
+    "tooltip": false
+  },
+  "battery": {
+    "interval": 5,
+    "states": {
+      "level1": 55,
+      "level2": 50,
+      "level3": 45,
+      "level4": 40,
+      "level5": 35,
+      "level6": 30,
+      "level7": 25
     },
-
-    "network": {
-      "interval": 5,
-      "family": "ipv4",
-      "format-wifi": "   {essid} ({signalStrength}%) ",
-      "format-ethernet": "  {ifname} ",
-      "format-alt": " IPv4: {ipaddr} ",
-      "format-disconnected": " No connection ",
-      "tooltip": false
-    },
-
-    "battery": {
-      "interval": 5,
-      "states": {
-        "level1": 55,
-        "level2": 50,
-        "level3": 45,
-        "level4": 40,
-        "level5": 35,
-        "level6": 30,
-        "level7": 25
-      },
-      "format-time": "{H}:{M:02}",
-      "format": " {icon} {capacity}% ({time}) ",
-      "format-charging": "  {capacity}% ({time}) ",
-      "format-charging-full": "  {capacity}% ",
-      "format-full": " {icon} {capacity}% ",
-      "format-icons": [
-        " ",
+    "format-time": "{H}:{M:02}",
+    "format": "{icon}{capacity}% ({time})",
+    "format-charging": "  {capacity}% ({time}) ",
+    "format-charging-full": "  {capacity}% ",
+    "format-full": " {icon} {capacity}% ",
+    "format-icons": [
+      " ",
       " ",
       " ",
       " ",
       " "
-      ],
-      "tooltip": false
-    },
-
-    "backlight": {
-      "device": "intel_backlight",
-      "format": " 󰖨 {percent}% ",
-      "tooltip": false
-    },
-
-    "pulseaudio": {
-      "format": " {icon} {volume}% ",
-      "format-bluetooth": " {icon} {volume}% ",
-      "format-muted": "   X  ",
-      "format-icons": {
-        "headphone": "",
-        "hands-free": "",
-        "headset": "",
-        "phone": "",
-        "portable": "",
-        "car": "",
-        "default": [
-          "",
+    ],
+    "tooltip": false
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "󰖨 {percent}%",
+    "tooltip": false
+  },
+  "pulseaudio": {
+    "format": "{icon}{volume}%",
+    "format-bluetooth": " {icon} {volume}% ",
+    "format-muted": "   X  ",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "",
         ""
-        ]
-      },
-      "scroll-step": 1,
-      "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-      "tooltip": false
+      ]
     },
-
-    "tray": {
-      "icon-size": 21
-    },
-
-    "clock#date": {
-      "interval": 60,
-      "format": "   {:%Y년 %m월 %d일 (%A)} ",
-      "tooltip": false,
-      "env": {
-        "LANG": "ko_KR.UTF-8",
-        "LC_TIME": "ko_KR.UTF-8"
-      }
-    },
-
-    "clock#time": {
-      "interval": 1,
-      "format": "{:%H:%M:%S} ",
-      "tooltip": false,
-      "env": {
-        "LC_TIME": "ko_KR.UTF-8"
-      }
-    },
-
-    "hyprland/window": {
-      "exec": "hyprctl activewindow | grep 'title:' | cut -d ' ' -f2-",
-      "interval": 1,
-      "max-length": 30,
-      "tooltip": false,
-      "format": "{}"
-    },
-
-    "hyprland/workspaces": {
-      "exec": "hyprctl workspaces -j | jq -r '[.[] | .name] | join(\" \")'",
-      "disable-scroll-wraparound": true,
-      "smooth-scrolling-threshold": 4,
-      "enable-bar-scroll": true,
-      "format": "{}"
+    "scroll-step": 1,
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "tooltip": false
+  },
+  "tray": {
+    "icon-size": 21
+  },
+  "clock#date": {
+    "interval": 60,
+    "format": " {:%Y년 %m월 %d일 (%A)}",
+    "tooltip": false,
+    "env": {
+      "LANG": "ko_KR.UTF-8",
+      "LC_TIME": "ko_KR.UTF-8"
     }
+  },
+  "clock#time": {
+    "interval": 1,
+    "format": "{:%H:%M:%S} ",
+    "tooltip": false,
+    "env": {
+      "LC_TIME": "ko_KR.UTF-8"
+    }
+  },
+  "hyprland/window": {
+    "exec": "hyprctl activewindow | grep 'title:' | cut -d ' ' -f2-",
+    "interval": 1,
+    "max-length": 30,
+    "tooltip": false,
+    "format": "{}"
+  },
+  "hyprland/workspaces": {
+    "exec": "hyprctl workspaces -j | jq -r '[.[] | .name] | join(\" \")'",
+    "disable-scroll-wraparound": true,
+    "smooth-scrolling-threshold": 4,
+    "enable-bar-scroll": true,
+    "format": "{}"
+  }
 }

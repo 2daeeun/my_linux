@@ -20,17 +20,17 @@ RX_RATE=$((RX_NOW - RX_OLD))
 TX_RATE=$((TX_NOW - TX_OLD))
 
 # 저장
-echo $RX_NOW > "$RX_FILE"
-echo $TX_NOW > "$TX_FILE"
+echo $RX_NOW >"$RX_FILE"
+echo $TX_NOW >"$TX_FILE"
 
 # 사람이 읽기 쉬운 형식으로 변환
 readable() {
-    local bytes=$1
-    if [ "$bytes" -lt $((1024*1024)) ]; then
-        echo "$((bytes / 1024))KB/s"
-    else
-        echo "$((bytes / 1024 / 1024))MB/s"
-    fi
+  local bytes=$1
+  if [ "$bytes" -lt $((1024 * 1024)) ]; then
+    echo "$((bytes / 1024))KB/s"
+  else
+    echo "$((bytes / 1024 / 1024))MB/s"
+  fi
 }
 
 DOWN=$(readable $RX_RATE)
