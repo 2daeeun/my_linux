@@ -8,8 +8,10 @@
     "cpu",
     "memory",
     "temperature",
-    "custom/net_speed",
-    "custom/disk_speed",
+    "custom/net_down",
+    "custom/net_up",
+    "custom/disk_read",
+    "custom/disk_write",
     "custom/io_busy",
     // "disk",
     "network",
@@ -20,14 +22,28 @@
     "clock#time",
     "tray"
   ],
-  "custom/net_speed": {
-    "exec": "~/.config/waybar/net_speed.sh",
+  // 다운로드/업로드, 읽기/쓰기를 각각 별도 모듈로 나눠 고정 폭 영역을 갖게 한다.
+  // 쌍 사이에는 separator를 두지 않는다 (style.css의 border-right 참고).
+  "custom/net_down": {
+    "exec": "~/.config/waybar/net_speed.sh down",
     "interval": 1,
     "format": "{}",
     "tooltip": false
   },
-  "custom/disk_speed": {
-    "exec": "~/.config/waybar/disk_speed.sh",
+  "custom/net_up": {
+    "exec": "~/.config/waybar/net_speed.sh up",
+    "interval": 1,
+    "format": "{}",
+    "tooltip": false
+  },
+  "custom/disk_read": {
+    "exec": "~/.config/waybar/disk_speed.sh read",
+    "interval": 1,
+    "format": "{}",
+    "tooltip": false
+  },
+  "custom/disk_write": {
+    "exec": "~/.config/waybar/disk_speed.sh write",
     "interval": 1,
     "format": "{}",
     "tooltip": false

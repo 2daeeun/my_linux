@@ -1,27 +1,37 @@
 #!/bin/bash
 
+# 다운로드/업로드를 waybar에서 각각 별도 영역(모듈)으로 표시하기 위해 방향을 인자로 받는다.
+#   net_speed.sh down  →  "12MB/s↓"
+#   net_speed.sh up    →  "129KB/s↑"
+case "${1:-}" in
+down)
+  COUNTER="rx_bytes"
+  CACHE="/tmp/waybar_net_rx"
+  SUFFIX="↓"
+  ;;
+up)
+  COUNTER="tx_bytes"
+  CACHE="/tmp/waybar_net_tx"
+  SUFFIX="↑"
+  ;;
+*)
+  echo "usage: $(basename "$0") down|up" >&2
+  exit 1
+  ;;
+esac
+
 # 자동으로 네트워크 인터페이스 선택 (eth0, wlan0 등)
 INTERFACE=$(ip route get 1.1.1.1 | awk '{print $5; exit}')
 
-# 이전 rx/tx 바이트 저장 파일
-RX_FILE="/tmp/waybar_net_rx"
-TX_FILE="/tmp/waybar_net_tx"
-
 # 현재 바이트 읽기
-RX_NOW=$(cat /sys/class/net/$INTERFACE/statistics/rx_bytes)
-TX_NOW=$(cat /sys/class/net/$INTERFACE/statistics/tx_bytes)
+NOW=$(cat "/sys/class/net/$INTERFACE/statistics/$COUNTER")
 
-# 이전 바이트 불러오기 (처음이면 현재값)
-RX_OLD=$(cat "$RX_FILE" 2>/dev/null || echo "$RX_NOW")
-TX_OLD=$(cat "$TX_FILE" 2>/dev/null || echo "$TX_NOW")
+# 이전 바이트 불러오기 (처음이면 현재값 → rate 0)
+OLD=$(cat "$CACHE" 2>/dev/null || echo "$NOW")
+echo "$NOW" >"$CACHE"
 
-# 차이 계산
-RX_RATE=$((RX_NOW - RX_OLD))
-TX_RATE=$((TX_NOW - TX_OLD))
-
-# 저장
-echo $RX_NOW >"$RX_FILE"
-echo $TX_NOW >"$TX_FILE"
+# 차이 계산 (interval=1 이므로 초당 속도)
+RATE=$((NOW - OLD))
 
 # 사람이 읽기 쉬운 형식으로 변환
 readable() {
@@ -39,12 +49,13 @@ COLORS=(
   "#FFAA00" "#FF9500" "#FF7F00" "#FF6A00" "#FF5500" "#FF2A00" "#FF0000"
 )
 
-# 각 단계의 하한 임계값 (bytes/s, 로그 스케일)
-# 64KB → 128KB → 256KB → 512KB → 1MB → 2MB → 3MB
-# → 5MB → 8MB → 12MB → 20MB → 30MB → 45MB → 60MB
+# 각 단계의 하한 임계값 (bytes/s, 로그 스케일 / 10MB/s에서 빨강)
+# 64KB → 96KB → 144KB → 216KB → 320KB → 480KB → 720KB
+# → 1MB → 2MB → 3MB → 4MB → 5MB → 7MB → 10MB
+# 표시가 정수 KB/MB 단위이므로 단계마다 표시값이 겹치지 않도록 잡았다.
 THRESHOLDS=(
-  65536 131072 262144 524288 1048576 2097152 3145728
-  5242880 8388608 12582912 20971520 31457280 47185920 62914560
+  65536 98304 147456 221184 327680 491520 737280
+  1048576 2097152 3145728 4194304 5242880 7340032 10485760
 )
 
 # 속도에 맞는 색을 pango markup으로 입힘 (임계값 미만이면 기본 흰색)
@@ -59,7 +70,4 @@ colorize() {
   echo "$text"
 }
 
-DOWN=$(colorize "$RX_RATE" "$(readable $RX_RATE)")
-UP=$(colorize "$TX_RATE" "$(readable $TX_RATE)")
-
-echo "$DOWN↓ $UP↑"
+echo "$(colorize "$RATE" "$(readable $RATE)")$SUFFIX"

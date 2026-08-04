@@ -57,4 +57,5 @@ for ((i = ${#LEVELS[@]} - 1; i >= 0; i--)); do
 done
 
 # JSON 출력
-printf '{"text": "I/O: %d%%", "percentage": %d, "class": "%s"}\n' "$UTIL" "$UTIL" "$CLASS"
+# %3d로 자릿수를 3칸에 고정 → 0~100% 어디서든 모듈 폭과 % 기호 위치가 흔들리지 않는다
+printf '{"text": "I/O: %3d%%", "percentage": %d, "class": "%s"}\n' "$UTIL" "$UTIL" "$CLASS"

@@ -46,27 +46,45 @@ window#waybar {
   border-right: 2px solid #555555; /* separator 역할 */
 }
 
-/* custom net_speed 모듈
-   ↓/↑ 각 값의 색상은 net_speed.sh가 pango markup(<span color>)으로 직접 지정한다.
+/* custom net_speed 모듈 (다운로드 ↓ / 업로드 ↑)
+   ↓와 ↑는 각각 별도 모듈로 나눠 고정 폭 영역을 갖는다.
+   둘 사이에는 separator를 두지 않고, 그룹 끝(net_up)에만 둔다.
+   각 값의 색상은 net_speed.sh가 pango markup(<span color>)으로 직접 지정한다.
    (모듈 전체가 아니라 값마다 색이 달라야 하므로 CSS levelN을 쓸 수 없음)
    색상표/임계값을 바꾸려면 net_speed.sh의 COLORS·THRESHOLDS 배열을 수정할 것. */
-#custom-net_speed {
+#custom-net_down,
+#custom-net_up {
   background: #000000;
   color: #ffffff;
-  min-width: 200px; /* 구분선(separator) 위치 고정: 값이 바뀌어도 모듈 폭 유지 */
-  padding: 0 12px;
-  border-right: 2px solid #555555; /* separator */
+  min-width: 80px; /* 값이 바뀌어도 각 영역 폭 유지 */
+}
+#custom-net_down {
+  padding: 0 0 0 8px;
+  border-right: none; /* 다운로드-업로드 사이에는 separator 없음 */
+}
+#custom-net_up {
+  padding: 0 8px 0 0;
+  border-right: 2px solid #555555; /* 그룹 끝에만 separator */
 }
 
-/* custom disk_speed 모듈 (디스크 read/write 속도)
-   R/W 각 값의 색상은 disk_speed.sh가 pango markup(<span color>)으로 직접 지정한다.
+/* custom disk_speed 모듈 (디스크 읽기 R: / 쓰기 W:)
+   R와 W는 각각 별도 모듈로 나눠 고정 폭 영역을 갖는다.
+   둘 사이에는 separator를 두지 않고, 그룹 끝(disk_write)에만 둔다.
+   각 값의 색상은 disk_speed.sh가 pango markup(<span color>)으로 직접 지정한다.
    색상표/임계값을 바꾸려면 disk_speed.sh의 COLORS·THRESHOLDS 배열을 수정할 것. */
-#custom-disk_speed {
+#custom-disk_read,
+#custom-disk_write {
   background: #000000;
   color: #ffffff;
-  min-width: 200px; /* 구분선(separator) 위치 고정 */
-  padding: 0 12px;
-  border-right: 2px solid #555555; /* separator */
+  min-width: 100px; /* 값이 바뀌어도 각 영역 폭 유지 */
+}
+#custom-disk_read {
+  padding: 0 0 0 12px;
+  border-right: none; /* 읽기-쓰기 사이에는 separator 없음 */
+}
+#custom-disk_write {
+  padding: 0 12px 0 0;
+  border-right: 2px solid #555555; /* 그룹 끝에만 separator */
 }
 
 /* disk 모듈 (남은 용량) - 색상 없이 기본 흰색 사용 */
