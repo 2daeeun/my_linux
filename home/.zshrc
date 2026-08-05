@@ -30,8 +30,7 @@ rrm() {
   trash-put "$@"
 }
 alias th="pcmanfm $pwd"
-alias lock="xtrlock"
-alias lock60="timeout 60 xtrlock"
+alias tree="pwd && eza --tree -l --icons"
 # alias cal="if [ -t 1 ] ; then ncal -b ; else /usr/bin/cal ; fi"
 alias cap='grim -g "$(slurp)" - | swappy -f -'
 alias gif="vlc --demux=avformat --loop"
