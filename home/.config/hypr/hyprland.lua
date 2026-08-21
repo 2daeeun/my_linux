@@ -85,8 +85,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("clipboard-sync")
 
 	-- fcitx5 자동 실행
-	-- hl.exec_cmd("fcitx5 -d --replace")
-	hl.exec_cmd("fcitx5 -d")
+	hl.exec_cmd("fcitx5 -d --replace")
 
 	-- 바탕화면 설정
 	-- hl.exec_cmd("swww init && swww img ~/.config/hypr/thinkpad_wallpaper.png")
@@ -111,7 +110,7 @@ end)
 hl.env("GTK_IM_MODULE", "fcitx")
 hl.env("QT_IM_MODULE", "fcitx")
 hl.env("XMODIFIERS", "@im=fcitx")
-hl.env("GLFW_IM_MODULE", "fcitx") -- kitty용
+hl.env("GLFW_IM_MODULE", "ibus") -- kitty의 Wayland text-input 활성화
 
 -- XCursor(마우스 커서) 테마 변경
 hl.env("HYPRCURSOR_SIZE", "48")

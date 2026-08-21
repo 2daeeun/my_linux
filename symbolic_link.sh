@@ -1,5 +1,6 @@
 sudo rm -rf /root/.bashrc
 sudo rm -rf /root/.config
+sudo rm -rf ~/.config/fcitx5
 sudo rm -rf ~/.config/gtk-3.0
 sudo rm -rf ~/.config/htop
 sudo rm -rf ~/.config/hypr/
@@ -20,6 +21,7 @@ sudo rm -rf ~/.zshrc
 
 sudo ln -sf ~/Documents/github/my_linux/root/.bashrc /root
 sudo ln -sf ~/Documents/github/my_linux/root/.config/ /root
+sudo ln -sf ~/Documents/github/my_linux/home/.config/fcitx5 ~/.config/
 # sudo ln -sf ~/Documents/github/my_linux/home/.config/gtk-3.0 ~/.config/
 sudo cp -r ~/Documents/github/my_linux/home/.config/gtk-3.0 ~/.config/
 sudo ln -sf ~/Documents/github/my_linux/home/.config/htop ~/.config/
