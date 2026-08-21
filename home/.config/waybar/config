@@ -60,7 +60,7 @@
   "cpu": {
     "interval": 1,
     "tooltip": false,
-    "format": "CPU: {usage}%",
+    "format": "CPU: {usage:>3}%",
     "states": {
       "level1": 10,
       "level2": 15,
@@ -80,7 +80,7 @@
   },
   "memory": {
     "interval": 5,
-    "format": "Mem: {used:0.1f}G/{total:0.1f}G",
+    "format": "Mem: {used:>4.1f}G/{total:0.1f}G",
     "states": {
       "level3": 25,
       "level4": 31,
@@ -105,7 +105,7 @@
   },
   "temperature": {
     "interval": 5,
-    "format": "{icon} {temperatureC}°",
+    "format": "{icon} {temperatureC:>3}°",
     "format-icons": [
       "",
       "",
@@ -120,7 +120,7 @@
   "network": {
     "interval": 5,
     "family": "ipv4",
-    "format-wifi": " {essid} ({signalStrength}%)",
+    "format-wifi": " {essid} ({signalStrength:>3}%)",
     "format-ethernet": "  {ifname} ",
     "format-alt": " IPv4: {ipaddr} ",
     "format-disconnected": " No connection ",
@@ -137,11 +137,11 @@
       "level6": 30,
       "level7": 25
     },
-    "format-time": "{H}:{M:02}",
-    "format": "{icon}{capacity}% ({time})",
-    "format-charging": "  {capacity}% ({time}) ",
-    "format-charging-full": "  {capacity}% ",
-    "format-full": " {icon} {capacity}% ",
+    "format-time": "{H:>2}:{M:02}",
+    "format": "{icon}{capacity:>3}% ({time})",
+    "format-charging": " {capacity:>3}% ({time})",
+    "format-charging-full": " {capacity:>3}%",
+    "format-full": "{icon}{capacity:>3}%",
     "format-icons": [
       " ",
       " ",
@@ -153,12 +153,12 @@
   },
   "backlight": {
     "device": "intel_backlight",
-    "format": "󰖨 {percent}%",
+    "format": "󰖨 {percent:>3}%",
     "tooltip": false
   },
   "pulseaudio": {
-    "format": "{icon}{volume}%",
-    "format-bluetooth": " {icon} {volume}% ",
+    "format": "{icon}{volume:>3}%",
+    "format-bluetooth": " {icon} {volume:>3}% ",
     "format-muted": "   X  ",
     "format-icons": {
       "headphone": "",
@@ -181,20 +181,17 @@
   },
   "clock#date": {
     "interval": 60,
-    "format": " {:%Y년 %m월 %d일 (%A)}",
+    "format": " {:L%Y년 %m월 %d일 (%A)}",
     "tooltip": false,
-    "env": {
-      "LANG": "ko_KR.UTF-8",
-      "LC_TIME": "ko_KR.UTF-8"
-    }
+    // 요일(%A)을 한글로 출력하려면 두 가지가 모두 필요하다.
+    //  1) locale 키   : env는 waybar clock이 인식하는 키가 아니라 무시된다
+    //  2) 형식의 L    : fmt는 {:L...}처럼 L 플래그가 있어야 로케일을 적용한다
+    "locale": "ko_KR.UTF-8"
   },
   "clock#time": {
     "interval": 1,
     "format": "{:%H:%M:%S} ",
-    "tooltip": false,
-    "env": {
-      "LC_TIME": "ko_KR.UTF-8"
-    }
+    "tooltip": false
   },
   "hyprland/window": {
     "exec": "hyprctl activewindow | grep 'title:' | cut -d ' ' -f2-",

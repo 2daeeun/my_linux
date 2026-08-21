@@ -42,9 +42,31 @@ window#waybar {
 #custom-* {
   background: #000000;
   color: #ffffff;
-  padding: 0 12px;
+  padding: 0 6px;
   border-right: 2px solid #555555; /* separator 역할 */
 }
+
+/* ── 모듈 폭 고정 ────────────────────────────────────────────────
+   수치가 바뀌어도 separator가 움직이지 않도록 각 모듈에 최악 폭 + 여유를 준다.
+   min-width는 글자 영역 기준이고 padding·border는 여기에 더해진다.
+   값은 JetBrainsMono Nerd Font 16px에서 최대 문자열을 Pango로 실측한 뒤
+   2px 여유를 더한 것이다. 폰트나 형식을 바꾸면 다시 잡아야 한다.
+
+   config의 형식 문자열에도 {usage:>3}처럼 자릿수를 고정해 두었으므로,
+   숫자가 1→3자리로 늘어도 글자 자체가 좌우로 흔들리지 않는다.          */
+#cpu          { min-width:  92px; } /* "CPU: 100%"            90px */
+#memory       { min-width: 162px; } /* "Mem: 15.3G/15.3G"    160px */
+#temperature  { min-width:  62px; } /* " 100°"                60px */
+#network      { min-width: 202px; } /* " Embedded_2G (100%)" 200px */
+#battery      { min-width: 142px; } /* " 100% (12:34)"       140px */
+#backlight    { min-width:  62px; } /* "󰖨 100%"                60px */
+#pulseaudio   { min-width:  99px; } /* "  100% "             97px */
+#clock.date   { min-width: 242px; } /* " 2026년 12월 30일 (수요일)" 240px */
+#clock.time   { min-width:  92px; } /* "23:59:59 "            90px */
+
+/* network는 SSID 길이에 따라 최악 폭이 달라진다. 위 값은 현재 SSID 기준이며,
+   더 긴 SSID로 바꾸거나 클릭해서 IPv4 표시(format-alt)로 전환하면 넓어진다.
+   tray는 아이콘 개수에 따라 폭이 변해 min-width로는 완전히 고정할 수 없다. */
 
 /* custom net_speed 모듈 (다운로드 ↓ / 업로드 ↑)
    ↓와 ↑는 각각 별도 모듈로 나눠 고정 폭 영역을 갖는다.
@@ -56,14 +78,14 @@ window#waybar {
 #custom-net_up {
   background: #000000;
   color: #ffffff;
-  min-width: 80px; /* 값이 바뀌어도 각 영역 폭 유지 */
+  min-width: 92px; /* 최악 "1023KB/s↓" 90px + 여유 2px */
 }
 #custom-net_down {
-  padding: 0 0 0 8px;
+  padding: 0 0 0 6px;
   border-right: none; /* 다운로드-업로드 사이에는 separator 없음 */
 }
 #custom-net_up {
-  padding: 0 8px 0 0;
+  padding: 0 6px 0 0;
   border-right: 2px solid #555555; /* 그룹 끝에만 separator */
 }
 
@@ -76,14 +98,14 @@ window#waybar {
 #custom-disk_write {
   background: #000000;
   color: #ffffff;
-  min-width: 100px; /* 값이 바뀌어도 각 영역 폭 유지 */
+  min-width: 102px; /* 최악 "R:1023KB/s" 100px + 여유 2px */
 }
 #custom-disk_read {
-  padding: 0 0 0 12px;
+  padding: 0 0 0 6px;
   border-right: none; /* 읽기-쓰기 사이에는 separator 없음 */
 }
 #custom-disk_write {
-  padding: 0 12px 0 0;
+  padding: 0 6px 0 0;
   border-right: 2px solid #555555; /* 그룹 끝에만 separator */
 }
 
@@ -95,7 +117,8 @@ window#waybar {
 #custom-io_busy {
   background: #000000;
   color: #ffffff;
-  padding: 0 12px;
+  min-width: 92px; /* 최악 "I/O: 100%" 90px + 여유 2px */
+  padding: 0 6px;
   border-right: 2px solid #555555; /* separator */
 }
 #custom-io_busy.level1   { color: #D5FF00; }  /* 10% */
