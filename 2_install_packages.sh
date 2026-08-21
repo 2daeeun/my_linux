@@ -158,16 +158,28 @@ File_Management() {
   echo -e "\n\n\n\n\n"
   echo -e "File_Management"
   echo -e "┌──────────────────────────────────────────────────────────────────────────────────────┐"
-  echo -e "│ * pcmanfm                    # file anager                                           │"
+  echo -e "│ // * pcmanfm                 # file anager                                           │"
   echo -e "│ * unzip                      # unzip                                                 │"
   echo -e "│ * unarchiver                 # unzip alternater                                      │"
   echo -e "│ * trash-cli                  # trash-cli                                             │"
   echo -e "│ * tree                       # tree                                                  │"
   echo -e "│ * fzf                        # fuzzy finder                                          │"
+  echo -e "│ * nautilus                   # GNOME file manager                                    │"
+  echo -e "│ * gvfs / gvfs-mtp            # Virtual filesystem and MTP support                    │"
+  echo -e "│ * xdg-desktop-portal-gtk     # GTK desktop portal backend                            │"
+  echo -e "│ * papirus-icon-theme         # Papirus icon theme                                    │"
+  echo -e "│ * papirus-folders            # Papirus folder color customization                    │"
+  echo -e "│ * ffmpegthumbnailer          # Video thumbnail generator                             │"
+  echo -e "│ * file-roller                # GNOME archive manager                                 │"
   echo -e "└──────────────────────────────────────────────────────────────────────────────────────┘"
   echo -e "\n\n\n\n\n"
   sleep 5
   yes | sudo pacman -S pcmanfm unzip unarchiver trash-cli tree fzf
+  yay -S --needed nautilus gvfs gvfs-mtp xdg-desktop-portal-gtk papirus-icon-theme papirus-folders ffmpegthumbnailer file-roller &&
+    gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Light' &&
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-light' &&
+    gsettings set org.gnome.desktop.interface text-scaling-factor 1.25 &&
+    xdg-mime default org.gnome.Nautilus.desktop inode/directory
 }
 File_Management
 
@@ -179,7 +191,7 @@ Image_and_Video() {
   echo -e "│ * FFmpeg                     # Convert and stream audio and video                    │"
   echo -e "│ * gpick                      # Color Picker                                          │"
   echo -e "│ * kolourpaint                # Paint                                                 │"
-  echo -e "│ * feh                        # Image viewer                                          │"
+  echo -e "│ * viu                        # Image viewer                                          │"
   echo -e "│ * peek                       # Simple GIF screen recorder                            │"
   echo -e "│ * cheese                     # Camera                                                │"
   echo -e "│ * gnome-screenshot           # screenshooter                                         │"
@@ -190,7 +202,7 @@ Image_and_Video() {
   echo -e "\n\n\n\n\n"
   sleep 5
   yes | sudo pacman -S $(pacman -Ssq '^vlc-') # vlc 와 관련된 모든 패키지 설치
-  yes | sudo pacman -S vlc ffmpeg gpick kolourpaint feh peek vlc cheese gnome-screenshot grim slurp swappy
+  yes | sudo pacman -S vlc ffmpeg gpick kolourpaint viu peek vlc cheese gnome-screenshot grim slurp swappy
 }
 Image_and_Video
 
@@ -260,13 +272,13 @@ Hangul_input() {
   echo -e "\n\n\n\n\n"
   echo -e "Hangul_input"
   echo -e "┌──────────────────────────────────────────────────────────────────────────────────────┐"
-  echo -e "│ * kime                          # Korean IME                                         │"
+  echo -e "│ // * kime                       # Korean IME                                         │"
   echo -e "│ // * ibus ibus-hangul           # ibus                                               │"
   echo -e "│ // fonts-nanum                  # 나눔 한글 글꼴                                     │"
-  echo -e "│ // fcitx-lib* fcitx-hangul      # fcitx                                              │"
+  echo -e "│ * fcitx-lib* fcitx-hangul fcitx5-gtk       # fcitx                                   │"
   echo -e "└──────────────────────────────────────────────────────────────────────────────────────┘"
   echo -e "\n\n\n\n\n"
-  yes | yay -S --noconfirm kime
+  yes | yay -S --noconfirm fcitx-lib* fcitx-hangul fcitx5-gtk
 }
 Hangul_input
 

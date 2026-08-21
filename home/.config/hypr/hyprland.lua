@@ -60,7 +60,7 @@ hl.monitor({ output = "eDP-1", mode = "2160x1350@59.74", position = "4892x1680",
 
 -- 사용하는 프로그램을 설정하십시오.
 local terminal = "kitty"
-local fileManager = "dolphin"
+local fileManager = "nautilus"
 local menu = 'rofi -show drun -font "Hack Nerd Font Regular 18" -show-icons'
 
 -----------------
