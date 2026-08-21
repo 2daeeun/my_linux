@@ -8,10 +8,12 @@ EnumerateBackwardKeys=
 # 열거하는 동안 첫 번째 입력기 건너뛰기
 EnumerateSkipFirst=False
 # Time limit in milliseconds for triggering modifier key shortcuts
-ModifierOnlyKeyTimeout=250
+ModifierOnlyKeyTimeout=-1
 
 [Hotkey/TriggerKeys]
 0=Hangul
+1=Alt+Alt_R
+2=Control+space
 
 [Hotkey/AltTriggerKeys]
 

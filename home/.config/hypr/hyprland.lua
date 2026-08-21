@@ -107,10 +107,13 @@ end)
 -- https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/ 참고
 
 -- fcitx5 입력기
-hl.env("GTK_IM_MODULE", "fcitx")
 hl.env("QT_IM_MODULE", "fcitx")
 hl.env("XMODIFIERS", "@im=fcitx")
 hl.env("GLFW_IM_MODULE", "ibus") -- kitty의 Wayland text-input 활성화
+hl.env("SDL_IM_MODULE", "fcitx")
+
+-- Firefox는 GTK의 Wayland text-input-v3 경로를 사용한다.
+hl.env("MOZ_ENABLE_WAYLAND", "1")
 
 -- XCursor(마우스 커서) 테마 변경
 hl.env("HYPRCURSOR_SIZE", "48")
@@ -240,7 +243,7 @@ hl.config({
 
 hl.config({
 	input = {
-		kb_layout = "",
+		kb_layout = "us",
 		kb_variant = "",
 		kb_model = "",
 		kb_options = "korean:ralt_hangul,korean:rctrl_hanja",
@@ -297,7 +300,7 @@ hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("pavucontrol")) -- 오디오 설정 (
 -- hl.bind(mainMod .. " + B",      hl.dsp.exec_cmd("google-chrome-stable --ozone-platform=x11"))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("google-chrome-stable"))
 hl.bind("CTRL + ALT + H", hl.dsp.exec_cmd("copyq show")) -- 클립보드 관리자 (CopyQ) 실행
-hl.bind(mainMod .. " + semicolon", hl.dsp.exec_cmd("pcmanfm")) -- 파일 관리자 (PCManFM) 실행
+hl.bind(mainMod .. " + semicolon", hl.dsp.exec_cmd("nautilus")) -- 파일 관리자 (PCManFM) 실행
 -- hl.bind(mainMod .. " + semicolon", hl.dsp.exec_cmd(fileManager))        -- 파일 관리자 (dolphin) 실행
 hl.bind("XF86Calculator", hl.dsp.exec_cmd("mate-calc")) -- Mate Calculator 실행
 hl.bind(mainMod .. " + ALT + L", hl.dsp.exec_cmd("hyprlock")) -- 화면보호기(hyprlock) 실행

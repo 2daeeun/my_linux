@@ -1,9 +1,6 @@
-# export GTK_IM_MODULE=ibus
-# export XMODIFIERS=@im=ibus
-# export QT_IM_MODULE=ibus
-# ibus-daemon -drx
-
-export GTK_IM_MODULE=kime
-export QT_IM_MODULE=kime
-export XMODIFIERS=@im=kime
-exec-once = kime-xim &
+# fcitx5 입력기
+# GTK 3/4 Wayland 앱은 내장 text-input-v3를 사용하도록 전역 GTK_IM_MODULE을 비운다.
+unset GTK_IM_MODULE
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export SDL_IM_MODULE=fcitx

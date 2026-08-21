@@ -1,7 +1,9 @@
 sudo rm -rf /root/.bashrc
 sudo rm -rf /root/.config
-sudo rm -rf ~/.config/fcitx5
+rm -rf ~/.config/chrome-flags.conf
+rm -rf ~/.config/fcitx5
 sudo rm -rf ~/.config/gtk-3.0
+rm -rf ~/.config/gtk-4.0
 sudo rm -rf ~/.config/htop
 sudo rm -rf ~/.config/hypr/
 sudo rm -rf ~/.config/i3
@@ -16,14 +18,16 @@ sudo rm -rf ~/.config/sway/
 sudo rm -rf ~/.config/terminator
 sudo rm -rf ~/.config/waybar
 sudo rm -rf ~/.p10k.zsh
-sudo rm -rf ~/.xprofile
+rm -rf ~/.gtkrc-2.0
+rm -rf ~/.xprofile
 sudo rm -rf ~/.zshrc
 
 sudo ln -sf ~/Documents/github/my_linux/root/.bashrc /root
 sudo ln -sf ~/Documents/github/my_linux/root/.config/ /root
-sudo ln -sf ~/Documents/github/my_linux/home/.config/fcitx5 ~/.config/
-# sudo ln -sf ~/Documents/github/my_linux/home/.config/gtk-3.0 ~/.config/
-sudo cp -r ~/Documents/github/my_linux/home/.config/gtk-3.0 ~/.config/
+ln -sf ~/Documents/github/my_linux/home/.config/chrome-flags.conf ~/.config/
+ln -sf ~/Documents/github/my_linux/home/.config/fcitx5 ~/.config/
+ln -sf ~/Documents/github/my_linux/home/.config/gtk-3.0 ~/.config/
+ln -sf ~/Documents/github/my_linux/home/.config/gtk-4.0 ~/.config/
 sudo ln -sf ~/Documents/github/my_linux/home/.config/htop ~/.config/
 sudo ln -sf ~/Documents/github/my_linux/home/.config/hypr ~/.config/
 sudo ln -sf ~/Documents/github/my_linux/home/.config/i3 ~/.config/
@@ -38,5 +42,6 @@ sudo ln -sf ~/Documents/github/my_linux/home/.config/sway ~/.config/
 sudo ln -sf ~/Documents/github/my_linux/home/.config/terminator ~/.config/
 sudo ln -sf ~/Documents/github/my_linux/home/.config/waybar ~/.config/
 sudo ln -sf ~/Documents/github/my_linux/home/.p10k.zsh ~/
-sudo ln -sf ~/Documents/github/my_linux/home/.xprofile ~/
+ln -sf ~/Documents/github/my_linux/home/.gtkrc-2.0 ~/
+ln -sf ~/Documents/github/my_linux/home/.xprofile ~/
 sudo ln -sf ~/Documents/github/my_linux/home/.zshrc ~/
