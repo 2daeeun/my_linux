@@ -127,6 +127,9 @@
     "tooltip": false
   },
   "battery": {
+    // 절전 시 사라지는 Bluetooth/HID 장치 배터리를 노트북 배터리로 감시하지 않는다.
+    "bat": "BAT0",
+    "adapter": "AC",
     "interval": 5,
     "states": {
       "level1": 55,

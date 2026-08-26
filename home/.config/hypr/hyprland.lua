@@ -78,8 +78,10 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("numlockx on")
 	hl.exec_cmd("copyq")
 	hl.exec_cmd("mako")
-	hl.exec_cmd("waybar")
 	hl.exec_cmd("hypridle")
+	hl.exec_cmd(
+		"systemd-run --user --unit=waybar-hyprland --collect --property=Restart=on-failure --property=RestartSec=2s --property='ExecCondition=/usr/bin/hyprctl -q monitors' /usr/bin/waybar"
+	)
 
 	-- 로그인 시 브릿지 자동 실행
 	hl.exec_cmd("clipboard-sync")
