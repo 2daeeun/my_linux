@@ -267,9 +267,8 @@ hl.config({
 -- 개별 장치 설정
 -- https://wiki.hypr.land/Configuring/Advanced-and-Cool/Devices/ 참고
 hl.device({ name = "epic-mouse-v1", sensitivity = -0.5 })
-
 hl.device({ name = "tpps/2-elan-trackpoint", sensitivity = -0.7 })
-
+-- hl.device({ name = "elan0670:00-04f3:3150-touchpad", sensitivity = 0.8, scroll_method = "edge", scroll_factor = 0.3 })
 hl.device({ name = "elan0670:00-04f3:3150-touchpad", sensitivity = 0.8 })
 
 -- hl.device({
