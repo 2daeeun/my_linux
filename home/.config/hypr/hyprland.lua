@@ -1,3 +1,6 @@
+---@diagnostic disable-next-line: undefined-global
+local hl = hl
+
 -- Hyprland Lua 설정 파일 (hyprland.conf 에서 마이그레이션)
 -- 참고: https://wiki.hypr.land/Configuring/Start/
 --
@@ -17,9 +20,11 @@
 -- hyprctl monitors
 
 -- 일반
+local kittyFontSize = 14
 hl.monitor({ output = "eDP-1", mode = "2160x1350@59.74", position = "4892x1680", scale = 1.0 }) -- 내장 모니터
 
 -- === Monitors (집) ===
+-- local kittyFontSize = 10
 -- hl.monitor({ output = "eDP-1", mode = "2160x1350@59.74", position = "4892x1680", scale = 1.0 }) -- 내장 모니터
 -- hl.monitor({ output = "DP-5", mode = "1920x1080@60.0", position = "4892x600", scale = 1.0 }) -- 외장 모니터 1 (중앙)
 -- hl.monitor({ output = "DP-6", mode = "1920x1080@60.32", position = "3812x600", scale = 1.0, transform = 1 }) -- 외장 모니터 2 (왼쪽)
@@ -28,6 +33,7 @@ hl.monitor({ output = "eDP-1", mode = "2160x1350@59.74", position = "4892x1680",
 -- hl.workspace_rule({ workspace = "1", monitor = "DP-6", default = true }) -- 워크스페이스 2
 
 -- === Monitors (델 워크스테이션) ===
+-- local kittyFontSize = 12
 -- hl.monitor({ output = "DP-1", mode = "1920x1080@60.0",  position = "4892x0", scale = 1.0 })                -- 외장 모니터 1 (중앙)
 -- hl.monitor({ output = "DP-2", mode = "1920x1080@60.32", position = "3812x0", scale = 1.0, transform = 1 }) -- 외장 모니터 2 (왼쪽)
 -- hl.workspace_rule({ workspace = "1", monitor = "DP-1", default = true }) -- 워크스페이스 1
@@ -39,6 +45,7 @@ hl.monitor({ output = "eDP-1", mode = "2160x1350@59.74", position = "4892x1680",
 -- })
 
 -- === Monitors (연구실 1) ===
+-- local kittyFontSize = 10
 -- hl.monitor({ output = "eDP-1", mode = "2160x1350@59.74", position = "4892x0", scale = 1.0 }) -- 내장 모니터
 -- hl.monitor({ output = "DP-5", mode = "2560x1440@29.99", position = "4892x1350", scale = 1.0 }) -- 외장 모니터 1 (중앙)
 -- hl.monitor({ output = "DP-6", mode = "2560x1440@29.99", position = "3452x1350", scale = 1.0, transform = 1 }) -- 외장 모니터 2 (왼쪽)
@@ -47,6 +54,7 @@ hl.monitor({ output = "eDP-1", mode = "2160x1350@59.74", position = "4892x1680",
 -- hl.workspace_rule({ workspace = "1", monitor = "DP-6", default = true }) -- 워크스페이스 2
 
 -- === Monitors (연구실 2) ===
+-- local kittyFontSize = 10
 -- hl.monitor({ output = "DP-5", mode = "2560x1440@29.99", position = "4892x0", scale = 1.0 }) -- 외장 모니터 1 (중앙)
 -- hl.monitor({ output = "DP-6", mode = "2560x1440@29.99", position = "3452x0", scale = 1.0, transform = 1 }) -- 외장 모니터 2 (왼쪽)
 -- hl.monitor({ output = "eDP-1", mode = "2160x1350@59.74", position = "4892x1440", scale = 1.0 }) -- 내장 모니터
@@ -59,7 +67,7 @@ hl.monitor({ output = "eDP-1", mode = "2160x1350@59.74", position = "4892x1680",
 ---------------------
 
 -- 사용하는 프로그램을 설정하십시오.
-local terminal = "kitty"
+local terminal = "kitty --override font_size=" .. tostring(kittyFontSize)
 local fileManager = "nautilus"
 local menu = 'rofi -show drun -font "Hack Nerd Font Regular 18" -show-icons'
 
