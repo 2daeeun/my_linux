@@ -1,2 +1,8 @@
 font=Monospace 12
 default-timeout=300
+
+# Keep Kitty notifications visible long enough to notice and play a completion sound.
+[app-name=kitty]
+default-timeout=8000
+ignore-timeout=1
+on-notify=exec /usr/bin/canberra-gtk-play -f /usr/share/sounds/freedesktop/stereo/complete.oga
